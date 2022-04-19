@@ -88,7 +88,7 @@ namespace Project_UTS
 
         protected override void OnUpdateFrame(FrameEventArgs args)
         {
-            KeyPress();
+            //KeyPress();
             CameraMovement();
 
             base.OnUpdateFrame(args);
@@ -108,7 +108,36 @@ namespace Project_UTS
 
         protected void KeyPress()
         {
-            
+            //float angle = 0.7f;
+            //if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad4))
+            //{
+            //    rotate(angle, 'y');
+
+            //}
+            //if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad6))
+            //{
+            //    rotate(-angle, 'y');
+
+            //}
+
+            //if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad8))
+            //{
+            //    rotate(angle, 'x');
+
+            //}
+            //if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad2))
+            //{
+            //    rotate(-angle, 'x');
+            //}
+
+            //if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad7))
+            //{
+            //    rotate(angle, 'z');
+            //}
+            //if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad9))
+            //{
+            //    rotate(-angle, 'z');
+            //}
         }
 
         protected void CameraMovement()
@@ -120,7 +149,7 @@ namespace Project_UTS
             {
                 return;
             }
-            
+
             if (input.IsKeyDown(Keys.Escape))
             {
                 Close();
