@@ -67,6 +67,7 @@ namespace Project_UTS
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit); // DepthBufferBit juga harus di clear karena kita memakai depth testing.
 
             time += 7.0f * (float)args.Time;
+
             /*foreach (Balok i in objectList)
             {
                 i.render(time);
