@@ -11,6 +11,7 @@ namespace Project_UTS
     {
         protected float positionX;
         protected float positionY;
+
         Tabung cone1 = new Tabung(new Vector3(0.92f, 0.69f, 0.69f));
         Lingkaran halflingkaran1 = new Lingkaran(new Vector3(0.59f, 0.87f, 0.41f));
         Lingkaran lingkaran1 = new Lingkaran(new Vector3(1, 1, 1));

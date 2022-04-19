@@ -11,7 +11,7 @@ namespace Project_UTS
             var _NativeWindowSetting = new NativeWindowSettings()
             {
                 Size = new OpenTK.Mathematics.Vector2i(800, 800),
-                Title = "Spongebob"
+                Title = "Project UTS GrafKom"
             };
 
             using (var _Window= new Window(GameWindowSettings.Default, _NativeWindowSetting))

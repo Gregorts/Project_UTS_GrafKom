@@ -1,4 +1,5 @@
 ﻿using OpenTK.Mathematics;
+using LearnOpenTK.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,8 @@ namespace Project_UTS
     {
         protected float positionX;
         protected float positionY;
+        
+        //Inisialisasi objek-objek spongebob
         Balok balok1 = new Balok(new Vector3(1.0f, 0.9f, 0.4f));
         Balok balok2 = new Balok(new Vector3(1f, 1f, 1f));
         Balok balok3 = new Balok(new Vector3(0.7f, 0.4f, 0.2f));
@@ -38,6 +41,7 @@ namespace Project_UTS
         Tabung tabung18 = new Tabung(new Vector3(1.0f, 0.9f, 0.4f));
         Balok balok6 = new Balok(new Vector3(0, 0, 0));
         Balok balok7 = new Balok(new Vector3(0, 0, 0));
+
         public Spongebob(float posX=0.0f, float posY=0.0f)
         {
             positionX = posX;
@@ -130,34 +134,87 @@ namespace Project_UTS
             balok7.load(sizeX, sizeY);
         }
 
-        public void render(double time)
+        public void render(Camera _camera, double time)
         {
+            balok1.CameraMovement(_camera);
             balok1.render(time);
+
+            balok2.CameraMovement(_camera);
             balok2.render(time);
+
+            balok3.CameraMovement(_camera);
             balok3.render(time);
+
+            lingkaran1.CameraMovement(_camera);
             lingkaran1.render(time);
+
+            lingkaran2.CameraMovement(_camera);
             lingkaran2.render(time);
+
+            tabung1.CameraMovement(_camera);
             tabung1.render(time);
+
+            tabung2.CameraMovement(_camera);
             tabung2.render(time);
+
+            tabung3.CameraMovement(_camera);
             tabung3.render(time);
+
+            tabung4.CameraMovement(_camera);
             tabung4.render(time);
+
+            tabung5.CameraMovement(_camera);
             tabung5.render(time);
+
+            tabung6.CameraMovement(_camera);
             tabung6.render(time);
+
+            tabung7.CameraMovement(_camera);
             tabung7.render(time);
+
+            tabung8.CameraMovement(_camera);
             tabung8.render(time);
+
+            tabung9.CameraMovement(_camera);
             tabung9.render(time);
+
+            tabung10.CameraMovement(_camera);
             tabung10.render(time);
+
+            balok4.CameraMovement(_camera);
             balok4.render(time);
+
+            balok5.CameraMovement(_camera);
             balok5.render(time);
+
+            tabung11.CameraMovement(_camera);
             tabung11.render(time);
+
+            tabung12.CameraMovement(_camera);
             tabung12.render(time);
+
+            tabung13.CameraMovement(_camera);
             tabung13.render(time);
+
+            tabung14.CameraMovement(_camera);
             tabung14.render(time);
+
+            tabung15.CameraMovement(_camera);
             tabung15.render(time);
+
+            tabung16.CameraMovement(_camera);
             tabung16.render(time);
+
+            tabung17.CameraMovement(_camera);
             tabung17.render(time);
+
+            tabung18.CameraMovement(_camera);
             tabung18.render(time);
+
+            balok6.CameraMovement(_camera);
             balok6.render(time);
+
+            balok7.CameraMovement(_camera);
             balok7.render(time);
         }
 

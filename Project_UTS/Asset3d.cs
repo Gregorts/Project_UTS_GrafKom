@@ -213,6 +213,15 @@ namespace Project_UTS
             Console.WriteLine(posX);
         }
 
+        public void CameraMovement(Camera _camera)
+        {
+            _shader.Use();
+
+            _shader.SetMatrix4("model", model);
+            _shader.SetMatrix4("view", _camera.GetViewMatrix());
+            _shader.SetMatrix4("projection", _camera.GetProjectionMatrix());
+        }
+
         //#region transforms
         /*public void rotate(Vector3 pivot, Vector3 vector, float angle)
         {
