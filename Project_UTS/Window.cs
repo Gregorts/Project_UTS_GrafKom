@@ -1,4 +1,5 @@
 ﻿using OpenTK.Graphics.OpenGL4;
+using LearnOpenTK.Common;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Desktop;
@@ -16,6 +17,8 @@ namespace Project_UTS
         //List<Balok> objectList = new List<Balok>();
         double time;
 
+        Camera _camera;
+
         Spongebob spongebob = new Spongebob();
         Patrick patrick = new Patrick();
 
@@ -25,8 +28,6 @@ namespace Project_UTS
 
         protected override void OnLoad()
         {
-            base.OnLoad();
-
             GL.ClearColor(0.5f, 0.5f, 0.5f, 1.0f);
             GL.Enable(EnableCap.DepthTest);
 
@@ -53,12 +54,14 @@ namespace Project_UTS
             }*/
             spongebob.load(Size.X, Size.Y);
             patrick.load(Size.X, Size.Y);
+
+            _camera = new Camera(new Vector3(3.0f, 3.0f, 3.0f), Size.X / (float)Size.Y);
+
+            base.OnLoad();
         }
 
         protected override void OnRenderFrame(FrameEventArgs args)
         {
-            base.OnRenderFrame(args);
-
             float time = (float)args.Time; //Deltatime ==> waktu antara frame sebelumnya ke frame berikutnya, gunakan untuk animasi
 
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit); // DepthBufferBit juga harus di clear karena kita memakai depth testing.
@@ -74,35 +77,78 @@ namespace Project_UTS
                     j.rotate(Vector3.Zero, Vector3.UnitY, 720 * time);
                 }*//*
             }*/
-            //spongebob.render(time);
-            patrick.render(time);
+
+            spongebob.render(_camera, time);
+            //patrick.render(time);
+
             SwapBuffers();
+            base.OnRenderFrame(args);
         }
 
         protected override void OnUpdateFrame(FrameEventArgs args)
         {
+            KeyPress();
+            CameraMovement();
+
             base.OnUpdateFrame(args);
-
-            float time = (float)args.Time; //Deltatime ==> waktu antara frame sebelumnya ke frame berikutnya, gunakan untuk animasi
-
-            if (!IsFocused)
-            {
-                return; //Reject semua input saat window bukan focus.
-            }
-
-            var input = KeyboardState;
-
-            if (input.IsKeyDown(Keys.Escape))
-            {
-                Close();
-            }
         }
 
         protected override void OnResize(ResizeEventArgs e)
         {
-            base.OnResize(e);
-
             GL.Viewport(0, 0, Size.X, Size.Y);
+            base.OnResize(e);
+        }
+
+        protected override void OnMouseWheel(MouseWheelEventArgs e)
+        {
+            _camera.Fov -= e.OffsetY;
+            base.OnMouseWheel(e);
+        }
+
+        protected void KeyPress()
+        {
+            
+        }
+
+        protected void CameraMovement()
+        {
+            var input = KeyboardState;
+            const float camera_speed = 2.5f;
+
+            if (!IsFocused) //Reject semua input saat window bukan focus.
+            {
+                return;
+            }
+            
+            if (input.IsKeyDown(Keys.Escape))
+            {
+                Close();
+            }
+            if (input.IsKeyDown(Keys.W))
+            {
+                _camera.Position += _camera.Front * camera_speed * (float)RenderTime; // Forward
+            }
+
+            if (input.IsKeyDown(Keys.S))
+            {
+                _camera.Position -= _camera.Front * camera_speed * (float)RenderTime; // Backwards
+            }
+            if (input.IsKeyDown(Keys.A))
+            {
+                _camera.Position -= _camera.Right * camera_speed * (float)RenderTime; // Left
+            }
+            if (input.IsKeyDown(Keys.D))
+            {
+                _camera.Position += _camera.Right * camera_speed * (float)RenderTime; // Right
+            }
+            if (input.IsKeyDown(Keys.Space))
+            {
+                _camera.Position += _camera.Up * camera_speed * (float)RenderTime; // Up
+            }
+            if (input.IsKeyDown(Keys.LeftShift))
+            {
+                _camera.Position -= _camera.Up * camera_speed * (float)RenderTime; // Down
+            }
         }
     }
 }

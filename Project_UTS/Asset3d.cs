@@ -26,6 +26,8 @@ namespace Project_UTS
         protected Matrix4 view;                       // View Matrix       ==> Matrix ini menentukan arah pandang 'kamera'
         protected Matrix4 projection;                 // Projection Matrix ==> Matrix ini menentukan jenis projection, kamera game cenderung menggunakan kamera perspective.
 
+        protected Matrix4 transform;
+
         protected Vector3 color;                      // Warna objek, dikirim ke shader lewat uniform.
 
         protected float posX;
@@ -211,6 +213,15 @@ namespace Project_UTS
         {
             model *= Matrix4.CreateRotationY((float)MathHelper.DegreesToRadians(time));
             Console.WriteLine(posX);
+        }
+
+        public void CameraMovement(Camera _camera)
+        {
+            _shader.Use();
+
+            //_shader.SetMatrix4("trasnform", transform);
+            _shader.SetMatrix4("view", _camera.GetViewMatrix());
+            _shader.SetMatrix4("projection", _camera.GetProjectionMatrix());
         }
 
         //#region transforms
