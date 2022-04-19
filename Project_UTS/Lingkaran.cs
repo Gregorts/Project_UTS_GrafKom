@@ -11,7 +11,7 @@ namespace Project_UTS
 {
     internal class Lingkaran : Asset3d
     {
-        public Vector3 objectCenter = Vector3.Zero;
+        public Vector3 objectCenter;
         public Lingkaran(Vector3 color) : base(color)
         {
             this.color = color;
@@ -20,40 +20,112 @@ namespace Project_UTS
             _euler.Add(Vector3.UnitZ);*/
         }
 
-        public void createEllipsoid(float _x, float _y, float _z, float radX, float radY, float radZ)
+        public void createSphere(float _x, float _y, float _z, float radX, float radY, float radZ, int sectorCount, int stackCount)
         {
             objectCenter = new Vector3(_x, _y, _z);
 
+            float pi = (float)Math.PI;
             Vector3 temp_vector;
-            float _pi = 3.14f;
+            float sectorStep = 2 * pi / sectorCount;
+            float stackStep = pi / stackCount;
+            float sectorAngle, stackAngle;
 
-            for (float v = _pi / 2; v <= _pi; v += 0.001f)
+            for (int i = 0; i <= stackCount; ++i)
             {
-                for (float u = -_pi; u <= _pi; u += _pi / 30)
+                stackAngle = pi / 2 - i * stackStep;
+                posX = radX * (float)Math.Cos(stackAngle);
+                posY = radY * (float)Math.Sin(stackAngle);
+                posZ = radZ * (float)Math.Cos(stackAngle);
+
+                for (int j = 0; j <= sectorCount; ++j)
                 {
-                    temp_vector.X = _x + radX * (float)Math.Cos(v) * (float)Math.Cos(u);
-                    temp_vector.Y = _y + radY * (float)Math.Cos(v) * (float)Math.Sin(u);
-                    temp_vector.Z = _z + radZ * (float)Math.Sin(v);
+                    sectorAngle = j * sectorStep;
+
+                    temp_vector.X = _x + posX * (float)Math.Cos(sectorAngle);
+                    temp_vector.Y = _y + posY;
+                    temp_vector.Z = _z + posZ * (float)Math.Sin(sectorAngle);
+
                     vertices.Add(temp_vector);
+                }
+            }
+
+            uint k1, k2;
+            for (int i = 0; i < stackCount; ++i)
+            {
+                k1 = (uint)(i * (sectorCount + 1));
+                k2 = (uint)(k1 + sectorCount + 1);
+
+                for (int j = 0; j < sectorCount; ++j, ++k1, ++k2)
+                {
+                    if (i != 0)
+                    {
+                        indices.Add(k1);
+                        indices.Add(k2);
+                        indices.Add(k1 + 1);
+
+                    }
+
+                    if (i != stackCount - 1)
+                    {
+                        indices.Add(k1 + 1);
+                        indices.Add(k2);
+                        indices.Add(k2 + 1);
+                    }
                 }
             }
         }
 
-        public void createHalfEllipsoid(float x, float y, float z, float radX, float radY, float radZ)
+        public void createHalfSphere(float _x, float _y, float _z, float radX, float radY, float radZ, float sectorCount, float stackCount)
         {
-            objectCenter = new Vector3(x, y, z);
+            objectCenter = new Vector3(_x, _y, _z);
 
+            float pi = (float)Math.PI;
             Vector3 temp_vector;
-            float _pi = 3.14f;
+            float sectorStep = 2 * pi / sectorCount;
+            float stackStep = pi / stackCount;
+            float sectorAngle, stackAngle;
 
-            for (float v = -_pi / 2; v <= _pi / 2; v += 0.001f)
+            for (int i = 0; i <= stackCount; ++i)
             {
-                for (float u = -_pi; u <= 0; u += _pi / 30)
+                stackAngle = pi / 2 - i * stackStep;
+                posX = radX * (float)Math.Cos(stackAngle);
+                posY = radY * (float)Math.Cos(stackAngle);
+                posZ = radZ * (float)Math.Sin(stackAngle);
+
+                for (int j = 0; j <= sectorCount; ++j)
                 {
-                    temp_vector.X = x + radX * (float)Math.Cos(v) * (float)Math.Cos(u);
-                    temp_vector.Y = y + radY * (float)Math.Cos(v) * (float)Math.Sin(u);
-                    temp_vector.Z = z + radZ * (float)Math.Sin(v);
+                    sectorAngle = j * sectorStep;
+
+                    temp_vector.X = _x + posX * (float)Math.Cos(sectorAngle);
+                    temp_vector.Y = _y + posY * (float)Math.Sin(sectorAngle);
+                    temp_vector.Z = _z + posZ;
+
                     vertices.Add(temp_vector);
+                }
+            }
+
+            uint k1, k2;
+            for (int i = 0; i < stackCount; ++i)
+            {
+                k1 = (uint)(i * (sectorCount + 1));
+                k2 = (uint)(k1 + sectorCount + 1);
+
+                for (int j = 0; j < sectorCount/2; ++j, ++k1, ++k2)
+                {
+                    if (i != 0)
+                    {
+                        indices.Add(k1);
+                        indices.Add(k2);
+                        indices.Add(k1 + 1);
+
+                    }
+
+                    if (i != stackCount - 1)
+                    {
+                        indices.Add(k1 + 1);
+                        indices.Add(k2);
+                        indices.Add(k2 + 1);
+                    }
                 }
             }
         }

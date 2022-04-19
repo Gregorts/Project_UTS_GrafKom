@@ -11,8 +11,6 @@ namespace Project_UTS
 {
     internal class Tabung : Asset3d
     {
-        float radius;
-        float height;
         public Tabung(Vector3 color) : base(color)
         {
             this.color = color;
@@ -20,52 +18,33 @@ namespace Project_UTS
             _euler.Add(Vector3.UnitY);
             _euler.Add(Vector3.UnitZ);*/
         }
-        /*public void createEllipsoidVertices(float _X, float _Y, float _Z, float _radius, float _height)
+
+        public void createTube(float x_c, float y_c, float z_c, uint segments, float radius, float height)
         {
-            this.posX = _X;
-            this.posY = _Y;
-            this.posZ = _Z;
-            this.radius = _radius;
-            this.height = _height;
-
-            Vector3 temp_vector;
-            float _pi = (float)Math.PI;
-
-
-            for (float v = -_height / 2; v <= (_height / 2); v += 0.0005f)
+            for (double y = 0; y < 2; y++)
             {
-                for (float u = -_pi; u <= _pi; u += (_pi / 30))
+                for (double x = 0; x < segments; x++)
                 {
-                    temp_vector.X = _X + _radius * (float)Math.Cos(u);
-                    temp_vector.Y = _Y + _radius * (float)Math.Sin(u);
-                    temp_vector.Z = _Z + v;
+                    double theta = (x / (segments - 1)) * 2 * Math.PI;
 
-                    vertices.Add(temp_vector);
+                    vertices.Add(new Vector3()
+                    {
+                        X = (float)(radius * Math.Cos(theta)) + x_c,
+                        Y = (float)(height * y) + y_c,
+                        Z = (float)(radius * Math.Sin(theta)) + z_c,
+                    });
                 }
             }
-        }*/
-
-        public void createCone(float _x, float _y, float _z, float radiusTop, float radiusBottom, float height, float slices)
-        {
-            Vector3 temp_vector;
-            float sliceArc = 360.0f / (float)slices;
-            float angle = 0;
-            for (int i = 0; i < slices; i++)
+            for (uint x = 0; x < segments - 1; x++)
             {
-                temp_vector.X = _x + radiusBottom * (float)Math.Cos(MathHelper.DegreesToRadians(angle));
-                temp_vector.Y = _y + 0;
-                temp_vector.Z = _z + radiusBottom * (float)Math.Sin(MathHelper.DegreesToRadians(angle));
-                vertices.Add(temp_vector);
+                indices.Add(x);
+                indices.Add(x + segments);
+                indices.Add(x + segments + 1);
 
-                temp_vector.X = _x + radiusTop * (float)Math.Cos(MathHelper.DegreesToRadians(angle));
-                temp_vector.Y = _y + height;
-                temp_vector.Z = _z + radiusTop * (float)Math.Sin(MathHelper.DegreesToRadians(angle));
-
-                vertices.Add(temp_vector);
-                angle += sliceArc;
+                indices.Add(x + segments + 1);
+                indices.Add(x + 1);
+                indices.Add(x);
             }
-            GL.DrawArrays(PrimitiveType.TriangleFan, 30, vertices.Count);
-
         }
     }
 }

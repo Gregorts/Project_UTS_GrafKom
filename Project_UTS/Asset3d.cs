@@ -79,7 +79,7 @@ namespace Project_UTS
 
             _shader.SetVector3("objColor", color);
 
-            //model *= Matrix4.CreateRotationY((float)MathHelper.DegreesToRadians(time));
+            //model *= Matrix4.CreateRotationX((float)MathHelper.DegreesToRadians(time));
 
             _shader.SetMatrix4("model", model);
             _shader.SetMatrix4("view", view);
@@ -95,7 +95,6 @@ namespace Project_UTS
             {
                 GL.DrawArrays(PrimitiveType.LineStrip, 0, vertices.Count);
             }
-
             /*foreach (var i in child)
             {
                 i.render(time);
@@ -173,6 +172,9 @@ namespace Project_UTS
         public void rotate(float angle, char x)
         {
             Vector4 pos = new Vector4(getPos());
+            Console.WriteLine("Pos1");
+            Console.WriteLine(pos);
+
             if (x == 'x')
             {
                 model *= Matrix4.CreateTranslation(-1 * posX, -1 * posY, -1 * posZ) * Matrix4.CreateRotationX(MathHelper.DegreesToRadians(angle)) * Matrix4.CreateTranslation(posX, posY, posZ);
@@ -185,7 +187,6 @@ namespace Project_UTS
                 model *= Matrix4.CreateTranslation(-1 * posX, -1 * posY, -1 * posZ) * Matrix4.CreateRotationY(MathHelper.DegreesToRadians(angle)) * Matrix4.CreateTranslation(posX, posY, posZ);
                 pos = Matrix4.CreateTranslation(-1 * posX, -1 * posY, -1 * posZ) * Matrix4.CreateRotationY(MathHelper.DegreesToRadians(angle)) * Matrix4.CreateTranslation(posX, posY, posZ) * pos;
                 Console.WriteLine("Angle" + angle);
-                //model *= Matrix4.CreateTranslation(-1 * posX, -1 * posY, -1 * posZ) * Matrix4.CreateRotationY(MathHelper.DegreesToRadians(angle)) * Matrix4.CreateTranslation(posX, posY, posZ);
             }
             else if (x == 'z')
             {
@@ -198,13 +199,16 @@ namespace Project_UTS
                 0, posY, 0, 0,
                 0, 0, posZ, 0,
                 0, 0, 0, 1);
-
+            Console.WriteLine("Data");
+            Console.WriteLine(data);
+            Console.WriteLine("Model");
+            Console.WriteLine(model);
             data = model * data;
-            Console.WriteLine(posX);
+            Console.WriteLine("DataBaru");
+            Console.WriteLine(data);
             posX = data.M11;
             posY = data.M22;
             posZ = data.M33;
-            Console.WriteLine(posX);
         }
 
         public void animation(double time)

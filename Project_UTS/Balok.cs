@@ -23,7 +23,7 @@ namespace Project_UTS
             _euler.Add(Vector3.UnitZ);*/
         }
 
-        public void createCuboid(float _x, float _y, float _z, float length_x, float length_y, float length_z)
+        public void createCube(float _x, float _y, float _z, float length_x, float length_y, float length_z)
         {
             this.posX = _x;
             this.posY = _y;

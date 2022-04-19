@@ -50,21 +50,21 @@ namespace Project_UTS
 
         public void load(int sizeX, int sizeY)
         {
-            balok1.createCuboid(0, 0, 0, 2.5f, 2.5f, 1.5f);
+            /*balok1.createCube(0, 0, 0, 2.5f, 2.5f, 1.5f);
             balok1.load(sizeX, sizeY);
             //balok1.rotate(90f, 'y');
 
-            balok2.createCuboid(0, -1.4f, 0, 2.5f, 0.3f, 1.5f);
+            balok2.createCube(0, -1.4f, 0, 2.5f, 0.3f, 1.5f);
             balok2.load(sizeX, sizeY);
 
-            balok3.createCuboid(0, -1.65f, 0, 2.5f, 0.3f, 1.5f);
+            balok3.createCube(0, -1.65f, 0, 2.5f, 0.3f, 1.5f);
             balok3.load(sizeX, sizeY);
 
-            lingkaran1.createEllipsoid(0.4f, 0.5f, 1f, 0.4f, 0.4f, 0.4f);
+            lingkaran1.createSphere(0.4f, 0.5f, 1f, 0.4f, 0.4f, 0.4f, 1000, 1000);
             lingkaran1.load(sizeX, sizeY);
             //halfelipse1.rotate(0f, 'x');
 
-            lingkaran2.createEllipsoid(-0.4f, 0.5f, 1f, 0.4f, 0.4f, 0.4f);
+            lingkaran2.createSphere(-0.4f, 0.5f, 1f, 0.4f, 0.4f, 0.4f, 1000, 1000);
             lingkaran2.load(sizeX, sizeY);
 
             tabung1.createCone(-1.4f, -0.9f, 0, 0.075f, 0.225f, 0.4f, 10000);
@@ -97,10 +97,10 @@ namespace Project_UTS
             tabung10.createCone(0.7f, -3.1f, 0, 0.05f, 0.05f, 0.6f, 10000);
             tabung10.load(sizeX, sizeY);
 
-            balok4.createCuboid(-1.47f, -2.1f, 0, 0.25f, 0.2f, 0.05f);
+            balok4.createCube(-1.47f, -2.1f, 0, 0.25f, 0.2f, 0.05f);
             balok4.load(sizeX, sizeY);
 
-            balok5.createCuboid(1.47f, -2.1f, 0, 0.25f, 0.2f, 0.05f);
+            balok5.createCube(1.47f, -2.1f, 0, 0.25f, 0.2f, 0.05f);
             balok5.load(sizeX, sizeY);
 
             tabung11.createCone(1.56f, -2.4f, 0, 0.02f, 0.02f, 0.2f, 10000);
@@ -127,11 +127,11 @@ namespace Project_UTS
             tabung18.createCone(-1.35f, -2.3f, 0, 0.02f, 0.02f, 0.2f, 10000);
             tabung18.load(sizeX, sizeY);
 
-            balok6.createCuboid(-0.7f, -3.1f, 0.15f, 0.25f, 0.2f, 0.6f);
+            balok6.createCube(-0.7f, -3.1f, 0.15f, 0.25f, 0.2f, 0.6f);
             balok6.load(sizeX, sizeY);
 
-            balok7.createCuboid(0.7f, -3.1f, 0.15f, 0.25f, 0.2f, 0.6f);
-            balok7.load(sizeX, sizeY);
+            balok7.createCube(0.7f, -3.1f, 0.15f, 0.25f, 0.2f, 0.6f);
+            balok7.load(sizeX, sizeY);*/
         }
 
         public void render(Camera _camera, double time)
