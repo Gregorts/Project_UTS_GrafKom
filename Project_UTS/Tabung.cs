@@ -11,27 +11,39 @@ namespace Project_UTS
 {
     internal class Tabung : Asset3d
     {
-        public Tabung(Vector3 color) : base(color)
+        float Radius, Height;
+        public Tabung(Vector3 color, Vector3 pos) : base(color, pos)
         {
             this.color = color;
+            this.posX = pos.X;
+            this.posY = pos.Y;
+            this.posZ = pos.Z;
+            Radius = 0;
+            Height = 0;
             /*_euler.Add(Vector3.UnitX);
             _euler.Add(Vector3.UnitY);
             _euler.Add(Vector3.UnitZ);*/
         }
 
-        public void createTube(float x_c, float y_c, float z_c, uint segments, float radius, float height)
+        public void createTube(float _x, float _y, float _z, uint segments, float radius, float height)
         {
+            Radius = radius;
+            Height = height;
             for (double y = 0; y < 2; y++)
             {
                 for (double x = 0; x < segments; x++)
                 {
                     double theta = (x / (segments - 1)) * 2 * Math.PI;
 
+                    posX = (float)(Radius * Math.Cos(theta)) + _x;
+                    posY = (float)(Height * y) + _y;
+                    posZ = (float)(Radius * Math.Sin(theta)) + _z;
+
                     vertices.Add(new Vector3()
                     {
-                        X = (float)(radius * Math.Cos(theta)) + x_c,
-                        Y = (float)(height * y) + y_c,
-                        Z = (float)(radius * Math.Sin(theta)) + z_c,
+                        X = posX,
+                        Y = posY,
+                        Z = posZ,
                     });
                 }
             }
@@ -45,6 +57,15 @@ namespace Project_UTS
                 indices.Add(x + 1);
                 indices.Add(x);
             }
+        }
+        public float getrad()
+        {
+            return Radius;
+        }
+
+        public float getheight()
+        {
+            return Height;
         }
     }
 }

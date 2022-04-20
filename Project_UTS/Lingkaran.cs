@@ -12,9 +12,16 @@ namespace Project_UTS
     internal class Lingkaran : Asset3d
     {
         public Vector3 objectCenter;
-        public Lingkaran(Vector3 color) : base(color)
+        float RadX, RadY, RadZ;
+        public Lingkaran(Vector3 color, Vector3 pos) : base(color, pos)
         {
             this.color = color;
+            this.posX = pos.X;
+            this.posY = pos.Y;
+            this.posZ = pos.Z;
+            RadX = 0;
+            RadY = 0;
+            RadZ = 0;
             /*_euler.Add(Vector3.UnitX);
             _euler.Add(Vector3.UnitY);
             _euler.Add(Vector3.UnitZ);*/
@@ -23,6 +30,9 @@ namespace Project_UTS
         public void createSphere(float _x, float _y, float _z, float radX, float radY, float radZ, int sectorCount, int stackCount)
         {
             objectCenter = new Vector3(_x, _y, _z);
+            RadX = radX;
+            RadY = radY;
+            RadZ = radZ;
 
             float pi = (float)Math.PI;
             Vector3 temp_vector;
@@ -33,9 +43,9 @@ namespace Project_UTS
             for (int i = 0; i <= stackCount; ++i)
             {
                 stackAngle = pi / 2 - i * stackStep;
-                posX = radX * (float)Math.Cos(stackAngle);
-                posY = radY * (float)Math.Sin(stackAngle);
-                posZ = radZ * (float)Math.Cos(stackAngle);
+                posX = RadX * (float)Math.Cos(stackAngle);
+                posY = RadY * (float)Math.Sin(stackAngle);
+                posZ = RadZ * (float)Math.Cos(stackAngle);
 
                 for (int j = 0; j <= sectorCount; ++j)
                 {
@@ -78,6 +88,9 @@ namespace Project_UTS
         public void createHalfSphere(float _x, float _y, float _z, float radX, float radY, float radZ, float sectorCount, float stackCount)
         {
             objectCenter = new Vector3(_x, _y, _z);
+            RadX = radX;
+            RadY = radY;
+            RadZ = radZ;
 
             float pi = (float)Math.PI;
             Vector3 temp_vector;
@@ -88,9 +101,9 @@ namespace Project_UTS
             for (int i = 0; i <= stackCount; ++i)
             {
                 stackAngle = pi / 2 - i * stackStep;
-                posX = radX * (float)Math.Cos(stackAngle);
-                posY = radY * (float)Math.Cos(stackAngle);
-                posZ = radZ * (float)Math.Sin(stackAngle);
+                posX = RadX * (float)Math.Cos(stackAngle);
+                posY = RadY * (float)Math.Cos(stackAngle);
+                posZ = RadZ * (float)Math.Sin(stackAngle);
 
                 for (int j = 0; j <= sectorCount; ++j)
                 {
@@ -129,5 +142,11 @@ namespace Project_UTS
                 }
             }
         }
+
+        public float getradx() { return RadX; }
+
+        public float getrady() { return RadY; }
+
+        public float getradz() { return RadZ; }
     }
 }

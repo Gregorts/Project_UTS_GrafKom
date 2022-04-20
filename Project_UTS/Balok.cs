@@ -12,12 +12,16 @@ namespace Project_UTS
     internal class Balok : Asset3d
     {
 
-        float lengthX;
-        float lengthY;
-        float lengthZ;
-        public Balok(Vector3 color) : base (color)
+        float LengthX, LengthY, LengthZ;
+        public Balok(Vector3 color, Vector3 pos) : base (color, pos)
         {
             this.color = color;
+            this.posX = pos.X;
+            this.posY = pos.Y;
+            this.posZ = pos.Z;
+            LengthX = 0;
+            LengthY = 0;
+            LengthZ = 0;
             /*_euler.Add(Vector3.UnitX);
             _euler.Add(Vector3.UnitY);
             _euler.Add(Vector3.UnitZ);*/
@@ -29,9 +33,9 @@ namespace Project_UTS
             this.posY = _y;
             this.posZ = _z;
 
-            this.lengthX = length_x;
-            this.lengthY = length_y;
-            this.lengthZ = length_z;
+            this.LengthX = length_x;
+            this.LengthY = length_y;
+            this.LengthZ = length_z;
 
             var tempVertices = new List<Vector3>();
             Vector3 temp_vector;
@@ -113,5 +117,11 @@ namespace Project_UTS
             vertices = tempVertices;
             indices = tempIndices;
         }
+
+        public float getlenx() { return LengthX; }
+
+        public float getleny() { return LengthY; }
+
+        public float getlenz() { return LengthZ; }
     }
 }

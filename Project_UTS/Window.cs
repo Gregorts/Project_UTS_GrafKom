@@ -79,8 +79,8 @@ namespace Project_UTS
                 }*//*
             }*/
 
-            //spongebob.render(_camera, time);
-            patrick.render(time);
+            spongebob.render(_camera, time);
+            //patrick.render(time);
 
             SwapBuffers();
             base.OnRenderFrame(args);

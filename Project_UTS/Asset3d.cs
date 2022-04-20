@@ -37,9 +37,12 @@ namespace Project_UTS
 
         //public List<Asset3d> child = new List<Asset3d>();   // Sistem Hierarchical Object ==> List untuk menampung objek - objek child.
 
-        public Asset3d(Vector3 color)
+        public Asset3d(Vector3 color, Vector3 pos)
         {
             this.color = color;
+            this.posX = pos.X;
+            this.posY = pos.Y;
+            this.posZ = pos.Z;
             /*_euler.Add(Vector3.UnitX); // Masukkan sudut Euler di Constructor.
             _euler.Add(Vector3.UnitY);
             _euler.Add(Vector3.UnitZ);*/
@@ -172,8 +175,6 @@ namespace Project_UTS
         public void rotate(float angle, char x)
         {
             Vector4 pos = new Vector4(getPos());
-            Console.WriteLine("Pos1");
-            Console.WriteLine(pos);
 
             if (x == 'x')
             {
@@ -186,7 +187,6 @@ namespace Project_UTS
             {
                 model *= Matrix4.CreateTranslation(-1 * posX, -1 * posY, -1 * posZ) * Matrix4.CreateRotationY(MathHelper.DegreesToRadians(angle)) * Matrix4.CreateTranslation(posX, posY, posZ);
                 pos = Matrix4.CreateTranslation(-1 * posX, -1 * posY, -1 * posZ) * Matrix4.CreateRotationY(MathHelper.DegreesToRadians(angle)) * Matrix4.CreateTranslation(posX, posY, posZ) * pos;
-                Console.WriteLine("Angle" + angle);
             }
             else if (x == 'z')
             {
@@ -199,13 +199,7 @@ namespace Project_UTS
                 0, posY, 0, 0,
                 0, 0, posZ, 0,
                 0, 0, 0, 1);
-            Console.WriteLine("Data");
-            Console.WriteLine(data);
-            Console.WriteLine("Model");
-            Console.WriteLine(model);
             data = model * data;
-            Console.WriteLine("DataBaru");
-            Console.WriteLine(data);
             posX = data.M11;
             posY = data.M22;
             posZ = data.M33;
