@@ -84,29 +84,29 @@ namespace Project_UTS
             tabung4.createTube(balok3.getPos().X + balok3.getlenx() / 3.5f, balok3.getPos().Y - balok3.getleny() * 1.5f, balok3.getPos().Z, 100, balok3.getlenx() / 8, balok3.getleny()); //ini
             tabung4.load(sizeX, sizeY);
 
-            tabung5.createTube(tabung1.getPos().X - tabung1.getrad() * 1.5f, tabung1.getPos().Y - tabung1.getheight() * 3.5f, tabung1.getPos().Z, 100, 0.05f, 1.2f);
+            tabung5.createTube(tabung1.getPos().X - tabung1.getrad() * 1.5f, tabung1.getPos().Y - tabung1.getheight() * 3.5f, tabung1.getPos().Z, 100, tabung1.getrad() / 5, tabung1.getheight() * 3);
             tabung5.load(sizeX, sizeY);
-            Console.WriteLine(tabung1.getrad());
 
-            tabung6.createTube(positionX + 1.47f, positionY - 2f, 0, 100, 0.05f, 1.2f);
+            tabung6.createTube(tabung2.getPos().X - tabung2.getrad() * 0.5f , tabung2.getPos().Y - tabung2.getheight() * 3.5f, tabung2.getPos().Z, 100, tabung2.getrad() / 5, tabung2.getheight() * 3);
             tabung6.load(sizeX, sizeY);
 
-            tabung7.createTube(positionX - 0.7f, positionY - 2.5f, 0, 100, 0.05f, 0.3f);
+            tabung7.createTube(tabung3.getPos().X - tabung3.getrad(), tabung3.getPos().Y - tabung3.getheight() * 2, tabung3.getPos().Z, 100, tabung3.getrad() / 6, tabung3.getheight());
             tabung7.load(sizeX, sizeY);
 
-            tabung8.createTube(positionX + 0.7f, positionY - 2.5f, 0, 100, 0.05f, 0.3f);
+            tabung8.createTube(tabung4.getPos().X - tabung4.getrad(), tabung4.getPos().Y - tabung4.getheight() * 2, tabung3.getPos().Z, 100, tabung4.getrad() / 6, tabung4.getheight());
             tabung8.load(sizeX, sizeY);
+            Console.WriteLine("Tabung5: " + tabung5.getrad());
 
-            tabung9.createTube(positionX - 0.7f, positionY - 3.1f, 0, 100, 0.05f, 0.6f);
+            tabung9.createTube(tabung7.getPos().X - tabung7.getrad(), tabung7.getPos().Y - tabung7.getheight() * 2, tabung7.getPos().Z, 100, tabung7.getrad(), tabung7.getheight());
             tabung9.load(sizeX, sizeY);
 
-            tabung10.createTube(positionX + 0.7f, positionY - 3.1f, 0, 100, 0.05f, 0.6f);
+            tabung10.createTube(tabung8.getPos().X - tabung8.getrad(), tabung8.getPos().Y - tabung8.getheight() * 2, tabung8.getPos().Z, 100, tabung8.getrad(), tabung8.getheight());
             tabung10.load(sizeX, sizeY);
 
-            balok4.createCube(positionX - 1.47f, positionY - 2.1f, 0, 0.25f, 0.2f, 0.05f);
+            balok4.createCube(tabung5.getPos().X - tabung5.getrad(), tabung5.getPos().Y - tabung5.getheight(), tabung5.getPos().Z, tabung5.getrad() * 5, tabung5.getrad() * 4, tabung5.getrad());
             balok4.load(sizeX, sizeY);
 
-            balok5.createCube(positionX + 1.47f, positionY - 2.1f, 0, 0.25f, 0.2f, 0.05f);
+            balok5.createCube(tabung6.getPos().X - tabung6.getrad(), tabung6.getPos().Y - tabung6.getheight(), tabung6.getPos().Z, tabung6.getrad() * 5, tabung6.getrad() * 4, tabung6.getrad());
             balok5.load(sizeX, sizeY);
 
             tabung11.createTube(positionX + 1.56f, positionY - 2.4f, 0, 100, 0.02f, 0.2f);
@@ -184,26 +184,26 @@ namespace Project_UTS
             tabung5.CameraMovement(_camera);
             tabung5.render(time);
 
-            //tabung6.CameraMovement(_camera);
-            //tabung6.render(time);
+            tabung6.CameraMovement(_camera);
+            tabung6.render(time);
 
-            //tabung7.CameraMovement(_camera);
-            //tabung7.render(time);
+            tabung7.CameraMovement(_camera);
+            tabung7.render(time);
 
-            //tabung8.CameraMovement(_camera);
-            //tabung8.render(time);
+            tabung8.CameraMovement(_camera);
+            tabung8.render(time);
 
-            //tabung9.CameraMovement(_camera);
-            //tabung9.render(time);
+            tabung9.CameraMovement(_camera);
+            tabung9.render(time);
 
-            //tabung10.CameraMovement(_camera);
-            //tabung10.render(time);
+            tabung10.CameraMovement(_camera);
+            tabung10.render(time);
 
-            //balok4.CameraMovement(_camera);
-            //balok4.render(time);
+            balok4.CameraMovement(_camera);
+            balok4.render(time);
 
-            //balok5.CameraMovement(_camera);
-            //balok5.render(time);
+            balok5.CameraMovement(_camera);
+            balok5.render(time);
 
             //tabung11.CameraMovement(_camera);
             //tabung11.render(time);
