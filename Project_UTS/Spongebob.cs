@@ -86,7 +86,7 @@ namespace Project_UTS
 
             tabung5.createTube(tabung1.getPos().X - tabung1.getrad() * 1.5f, tabung1.getPos().Y - tabung1.getheight() * 3.5f, tabung1.getPos().Z, 100, 0.05f, 1.2f);
             tabung5.load(sizeX, sizeY);
-            Console.WriteLine(balok1.getPos().X - balok1.getlenx() / 1.85f);
+            Console.WriteLine(tabung1.getrad());
 
             tabung6.createTube(positionX + 1.47f, positionY - 2f, 0, 100, 0.05f, 1.2f);
             tabung6.load(sizeX, sizeY);
