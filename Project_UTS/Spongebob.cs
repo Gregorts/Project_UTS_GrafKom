@@ -12,9 +12,10 @@ namespace Project_UTS
     {
         protected float positionX, positionY, positionZ;
 
-        protected Balok balok1, balok2, balok3, balok4, balok5, balok6, balok7;
+        protected Balok balok1, balok2, balok3, balok4, balok5, balok6, balok7, balok8, balok9, balok10, balok11, balok12, balok13;
         protected Lingkaran lingkaran1, lingkaran2, lingkaran3, lingkaran4, lingkaran5, lingkaran6;
-        protected Tabung tabung1, tabung2, tabung3, tabung4, tabung5, tabung6, tabung7, tabung8, tabung9, tabung10, tabung11, tabung12, tabung13, tabung14, tabung15, tabung16, tabung17, tabung18;
+        protected Lingkaran oval1, oval2, oval3, oval4, oval5, oval6, oval7, oval8, oval9;
+        protected Tabung tabung1, tabung2, tabung3, tabung4, tabung5, tabung6, tabung7, tabung8, tabung9, tabung10;
 
         public Spongebob(float posX = 0f, float posY = 0f, float posZ = 0f)
         {
@@ -39,20 +40,27 @@ namespace Project_UTS
             tabung10 = new Tabung(new Vector3(1f, 1f, 1f), new Vector3(positionX, positionY, positionZ));
             balok4 = new Balok(new Vector3(1.0f, 0.9f, 0.4f), new Vector3(positionX, positionY, positionZ));
             balok5 = new Balok(new Vector3(1.0f, 0.9f, 0.4f), new Vector3(positionX, positionY, positionZ));
-            tabung11 = new Tabung(new Vector3(1.0f, 0.9f, 0.4f), new Vector3(positionX, positionY, positionZ));
-            tabung12 = new Tabung(new Vector3(1.0f, 0.9f, 0.4f), new Vector3(positionX, positionY, positionZ));
-            tabung13 = new Tabung(new Vector3(1.0f, 0.9f, 0.4f), new Vector3(positionX, positionY, positionZ));
-            tabung14 = new Tabung(new Vector3(1.0f, 0.9f, 0.4f), new Vector3(positionX, positionY, positionZ));
-            tabung15 = new Tabung(new Vector3(1.0f, 0.9f, 0.4f), new Vector3(positionX, positionY, positionZ));
-            tabung16 = new Tabung(new Vector3(1.0f, 0.9f, 0.4f), new Vector3(positionX, positionY, positionZ));
-            tabung17 = new Tabung(new Vector3(1.0f, 0.9f, 0.4f), new Vector3(positionX, positionY, positionZ));
-            tabung18 = new Tabung(new Vector3(1.0f, 0.9f, 0.4f), new Vector3(positionX, positionY, positionZ));
+            oval1 = new Lingkaran(new Vector3(1.0f, 0.9f, 0.4f), new Vector3(positionX, positionY, positionZ));
+            oval2 = new Lingkaran(new Vector3(1.0f, 0.9f, 0.4f), new Vector3(positionX, positionY, positionZ));
+            oval3 = new Lingkaran(new Vector3(1.0f, 0.9f, 0.4f), new Vector3(positionX, positionY, positionZ));
+            oval4 = new Lingkaran(new Vector3(1.0f, 0.9f, 0.4f), new Vector3(positionX, positionY, positionZ));
+            oval5 = new Lingkaran(new Vector3(1.0f, 0.9f, 0.4f), new Vector3(positionX, positionY, positionZ));
+            oval6 = new Lingkaran(new Vector3(1.0f, 0.9f, 0.4f), new Vector3(positionX, positionY, positionZ));
+            oval7 = new Lingkaran(new Vector3(1.0f, 0.9f, 0.4f), new Vector3(positionX, positionY, positionZ));
+            oval8 = new Lingkaran(new Vector3(1.0f, 0.9f, 0.4f), new Vector3(positionX, positionY, positionZ));
             balok6 = new Balok(new Vector3(0, 0, 0), new Vector3(positionX, positionY, positionZ));
             balok7 = new Balok(new Vector3(0, 0, 0), new Vector3(positionX, positionY, positionZ));
             lingkaran3 = new Lingkaran(new Vector3(0.15f, 0.72f, 0.78f), new Vector3(positionX, positionY, positionZ));
             lingkaran4 = new Lingkaran(new Vector3(0.15f, 0.72f, 0.78f), new Vector3(positionX, positionY, positionZ));
             lingkaran5 = new Lingkaran(new Vector3(0, 0, 0), new Vector3(positionX, positionY, positionZ));
             lingkaran6 = new Lingkaran(new Vector3(0, 0, 0), new Vector3(positionX, positionY, positionZ));
+            oval9 = new Lingkaran(new Vector3(1.0f, 0.9f, 0.4f), new Vector3(positionX, positionY, positionZ));
+            balok8 = new Balok(new Vector3(0, 0, 0), new Vector3(positionX, positionY, positionZ));
+            balok9 = new Balok(new Vector3(0, 0, 0), new Vector3(positionX, positionY, positionZ));
+            balok10 = new Balok(new Vector3(0, 0, 0), new Vector3(positionX, positionY, positionZ));
+            balok11 = new Balok(new Vector3(0, 0, 0), new Vector3(positionX, positionY, positionZ));
+            balok12 = new Balok(new Vector3(0, 0, 0), new Vector3(positionX, positionY, positionZ));
+            balok13 = new Balok(new Vector3(0, 0, 0), new Vector3(positionX, positionY, positionZ));
         }
 
         public void load(int sizeX, int sizeY)
@@ -95,7 +103,6 @@ namespace Project_UTS
 
             tabung8.createTube(tabung4.getPos().X - tabung4.getrad(), tabung4.getPos().Y - tabung4.getheight() * 2, tabung3.getPos().Z, 100, tabung4.getrad() / 6, tabung4.getheight());
             tabung8.load(sizeX, sizeY);
-            Console.WriteLine("Tabung5: " + tabung5.getrad());
 
             tabung9.createTube(tabung7.getPos().X - tabung7.getrad(), tabung7.getPos().Y - tabung7.getheight() * 2, tabung7.getPos().Z, 100, tabung7.getrad(), tabung7.getheight());
             tabung9.load(sizeX, sizeY);
@@ -109,47 +116,72 @@ namespace Project_UTS
             balok5.createCube(tabung6.getPos().X - tabung6.getrad(), tabung6.getPos().Y - tabung6.getheight(), tabung6.getPos().Z, tabung6.getrad() * 5, tabung6.getrad() * 4, tabung6.getrad());
             balok5.load(sizeX, sizeY);
 
-            tabung11.createTube(positionX + 1.56f, positionY - 2.4f, 0, 100, 0.02f, 0.2f);
-            tabung11.load(sizeX, sizeY);
+            oval1.createSphere(balok5.getPos().X + balok5.getlenx() / 2, balok5.getPos().Y - balok5.getleny() / 1.5f, balok5.getPos().Z, balok5.getlenx() / 6, balok5.getleny() / 1.5f, balok5.getlenz() / 3, 1000, 1000);
+            oval1.load(sizeX, sizeY);
 
-            tabung12.createTube(positionX + 1.49f, positionY - 2.4f, 0, 100, 0.02f, 0.2f);
-            tabung12.load(sizeX, sizeY);
+            oval2.createSphere(balok5.getPos().X + balok5.getlenx() / 6, balok5.getPos().Y - balok5.getleny() / 1.5f, balok5.getPos().Z, balok5.getlenx() / 6, balok5.getleny(), balok5.getlenz() / 3, 1000, 1000);
+            oval2.load(sizeX, sizeY);
 
-            tabung13.createTube(positionX + 1.42f, positionY - 2.4f, 0, 100, 0.02f, 0.2f);
-            tabung13.load(sizeX, sizeY);
+            oval3.createSphere(balok5.getPos().X - balok5.getlenx() / 6, balok5.getPos().Y - balok5.getleny() / 1.5f, balok5.getPos().Z, balok5.getlenx() / 6, balok5.getleny(), balok5.getlenz() / 3, 1000, 1000);
+            oval3.load(sizeX, sizeY);
 
-            tabung14.createTube(positionX + 1.35f, positionY - 2.3f, 0, 100, 0.02f, 0.2f);
-            tabung14.load(sizeX, sizeY);
+            oval4.createSphere(balok5.getPos().X - balok5.getlenx() / 2, balok5.getPos().Y - balok5.getleny() / 1.5f, balok5.getPos().Z, balok5.getlenx() / 6, balok5.getleny() / 2, balok5.getlenz() / 3, 1000, 1000);
+            oval4.load(sizeX, sizeY);
 
-            tabung15.createTube(positionX - 1.56f, positionY - 2.4f, 0, 100, 0.02f, 0.2f);
-            tabung15.load(sizeX, sizeY);
+            oval5.createSphere(balok4.getPos().X + balok4.getlenx() / 2, balok4.getPos().Y - balok4.getleny() / 1.5f, balok4.getPos().Z, balok4.getlenx() / 6, balok4.getleny() / 2, balok4.getlenz() / 3, 1000, 1000);
+            oval5.load(sizeX, sizeY);
 
-            tabung16.createTube(positionX - 1.49f, positionY - 2.4f, 0, 100, 0.02f, 0.2f);
-            tabung16.load(sizeX, sizeY);
+            oval6.createSphere(balok4.getPos().X + balok4.getlenx() / 6, balok4.getPos().Y - balok4.getleny() / 1.5f, balok4.getPos().Z, balok4.getlenx() / 6, balok4.getleny(), balok4.getlenz() / 3, 1000, 1000);
+            oval6.load(sizeX, sizeY);
 
-            tabung17.createTube(positionX - 1.42f, positionY - 2.4f, 0, 100, 0.02f, 0.2f);
-            tabung17.load(sizeX, sizeY);
+            oval7.createSphere(balok4.getPos().X - balok4.getlenx() / 6, balok4.getPos().Y - balok4.getleny() / 1.5f, balok4.getPos().Z, balok4.getlenx() / 6, balok4.getleny(), balok4.getlenz() / 3, 1000, 1000);
+            oval7.load(sizeX, sizeY);
 
-            tabung18.createTube(positionX - 1.35f, positionY - 2.3f, 0, 100, 0.02f, 0.2f);
-            tabung18.load(sizeX, sizeY);
+            oval8.createSphere(balok4.getPos().X - balok4.getlenx() / 2, balok4.getPos().Y - balok4.getleny() / 1.5f, balok4.getPos().Z, balok4.getlenx() / 6, balok4.getleny() / 1.5f, balok4.getlenz() / 3, 1000, 1000);
+            oval8.load(sizeX, sizeY);
 
-            balok6.createCube(positionX - 0.7f, positionY - 3.1f, 0.15f, 0.25f, 0.2f, 0.6f);
+            balok6.createCube(tabung9.getPos().X - tabung9.getrad(), tabung9.getPos().Y - tabung9.getheight(), tabung9.getPos().Z + tabung9.getrad() * 3, tabung9.getrad() * 5, tabung9.getheight() / 2f, tabung9.getrad() * 12);
             balok6.load(sizeX, sizeY);
 
-            balok7.createCube(positionX + 0.7f, positionY - 3.1f, 0.15f, 0.25f, 0.2f, 0.6f);
+            balok7.createCube(tabung10.getPos().X - tabung10.getrad() / 1.5f, tabung10.getPos().Y - tabung10.getheight(), tabung10.getPos().Z + tabung10.getrad() * 3, tabung10.getrad() * 5, tabung10.getheight() / 2f, tabung10.getrad() * 12);
             balok7.load(sizeX, sizeY);
 
-            lingkaran3.createSphere(positionX + 0.4f, positionY + 0.5f, 0.85f, 0.15f, 0.15f, 0.1f, 1000, 1000);
+            lingkaran3.createSphere(lingkaran1.getPos().X + lingkaran1.getradx() * 0.75f, lingkaran1.getPos().Y + lingkaran1.getrady() * 2.1f, lingkaran1.getPos().Z + lingkaran1.getradz() * 4.5f, lingkaran1.getradx() / 2f, lingkaran1.getrady() / 2f, lingkaran1.getradz() / 2, 1000, 1000);
             lingkaran3.load(sizeX, sizeY);
 
-            lingkaran4.createSphere(positionX - 0.4f, positionY + 0.5f, 0.85f, 0.15f, 0.15f, 0.1f, 1000, 1000);
+            lingkaran4.createSphere(lingkaran2.getPos().X - lingkaran2.getradx() * 0.75f, lingkaran2.getPos().Y + lingkaran2.getrady() * 2.1f, lingkaran2.getPos().Z + lingkaran2.getradz() * 4.5f, lingkaran2.getradx() / 2f, lingkaran2.getrady() / 2f, lingkaran2.getradz() / 2, 1000, 1000);
             lingkaran4.load(sizeX, sizeY);
 
-            lingkaran5.createSphere(positionX + 0.4f, positionY + 0.5f, 0.92f, 0.05f, 0.05f, 0.05f, 1000, 1000);
+            lingkaran5.createSphere(lingkaran3.getPos().X + lingkaran3.getradx() * 1.5f, lingkaran3.getPos().Y + lingkaran3.getrady() * 3.25f, lingkaran3.getPos().Z + lingkaran3.getradz() * 10, lingkaran3.getradx() / 2, lingkaran3.getrady() / 2, lingkaran3.getradz() / 2, 1000, 1000);
             lingkaran5.load(sizeX, sizeY);
 
-            lingkaran6.createSphere(positionX - 0.4f, positionY + 0.5f, 0.92f, 0.05f, 0.05f, 0.05f, 1000, 1000);
+            lingkaran6.createSphere(lingkaran4.getPos().X - lingkaran4.getradx() * 1.5f, lingkaran4.getPos().Y + lingkaran4.getrady() * 3.25f, lingkaran4.getPos().Z + lingkaran4.getradz() * 10, lingkaran4.getradx() / 2, lingkaran4.getrady() / 2, lingkaran4.getradz() / 2, 1000, 1000);
             lingkaran6.load(sizeX, sizeY);
+
+            oval9.createSphere(balok1.getPos().X, balok1.getPos().Y, balok1.getPos().Z + balok1.getlenz() / 2, balok1.getlenx() / 25, balok1.getleny() / 25, balok1.getlenz() / 2, 1000, 1000);
+            oval9.load(sizeX, sizeY);
+
+            balok8.createCube(lingkaran1.getPos().X + lingkaran1.getradx(), lingkaran1.getPos().Y + lingkaran1.getrady() * 3.5f, lingkaran1.getPos().Z + lingkaran1.getradz() * 3.5f, lingkaran1.getradx() / 5, lingkaran1.getrady() / 3f, lingkaran1.getradz() / 2);
+            balok8.load(sizeX, sizeY);
+
+            balok9.createCube(lingkaran1.getPos().X + lingkaran1.getradx() / 2f, lingkaran1.getPos().Y + lingkaran1.getrady() * 3.4f, lingkaran1.getPos().Z + lingkaran1.getradz() * 3.5f, lingkaran1.getradx() / 5, lingkaran1.getrady() / 3f, lingkaran1.getradz() / 2);
+            balok9.load(sizeX, sizeY);
+            balok9.rotate(30, 'z');
+
+            balok10.createCube(lingkaran1.getPos().X + lingkaran1.getradx() * 1.5f, lingkaran1.getPos().Y + lingkaran1.getrady() * 3.4f, lingkaran1.getPos().Z + lingkaran1.getradz() * 3.5f, lingkaran1.getradx() / 5, lingkaran1.getrady() / 3f, lingkaran1.getradz() / 2);
+            balok10.load(sizeX, sizeY);
+            balok10.rotate(-30, 'z');
+
+            balok11.createCube(lingkaran2.getPos().X - lingkaran2.getradx(), lingkaran2.getPos().Y + lingkaran2.getrady() * 3.5f, lingkaran2.getPos().Z + lingkaran2.getradz() * 3.5f, lingkaran2.getradx() / 5, lingkaran2.getrady() / 3f, lingkaran2.getradz() / 2);
+            balok11.load(sizeX, sizeY);
+
+            balok12.createCube(lingkaran2.getPos().X - lingkaran2.getradx() / 2f, lingkaran2.getPos().Y + lingkaran2.getrady() * 3.4f, lingkaran2.getPos().Z + lingkaran2.getradz() * 3.5f, lingkaran2.getradx() / 5, lingkaran2.getrady() / 3f, lingkaran2.getradz() / 2);
+            balok12.load(sizeX, sizeY);
+            balok12.rotate(-30, 'z');
+
+            balok13.createCube(lingkaran2.getPos().X - lingkaran2.getradx() * 1.5f, lingkaran2.getPos().Y + lingkaran2.getrady() * 3.4f, lingkaran2.getPos().Z + lingkaran2.getradz() * 3.5f, lingkaran2.getradx() / 5, lingkaran2.getrady() / 3f, lingkaran2.getradz() / 2);
+            balok13.load(sizeX, sizeY);
+            balok13.rotate(30, 'z');
         }
 
         public void render(Camera _camera, double time)
@@ -205,47 +237,53 @@ namespace Project_UTS
             balok5.CameraMovement(_camera);
             balok5.render(time);
 
-            //tabung11.CameraMovement(_camera);
-            //tabung11.render(time);
+            oval1.render(time);
 
-            //tabung12.CameraMovement(_camera);
-            //tabung12.render(time);
+            oval2.render(time);
 
-            //tabung13.CameraMovement(_camera);
-            //tabung13.render(time);
+            oval3.render(time);
 
-            //tabung14.CameraMovement(_camera);
-            //tabung14.render(time);
+            oval4.render(time);
 
-            //tabung15.CameraMovement(_camera);
-            //tabung15.render(time);
+            oval5.render(time);
 
-            //tabung16.CameraMovement(_camera);
-            //tabung16.render(time);
+            oval6.render(time);
 
-            //tabung17.CameraMovement(_camera);
-            //tabung17.render(time);
+            oval7.render(time);
 
-            //tabung18.CameraMovement(_camera);
-            //tabung18.render(time);
+            oval8.render(time);
 
-            //balok6.CameraMovement(_camera);
-            //balok6.render(time);
+            balok6.CameraMovement(_camera);
+            balok6.render(time);
 
-            //balok7.CameraMovement(_camera);
-            //balok7.render(time);
+            balok7.CameraMovement(_camera);
+            balok7.render(time);
 
-            //lingkaran3.CameraMovement(_camera);
-            //lingkaran3.render(time);
+            lingkaran3.CameraMovement(_camera);
+            lingkaran3.render(time);
 
-            //lingkaran4.CameraMovement(_camera);
-            //lingkaran4.render(time);
+            lingkaran4.CameraMovement(_camera);
+            lingkaran4.render(time);
 
-            //lingkaran5.CameraMovement(_camera);
-            //lingkaran5.render(time);
+            lingkaran5.CameraMovement(_camera);
+            lingkaran5.render(time);
 
-            //lingkaran6.CameraMovement(_camera);
-            //lingkaran6.render(time);
+            lingkaran6.CameraMovement(_camera);
+            lingkaran6.render(time);
+
+            oval9.render(time);
+
+            balok8.render(time);
+
+            balok9.render(time);
+
+            balok10.render(time);
+
+            balok11.render(time);
+
+            balok12.render(time);
+
+            balok13.render(time);
         }
 
     }

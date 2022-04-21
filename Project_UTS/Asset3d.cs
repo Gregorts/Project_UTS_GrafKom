@@ -82,7 +82,7 @@ namespace Project_UTS
 
             _shader.SetVector3("objColor", color);
 
-            //model *= Matrix4.CreateRotationX((float)MathHelper.DegreesToRadians(time));
+            model *= Matrix4.CreateRotationY((float)MathHelper.DegreesToRadians(time));
 
             _shader.SetMatrix4("model", model);
             _shader.SetMatrix4("view", view);
