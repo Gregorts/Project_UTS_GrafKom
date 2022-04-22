@@ -45,7 +45,6 @@ namespace Project_UTS
             halflingkaran1.load(sizeX, sizeY);
             halflingkaran1.rotate(180, 'z');
 
-            //lingkaran1.createEllipsoid(0.2f, 1f, 1f, 0.2f, 0.3f, 0.2f);
             lingkaran1.createSphere(cone1.getPos().X + cone1.getrad() * 0.15f, cone1.getPos().Y + cone1.getheight() / 2, cone1.getPos().Z + cone1.getrad() / 2.5f, cone1.getrad() / 6, cone1.getrad() / 5, cone1.getrad() / 6, 1000, 1000);
             lingkaran1.load(sizeX, sizeY);
 
@@ -69,12 +68,10 @@ namespace Project_UTS
             cone4.createCone(tabung1.getPos().X + tabung1.getrad() * 2, tabung1.getPos().Y + tabung1.getheight() * 2.5f, tabung1.getPos().Z, tabung1.getrad()/1.5f, tabung1.getheight(), 10000);
             cone4.load(sizeX, sizeY);
             cone4.rotate(180, 'z');
-            Console.WriteLine("Tabung 1 PosX " + tabung1.getPos().X);
 
             cone5.createCone(tabung2.getPos().X - tabung2.getrad() * 4, tabung2.getPos().Y + tabung2.getheight() * 2.5f, tabung2.getPos().Z, tabung2.getrad() / 1.5f, tabung2.getheight(), 10000);
             cone5.load(sizeX, sizeY);
             cone5.rotate(180, 'z');
-            Console.WriteLine("Tabung 2 PosX " + tabung2.getPos().X);
 
             lingkaran3.createSphere(lingkaran1.getPos().X + lingkaran1.getradx() / 1.1f, lingkaran1.getPos().Y + lingkaran1.getrady() * 6f, lingkaran1.getPos().Z + lingkaran1.getradz() * 3.3f, lingkaran1.getradx() / 3, lingkaran1.getrady() / 4, lingkaran1.getradz() / 5, 1000, 1000);
             lingkaran3.load(sizeX, sizeY);
