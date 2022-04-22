@@ -95,37 +95,51 @@ namespace Project_UTS
             alis.load(sizeX, sizeY);
         }
 
-        public void render(Camera _camera, double time)
+        public void render(Camera _camera)
         {
             badan.CameraMovement(_camera);
-            badan.render(time);
+            badan.render();
 
             mata.CameraMovement(_camera);
-            mata.render(time);
+            mata.render();
 
             kornea.CameraMovement(_camera);
-            kornea.render(time);
+            kornea.render();
 
             kaki1.CameraMovement(_camera);
-            kaki1.render(time);
+            kaki1.render();
 
             kaki2.CameraMovement(_camera);
-            kaki2.render(time);
+            kaki2.render();
 
             tangan1.CameraMovement(_camera);
-            tangan1.render(time);
+            tangan1.render();
 
             tangan2.CameraMovement(_camera);
-            tangan2.render(time);
+            tangan2.render();
 
             antena1.CameraMovement(_camera);
-            antena1.render(time);
+            antena1.render();
 
             antena2.CameraMovement(_camera);
-            antena2.render(time);
+            antena2.render();
 
             alis.CameraMovement(_camera);
-            alis.render(time);
+            alis.render();
+        }
+
+        public void scale(float m)
+        {
+            badan.scale(m);
+            mata.scale(m);
+            kornea.scale(m);
+            kaki1.scale(m);
+            kaki2.scale(m);
+            tangan1.scale(m);
+            tangan2.scale(m);
+            antena1.scale(m);
+            antena2.scale(m);
+            alis.scale(m);
         }
     }
 }

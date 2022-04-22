@@ -1,4 +1,5 @@
-﻿using OpenTK.Mathematics;
+﻿using LearnOpenTK.Common;
+using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -80,20 +81,59 @@ namespace Project_UTS
             lingkaran4.load(sizeX, sizeY);
         }
 
-        public void render(double time)
+        public void render(Camera _camera)
         {
-            cone1.render(time);
-            halflingkaran1.render(time);
-            lingkaran1.render(time);
-            lingkaran2.render(time);
-            cone2.render(time);
-            cone3.render(time);
-            tabung1.render(time);
-            tabung2.render(time);
-            cone4.render(time);
-            cone5.render(time);
-            lingkaran3.render(time);
-            lingkaran4.render(time);
+            cone1.CameraMovement(_camera);
+            cone1.render();
+
+            halflingkaran1.CameraMovement(_camera);
+            halflingkaran1.render();
+
+            lingkaran1.CameraMovement(_camera);
+            lingkaran1.render();
+
+            lingkaran2.CameraMovement(_camera);
+            lingkaran2.render();
+
+            cone2.CameraMovement(_camera);
+            cone2.render();
+
+            cone3.CameraMovement(_camera);
+            cone3.render();
+
+            tabung1.CameraMovement(_camera);
+            tabung1.render();
+
+            tabung2.CameraMovement(_camera);
+            tabung2.render();
+
+            cone4.CameraMovement(_camera);
+            cone4.render();
+
+            cone5.CameraMovement(_camera);
+            cone5.render();
+
+            lingkaran3.CameraMovement(_camera);
+            lingkaran3.render();
+
+            lingkaran4.CameraMovement(_camera);
+            lingkaran4.render();
+        }
+
+        public void scale(float m)
+        {
+            cone1.scale(m);
+            halflingkaran1.scale(m);
+            lingkaran1.scale(m);
+            lingkaran2.scale(m);
+            cone2.scale(m);
+            cone3.scale(m);
+            tabung1.scale(m);
+            tabung2.scale(m);
+            cone4.scale(m);
+            cone5.scale(m);
+            lingkaran3.scale(m);
+            lingkaran4.scale(m);
         }
     }
 }

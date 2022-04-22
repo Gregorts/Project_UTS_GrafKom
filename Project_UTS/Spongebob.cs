@@ -184,107 +184,163 @@ namespace Project_UTS
             balok13.rotate(30, 'z');
         }
 
-        public void render(Camera _camera, double time)
+        public void render(Camera _camera)
         {
             balok1.CameraMovement(_camera);
-            balok1.render(time);
+            balok1.render();
 
             balok2.CameraMovement(_camera);
-            balok2.render(time);
+            balok2.render();
 
             balok3.CameraMovement(_camera);
-            balok3.render(time);
+            balok3.render();
 
             lingkaran1.CameraMovement(_camera);
-            lingkaran1.render(time);
+            lingkaran1.render();
 
             lingkaran2.CameraMovement(_camera);
-            lingkaran2.render(time);
+            lingkaran2.render();
 
             tabung1.CameraMovement(_camera);
-            tabung1.render(time);
+            tabung1.render();
 
             tabung2.CameraMovement(_camera);
-            tabung2.render(time);
+            tabung2.render();
 
             tabung3.CameraMovement(_camera);
-            tabung3.render(time);
+            tabung3.render();
 
             tabung4.CameraMovement(_camera);
-            tabung4.render(time);
+            tabung4.render();
 
             tabung5.CameraMovement(_camera);
-            tabung5.render(time);
+            tabung5.render();
 
             tabung6.CameraMovement(_camera);
-            tabung6.render(time);
+            tabung6.render();
 
             tabung7.CameraMovement(_camera);
-            tabung7.render(time);
+            tabung7.render();
 
             tabung8.CameraMovement(_camera);
-            tabung8.render(time);
+            tabung8.render();
 
             tabung9.CameraMovement(_camera);
-            tabung9.render(time);
+            tabung9.render();
 
             tabung10.CameraMovement(_camera);
-            tabung10.render(time);
+            tabung10.render();
 
             balok4.CameraMovement(_camera);
-            balok4.render(time);
+            balok4.render();
 
             balok5.CameraMovement(_camera);
-            balok5.render(time);
+            balok5.render();
 
-            oval1.render(time);
+            oval1.CameraMovement(_camera);
+            oval1.render();
 
-            oval2.render(time);
+            oval2.CameraMovement(_camera);
+            oval2.render();
 
-            oval3.render(time);
+            oval3.CameraMovement(_camera);
+            oval3.render();
 
-            oval4.render(time);
+            oval4.CameraMovement(_camera);
+            oval4.render();
 
-            oval5.render(time);
+            oval5.CameraMovement(_camera);
+            oval5.render();
 
-            oval6.render(time);
+            oval6.CameraMovement(_camera);
+            oval6.render();
 
-            oval7.render(time);
+            oval7.CameraMovement(_camera);
+            oval7.render();
 
-            oval8.render(time);
+            oval8.CameraMovement(_camera);
+            oval8.render();
 
             balok6.CameraMovement(_camera);
-            balok6.render(time);
+            balok6.render();
 
             balok7.CameraMovement(_camera);
-            balok7.render(time);
+            balok7.render();
 
             lingkaran3.CameraMovement(_camera);
-            lingkaran3.render(time);
+            lingkaran3.render();
 
             lingkaran4.CameraMovement(_camera);
-            lingkaran4.render(time);
+            lingkaran4.render();
 
             lingkaran5.CameraMovement(_camera);
-            lingkaran5.render(time);
+            lingkaran5.render();
 
             lingkaran6.CameraMovement(_camera);
-            lingkaran6.render(time);
+            lingkaran6.render();
 
-            oval9.render(time);
+            oval9.CameraMovement(_camera);
+            oval9.render();
 
-            balok8.render(time);
+            balok8.CameraMovement(_camera);
+            balok8.render();
 
-            balok9.render(time);
+            balok9.CameraMovement(_camera);
+            balok9.render();
 
-            balok10.render(time);
+            balok10.CameraMovement(_camera);
+            balok10.render();
 
-            balok11.render(time);
+            balok11.CameraMovement(_camera);
+            balok11.render();
 
-            balok12.render(time);
+            balok12.CameraMovement(_camera);
+            balok12.render();
 
-            balok13.render(time);
+            balok13.CameraMovement(_camera);
+            balok13.render();
         }
-
+        
+        public void scale(float m)
+        {
+            balok1.scale(m);
+            balok2.scale(m);
+            balok3.scale(m);
+            lingkaran1.scale(m);
+            lingkaran2.scale(m);
+            tabung1.scale(m);
+            tabung2.scale(m);
+            tabung3.scale(m);
+            tabung4.scale(m);
+            tabung5.scale(m);
+            tabung6.scale(m);
+            tabung7.scale(m);
+            tabung8.scale(m);
+            tabung9.scale(m);
+            tabung10.scale(m);
+            balok4.scale(m);
+            balok5.scale(m);
+            oval1.scale(m);
+            oval2.scale(m);
+            oval3.scale(m);
+            oval4.scale(m);
+            oval5.scale(m);
+            oval6.scale(m);
+            oval7.scale(m);
+            oval8.scale(m);
+            balok6.scale(m);
+            balok7.scale(m);
+            lingkaran3.scale(m);
+            lingkaran4.scale(m);
+            lingkaran5.scale(m);
+            lingkaran6.scale(m);
+            oval9.scale(m);
+            balok8.scale(m);
+            balok9.scale(m);
+            balok10.scale(m);
+            balok11.scale(m);
+            balok12.scale(m);
+            balok13.scale(m);
+        }
     }
 }

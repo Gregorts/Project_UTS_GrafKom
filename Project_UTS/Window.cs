@@ -15,7 +15,6 @@ namespace Project_UTS
     internal class Window : GameWindow
     {
         //List<Balok> objectList = new List<Balok>();
-        double time;
 
         Camera _camera;
 
@@ -23,8 +22,15 @@ namespace Project_UTS
         Patrick patrick = new Patrick();
         Plankton plankton = new Plankton();
 
+        private double time;
+        private double deltaTime;
+
+        private bool _firstMove = true;
+
         public Window(GameWindowSettings gameWindowSettings, NativeWindowSettings nativeWindowSettings) : base(gameWindowSettings, nativeWindowSettings)
         {
+            time = RenderTime;
+            deltaTime = 0;
         }
 
         protected override void OnLoad()
@@ -53,9 +59,9 @@ namespace Project_UTS
                 i.load(Size.X, Size.Y);
                 //i.rotate();
             }*/
-            plankton.load(Size.X, Size.Y);
+            //plankton.load(Size.X, Size.Y);
             //spongebob.load(Size.X, Size.Y);
-            //patrick.load(Size.X, Size.Y);
+            patrick.load(Size.X, Size.Y);
 
             _camera = new Camera(new Vector3(3.0f, 3.0f, 3.0f), Size.X / (float)Size.Y);
 
@@ -64,11 +70,14 @@ namespace Project_UTS
 
         protected override void OnRenderFrame(FrameEventArgs args)
         {
-            float time = (float)args.Time; //Deltatime ==> waktu antara frame sebelumnya ke frame berikutnya, gunakan untuk animasi
+            //float time = (float)args.Time; //Deltatime ==> waktu antara frame sebelumnya ke frame berikutnya, gunakan untuk animasi
 
-            GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit); // DepthBufferBit juga harus di clear karena kita memakai depth testing.
+            //time += 7.0f * (float)args.Time;
 
-            time += 7.0f * (float)args.Time;
+            deltaTime = RenderTime - time;
+            time = RenderTime;
+
+            GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
 
             /*foreach (Balok i in objectList)
             {
@@ -81,9 +90,9 @@ namespace Project_UTS
                 }*//*
             }*/
 
-            //spongebob.render(_camera, time);
-            //patrick.render(time);
-            plankton.render(_camera, time);
+            //spongebob.render(_camera);
+            patrick.render(_camera);
+            //plankton.render(_camera);
 
             SwapBuffers();
             base.OnRenderFrame(args);
@@ -91,7 +100,7 @@ namespace Project_UTS
 
         protected override void OnUpdateFrame(FrameEventArgs args)
         {
-            //KeyPress();
+            KeyPress();
             CameraMovement();
 
             base.OnUpdateFrame(args);
@@ -111,7 +120,8 @@ namespace Project_UTS
 
         protected void KeyPress()
         {
-            //float angle = 0.7f;
+            float angle = 0.7f;
+
             //if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad4))
             //{
             //    rotate(angle, 'y');
@@ -141,6 +151,16 @@ namespace Project_UTS
             //{
             //    rotate(-angle, 'z');
             //}
+
+            float m = 0.01f;
+            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.Up))
+            {
+                Scale(m);
+            }
+            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.Down))
+            {
+                Scale(-m);
+            }
         }
 
         protected void CameraMovement()
@@ -159,29 +179,36 @@ namespace Project_UTS
             }
             if (input.IsKeyDown(Keys.W))
             {
-                _camera.Position += _camera.Front * camera_speed * (float)RenderTime; // Forward
+                _camera.Position += _camera.Front * camera_speed * (float) RenderTime; // Forward
             }
 
             if (input.IsKeyDown(Keys.S))
             {
-                _camera.Position -= _camera.Front * camera_speed * (float)RenderTime; // Backwards
+                _camera.Position -= _camera.Front * camera_speed * (float) RenderTime; // Backwards
             }
             if (input.IsKeyDown(Keys.A))
             {
-                _camera.Position -= _camera.Right * camera_speed * (float)RenderTime; // Left
+                _camera.Position -= _camera.Right * camera_speed * (float) RenderTime; // Left
             }
             if (input.IsKeyDown(Keys.D))
             {
-                _camera.Position += _camera.Right * camera_speed * (float)RenderTime; // Right
+                _camera.Position += _camera.Right * camera_speed * (float) RenderTime; // Right
             }
             if (input.IsKeyDown(Keys.Space))
             {
-                _camera.Position += _camera.Up * camera_speed * (float)RenderTime; // Up
+                _camera.Position += _camera.Up * camera_speed * (float) RenderTime; // Up
             }
             if (input.IsKeyDown(Keys.LeftShift))
             {
                 _camera.Position -= _camera.Up * camera_speed * (float)RenderTime; // Down
             }
+        }
+
+        protected void Scale(float m)
+        {
+            spongebob.scale(m);
+            patrick.scale(m);
+            plankton.scale(m);
         }
     }
 }

@@ -32,6 +32,8 @@ namespace Project_UTS
         protected float posY;
         protected float posZ;
 
+        protected float _size = 1;
+
         //public List<Vector3> _euler = new List<Vector3>();  // Sudut lokal, relatif terhadap objek yang bersangkutan.
         //public Vector3 objectCenter = Vector3.Zero;         // Titik tengah objek
 
@@ -75,20 +77,20 @@ namespace Project_UTS
             }*/
         }
 
-        public void render(double time)
+        public void render()
         {
             _shader.Use();
-            GL.BindVertexArray(_vertexArrayObject);
+            
 
             _shader.SetVector3("objColor", color);
 
             //model *= Matrix4.CreateRotationY((float)MathHelper.DegreesToRadians(time));
 
             _shader.SetMatrix4("model", model);
-            _shader.SetMatrix4("view", view);
-            _shader.SetMatrix4("projection", projection);
 
             //GL.DrawArrays(PrimitiveType.LineStrip, 0, vertices.Count);
+
+            GL.BindVertexArray(_vertexArrayObject);
 
             if (indices.Count != 0)
             {
@@ -220,6 +222,31 @@ namespace Project_UTS
             _shader.SetMatrix4("projection", _camera.GetProjectionMatrix());
         }
 
+        public void scale(float m = 2)
+        {
+            if (m == 1)
+            {
+                model = model * Matrix4.CreateScale(1);
+                return;
+            }
+            model = model * Matrix4.CreateScale(_size + m * _size);
+            posX *= (_size + m * _size);
+            posY *= (_size + m * _size);
+            posZ *= (_size + m * _size);
+        }
+
+        //public void scale(float scaleX, float scaleY, float scaleZ)
+        //{
+        //    model *= Matrix4.CreateTranslation(-objectCenter);
+        //    model *= Matrix4.CreateScale(scaleX, scaleY, scaleZ);
+        //    model *= Matrix4.CreateTranslation(objectCenter);
+
+        //    foreach (var i in child)
+        //    {
+        //        i.scale(scaleX, scaleY, scaleZ);
+        //    }
+        //}
+
         //#region transforms
         /*public void rotate(Vector3 pivot, Vector3 vector, float angle)
         {
@@ -302,17 +329,7 @@ namespace Project_UTS
             }
         }
 
-        public void scale(float scaleX, float scaleY, float scaleZ)
-        {
-            model *= Matrix4.CreateTranslation(-objectCenter);
-            model *= Matrix4.CreateScale(scaleX, scaleY, scaleZ);
-            model *= Matrix4.CreateTranslation(objectCenter);
-
-            foreach (var i in child)
-            {
-                i.scale(scaleX, scaleY, scaleZ);
-            }
-        }
+        
         #endregion*/
     }
 }
