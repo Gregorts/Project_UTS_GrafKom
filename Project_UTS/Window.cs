@@ -120,7 +120,7 @@ namespace Project_UTS
 
         protected void KeyPress()
         {
-            float angle = 0.7f;
+            //float angle = 0.7f;
 
             //if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad4))
             //{
