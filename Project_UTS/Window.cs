@@ -21,6 +21,7 @@ namespace Project_UTS
 
         Spongebob spongebob = new Spongebob();
         Patrick patrick = new Patrick();
+        Plankton plankton = new Plankton();
 
         public Window(GameWindowSettings gameWindowSettings, NativeWindowSettings nativeWindowSettings) : base(gameWindowSettings, nativeWindowSettings)
         {
@@ -52,8 +53,9 @@ namespace Project_UTS
                 i.load(Size.X, Size.Y);
                 //i.rotate();
             }*/
-            spongebob.load(Size.X, Size.Y);
-            patrick.load(Size.X, Size.Y);
+            plankton.load(Size.X, Size.Y);
+            //spongebob.load(Size.X, Size.Y);
+            //patrick.load(Size.X, Size.Y);
 
             _camera = new Camera(new Vector3(3.0f, 3.0f, 3.0f), Size.X / (float)Size.Y);
 
@@ -79,8 +81,9 @@ namespace Project_UTS
                 }*//*
             }*/
 
-            spongebob.render(_camera, time);
+            //spongebob.render(_camera, time);
             //patrick.render(time);
+            plankton.render(_camera, time);
 
             SwapBuffers();
             base.OnRenderFrame(args);
