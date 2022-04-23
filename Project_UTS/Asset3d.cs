@@ -174,34 +174,26 @@ namespace Project_UTS
 
         public Vector3 getPos() { return new Vector3(posX, posY, posZ); }
 
-        public void rotate(float angle, char x)
+        public void rotate(float angle = 0.01f, char a = 'x')
         {
-            Vector4 pos = new Vector4(getPos());
+            switch (a)
+            {
+                case 'x': model = model * Matrix4.CreateRotationX(MathHelper.DegreesToRadians(angle)); break;
+                case 'y': model = model * Matrix4.CreateRotationY(MathHelper.DegreesToRadians(angle)); break;
+                case 'z': model = model * Matrix4.CreateRotationZ(MathHelper.DegreesToRadians(angle)); break;
+            }
 
-            if (x == 'x')
-            {
-                model *= Matrix4.CreateTranslation(-1 * posX, -1 * posY, -1 * posZ) * Matrix4.CreateRotationX(MathHelper.DegreesToRadians(angle)) * Matrix4.CreateTranslation(posX, posY, posZ);
+            //Console.WriteLine(transform);
+            //Console.WriteLine(" ");
 
-                pos = Matrix4.CreateTranslation(-1 * posX, -1 * posY, -1 * posZ) * Matrix4.CreateRotationX(MathHelper.DegreesToRadians(angle)) * Matrix4.CreateTranslation(posX, posY, posZ) * pos;
-                //model *= Matrix4.CreateRotationX(angle);
-            }
-            else if (x == 'y')
-            {
-                model *= Matrix4.CreateTranslation(-1 * posX, -1 * posY, -1 * posZ) * Matrix4.CreateRotationY(MathHelper.DegreesToRadians(angle)) * Matrix4.CreateTranslation(posX, posY, posZ);
-                pos = Matrix4.CreateTranslation(-1 * posX, -1 * posY, -1 * posZ) * Matrix4.CreateRotationY(MathHelper.DegreesToRadians(angle)) * Matrix4.CreateTranslation(posX, posY, posZ) * pos;
-            }
-            else if (x == 'z')
-            {
-                model *= Matrix4.CreateTranslation(-1 * posX, -1 * posY, -1 * posZ) * Matrix4.CreateRotationZ(MathHelper.DegreesToRadians(angle)) * Matrix4.CreateTranslation(posX, posY, posZ);
-                pos = Matrix4.CreateTranslation(-1 * posX, -1 * posY, -1 * posZ) * Matrix4.CreateRotationZ(MathHelper.DegreesToRadians(angle)) * Matrix4.CreateTranslation(posX, posY, posZ) * pos;
-                //model = model * Matrix4.CreateTranslation(-1 * posX, -1 * posY, -1 * posZ) * Matrix4.CreateRotationZ(MathHelper.DegreesToRadians(angle)) * Matrix4.CreateTranslation(posX, posY, posZ);
-            }
             Matrix4 data = new Matrix4(
                 posX, 0, 0, 0,
                 0, posY, 0, 0,
                 0, 0, posZ, 0,
                 0, 0, 0, 1);
+
             data = model * data;
+
             posX = data.M11;
             posY = data.M22;
             posZ = data.M33;

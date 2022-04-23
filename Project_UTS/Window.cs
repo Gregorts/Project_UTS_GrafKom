@@ -60,8 +60,8 @@ namespace Project_UTS
                 //i.rotate();
             }*/
             //plankton.load(Size.X, Size.Y);
-            //spongebob.load(Size.X, Size.Y);
-            patrick.load(Size.X, Size.Y);
+            spongebob.load(Size.X, Size.Y);
+            //patrick.load(Size.X, Size.Y);
 
             _camera = new Camera(new Vector3(3.0f, 3.0f, 3.0f), Size.X / (float)Size.Y);
 
@@ -90,8 +90,8 @@ namespace Project_UTS
                 }*//*
             }*/
 
-            //spongebob.render(_camera);
-            patrick.render(_camera);
+            spongebob.render(_camera);
+            //patrick.render(_camera);
             //plankton.render(_camera);
 
             SwapBuffers();
@@ -120,37 +120,37 @@ namespace Project_UTS
 
         protected void KeyPress()
         {
-            //float angle = 0.7f;
+            float angle = 0.7f;
 
-            //if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad4))
-            //{
-            //    rotate(angle, 'y');
+            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad4))
+            {
+                rotate(angle, 'y');
 
-            //}
-            //if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad6))
-            //{
-            //    rotate(-angle, 'y');
+            }
+            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad6))
+            {
+                rotate(-angle, 'y');
 
-            //}
+            }
 
-            //if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad8))
-            //{
-            //    rotate(angle, 'x');
+            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad8))
+            {
+                rotate(angle, 'x');
 
-            //}
-            //if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad2))
-            //{
-            //    rotate(-angle, 'x');
-            //}
+            }
+            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad2))
+            {
+                rotate(-angle, 'x');
+            }
 
-            //if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad7))
-            //{
-            //    rotate(angle, 'z');
-            //}
-            //if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad9))
-            //{
-            //    rotate(-angle, 'z');
-            //}
+            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad7))
+            {
+                rotate(angle, 'z');
+            }
+            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad9))
+            {
+                rotate(-angle, 'z');
+            }
 
             float m = 0.01f;
             if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.Up))
@@ -209,6 +209,14 @@ namespace Project_UTS
             spongebob.scale(m);
             patrick.scale(m);
             plankton.scale(m);
+        }
+
+        protected void rotate(float angle, char x)
+        {
+            spongebob.rotate(angle, x);
+            //patrick.rotate(angle, x);
+            //plankton.rotate(angle, x);
+
         }
     }
 }

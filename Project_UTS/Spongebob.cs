@@ -300,7 +300,49 @@ namespace Project_UTS
             balok13.CameraMovement(_camera);
             balok13.render();
         }
-        
+
+        public void rotate(float angle, char x)
+        {
+            balok1.rotate(angle, x);
+            balok2.rotate(angle, x);
+            balok3.rotate(angle, x);
+            lingkaran1.rotate(angle, x);
+            lingkaran2.rotate(angle, x);
+            tabung1.rotate(angle, x);
+            tabung2.rotate(angle, x);
+            tabung3.rotate(angle, x);
+            tabung4.rotate(angle, x);
+            tabung5.rotate(angle, x);
+            tabung6.rotate(angle, x);
+            tabung7.rotate(angle, x);
+            tabung8.rotate(angle, x);
+            tabung9.rotate(angle, x);
+            tabung10.rotate(angle, x);
+            balok4.rotate(angle, x);
+            balok5.rotate(angle, x);
+            oval1.rotate(angle, x);
+            oval2.rotate(angle, x);
+            oval3.rotate(angle, x);
+            oval4.rotate(angle, x);
+            oval5.rotate(angle, x);
+            oval6.rotate(angle, x);
+            oval7.rotate(angle, x);
+            oval8.rotate(angle, x);
+            balok6.rotate(angle, x);
+            balok7.rotate(angle, x);
+            lingkaran3.rotate(angle, x);
+            lingkaran4.rotate(angle, x);
+            lingkaran5.rotate(angle, x);
+            lingkaran6.rotate(angle, x);
+            oval9.rotate(angle, x);
+            balok8.rotate(angle, x);
+            balok9.rotate(angle, x);
+            balok10.rotate(angle, x);
+            balok11.rotate(angle, x);
+            balok12.rotate(angle, x);
+            balok13.rotate(angle, x);
+        }
+
         public void scale(float m)
         {
             balok1.scale(m);
