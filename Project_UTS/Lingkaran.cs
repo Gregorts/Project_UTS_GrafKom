@@ -59,6 +59,10 @@ namespace Project_UTS
                 }
             }
 
+            posX = objectCenter.X;
+            posY = objectCenter.Y;
+            posZ = objectCenter.Z;
+
             uint k1, k2;
             for (int i = 0; i < stackCount; ++i)
             {
@@ -116,6 +120,10 @@ namespace Project_UTS
                     vertices.Add(temp_vector);
                 }
             }
+
+            posX = objectCenter.X;
+            posY = objectCenter.Y;
+            posZ = objectCenter.Z;
 
             uint k1, k2;
             for (int i = 0; i < stackCount; ++i)

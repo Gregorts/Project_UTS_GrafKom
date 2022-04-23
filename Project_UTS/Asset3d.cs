@@ -20,6 +20,10 @@ namespace Project_UTS
         protected int _vertexArrayObject;
         protected int _elementBufferObject;
 
+        protected float[] _vertexBezier = new float [9];
+        protected int _index;
+        protected int[] _pascal;
+
         protected Shader _shader;
 
         protected Matrix4 model = Matrix4.Identity;   // Model Matrix      ==> Matrix ini yang akan berubah saat terjadi transformasi
@@ -172,6 +176,63 @@ namespace Project_UTS
 
         #endregion*/
 
+        public void AddPosition(float _x, float _y, float _z)
+        {
+            _vertexBezier[_index * 3] = _x;
+            _vertexBezier[_index * 3 + 1] = _y;
+            _vertexBezier[_index * 3 + 2] = _z;
+            _index++;
+
+            GL.BufferData(BufferTarget.ArrayBuffer, _vertexBezier.Length * sizeof(float), _vertexBezier, BufferUsageHint.StaticDraw);
+            GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 3 * sizeof(float), 0);
+        }
+
+        public List<int> getRow(int rowIndex)
+        {
+            List<int> currow = new List<int>();
+            //------
+            currow.Add(1);
+            if (rowIndex == 0)
+            {
+                return currow;
+            }
+            //-----
+            List<int> prev = getRow(rowIndex - 1);
+            for (int i = 1; i < prev.Count; i++)
+            {
+                int curr = prev[i - 1] + prev[i];
+                currow.Add(curr);
+            }
+            currow.Add(1);
+            return currow;
+        }
+
+        public void createCurveBezier()
+        {
+            List<int> pascal = getRow(_index - 1);
+
+            _pascal = pascal.ToArray();
+            for (float t = 0; t <= 1.0f; t += 0.01f)
+            {
+                Vector3 p = getP(_index, t);
+                vertices.Add(p);
+            }
+        }
+
+        public Vector3 getP(int n, float t)
+        {
+            Vector3 p = new Vector3(0, 0, 0);
+            float k;
+            for (int i = 0; i < n; i++)
+            {
+                k = (float)Math.Pow((1 - t), n - 1 - i) * (float)Math.Pow(t, i) * _pascal[i];
+                p.X += k * _vertexBezier[i * 3];
+                p.Y += k * _vertexBezier[i * 3 + 1];
+                p.Z += k * _vertexBezier[i * 3 + 2];
+            }
+            return p;
+        }
+
         public Vector3 getPos() { return new Vector3(posX, posY, posZ); }
 
         public void rotate(float angle = 0.01f, char a = 'x')
@@ -182,10 +243,6 @@ namespace Project_UTS
                 case 'y': model = model * Matrix4.CreateRotationY(MathHelper.DegreesToRadians(angle)); break;
                 case 'z': model = model * Matrix4.CreateRotationZ(MathHelper.DegreesToRadians(angle)); break;
             }
-
-            //Console.WriteLine(transform);
-            //Console.WriteLine(" ");
-
             Matrix4 data = new Matrix4(
                 posX, 0, 0, 0,
                 0, posY, 0, 0,
@@ -197,6 +254,32 @@ namespace Project_UTS
             posX = data.M11;
             posY = data.M22;
             posZ = data.M33;
+        }
+
+        public void rotatecenter(float angle = 0.01f, char a = 'x')
+        {
+            Vector4 pos = new Vector4(getPos());
+            switch (a)
+            {
+                case 'x':
+                    model = model * Matrix4.CreateTranslation(-1 * posX, -1 * posY, -1 * posZ) * Matrix4.CreateRotationX(MathHelper.DegreesToRadians(angle)) * Matrix4.CreateTranslation(posX, posY, posZ);
+
+                    pos = Matrix4.CreateTranslation(-1 * posX, -1 * posY, -1 * posZ) * Matrix4.CreateRotationX(MathHelper.DegreesToRadians(angle)) * Matrix4.CreateTranslation(posX, posY, posZ) * pos;
+
+                    break;
+                case 'y':
+                    model = model * Matrix4.CreateTranslation(-1 * posX, -1 * posY, -1 * posZ) * Matrix4.CreateRotationY(MathHelper.DegreesToRadians(angle)) * Matrix4.CreateTranslation(posX, posY, posZ);
+
+                    pos = Matrix4.CreateTranslation(-1 * posX, -1 * posY, -1 * posZ) * Matrix4.CreateRotationY(MathHelper.DegreesToRadians(angle)) * Matrix4.CreateTranslation(posX, posY, posZ) * pos;
+
+                    break;
+                case 'z':
+                    model = model * Matrix4.CreateTranslation(-1 * posX, -1 * posY, -1 * posZ) * Matrix4.CreateRotationZ(MathHelper.DegreesToRadians(angle)) * Matrix4.CreateTranslation(posX, posY, posZ);
+
+                    pos = Matrix4.CreateTranslation(-1 * posX, -1 * posY, -1 * posZ) * Matrix4.CreateRotationZ(MathHelper.DegreesToRadians(angle)) * Matrix4.CreateTranslation(posX, posY, posZ) * pos;
+
+                    break;
+            }
         }
 
         public void animation(double time)

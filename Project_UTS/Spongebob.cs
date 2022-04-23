@@ -16,8 +16,9 @@ namespace Project_UTS
         protected Lingkaran lingkaran1, lingkaran2, lingkaran3, lingkaran4, lingkaran5, lingkaran6;
         protected Lingkaran oval1, oval2, oval3, oval4, oval5, oval6, oval7, oval8, oval9;
         protected Tabung tabung1, tabung2, tabung3, tabung4, tabung5, tabung6, tabung7, tabung8, tabung9, tabung10;
+        protected Asset3d curva;
 
-        public Spongebob(float posX = 2f, float posY = 0.5f, float posZ = 0f)
+        public Spongebob(float posX = 1f, float posY = 0.5f, float posZ = 0f)
         {
             positionX = posX;
             positionY = posY;
@@ -61,6 +62,7 @@ namespace Project_UTS
             balok11 = new Balok(new Vector3(0, 0, 0), new Vector3(positionX, positionY, positionZ));
             balok12 = new Balok(new Vector3(0, 0, 0), new Vector3(positionX, positionY, positionZ));
             balok13 = new Balok(new Vector3(0, 0, 0), new Vector3(positionX, positionY, positionZ));
+            curva = new Balok(new Vector3(1.0f, 0.9f, 0.4f), new Vector3(positionX, positionY, positionZ));
         }
 
         public void load(int sizeX, int sizeY)
@@ -74,7 +76,6 @@ namespace Project_UTS
             balok3.createCube(balok2.getPos().X, balok2.getPos().Y - balok2.getleny() / 2, balok2.getPos().Z, balok2.getlenx(), balok2.getleny(), balok2.getlenz());
             balok3.load(sizeX, sizeY);
 
-            Console.WriteLine(lingkaran1.getPos().X);
             lingkaran1.createSphere(balok1.getPos().X + balok1.getlenx() / 6, balok1.getPos().Y + balok1.getleny() / 5, balok1.getPos().Z + balok1.getlenz() / 2, balok1.getlenx() / 6, balok1.getleny() / 6, balok1.getlenz() / 7, 1000, 1000);
             lingkaran1.load(sizeX, sizeY);
 
@@ -147,42 +148,51 @@ namespace Project_UTS
             balok7.createCube(tabung10.getPos().X - tabung10.getrad() / 1.5f, tabung10.getPos().Y - tabung10.getheight(), tabung10.getPos().Z + tabung10.getrad() * 3, tabung10.getrad() * 5, tabung10.getheight() / 2f, tabung10.getrad() * 12);
             balok7.load(sizeX, sizeY);
 
-            lingkaran3.createSphere(lingkaran1.getPos().X + lingkaran1.getradx() * 0.75f, lingkaran1.getPos().Y + lingkaran1.getrady() * 2.1f, lingkaran1.getPos().Z + lingkaran1.getradz() * 4.5f, lingkaran1.getradx() / 2f, lingkaran1.getrady() / 2f, lingkaran1.getradz() / 2, 1000, 1000);
+            lingkaran3.createSphere(lingkaran1.getPos().X, lingkaran1.getPos().Y, lingkaran1.getPos().Z + lingkaran1.getradz() / 1.5f, lingkaran1.getradx() / 2f, lingkaran1.getrady() / 2f, lingkaran1.getradz() / 2, 1000, 1000);
             lingkaran3.load(sizeX, sizeY);
 
-            lingkaran4.createSphere(lingkaran2.getPos().X - lingkaran2.getradx() * 0.75f, lingkaran2.getPos().Y + lingkaran2.getrady() * 2.1f, lingkaran2.getPos().Z + lingkaran2.getradz() * 4.5f, lingkaran2.getradx() / 2f, lingkaran2.getrady() / 2f, lingkaran2.getradz() / 2, 1000, 1000);
+            lingkaran4.createSphere(lingkaran2.getPos().X, lingkaran2.getPos().Y, lingkaran2.getPos().Z + lingkaran2.getradz() / 1.5f, lingkaran2.getradx() / 2f, lingkaran2.getrady() / 2f, lingkaran2.getradz() / 2, 1000, 1000);
             lingkaran4.load(sizeX, sizeY);
 
-            lingkaran5.createSphere(lingkaran3.getPos().X + lingkaran3.getradx() * 1.5f, lingkaran3.getPos().Y + lingkaran3.getrady() * 3.25f, lingkaran3.getPos().Z + lingkaran3.getradz() * 10, lingkaran3.getradx() / 2, lingkaran3.getrady() / 2, lingkaran3.getradz() / 2, 1000, 1000);
+            lingkaran5.createSphere(lingkaran3.getPos().X, lingkaran3.getPos().Y, lingkaran3.getPos().Z + lingkaran3.getradz(), lingkaran3.getradx() / 2, lingkaran3.getrady() / 2, lingkaran3.getradz() / 2, 1000, 1000);
             lingkaran5.load(sizeX, sizeY);
 
-            lingkaran6.createSphere(lingkaran4.getPos().X - lingkaran4.getradx() * 1.5f, lingkaran4.getPos().Y + lingkaran4.getrady() * 3.25f, lingkaran4.getPos().Z + lingkaran4.getradz() * 10, lingkaran4.getradx() / 2, lingkaran4.getrady() / 2, lingkaran4.getradz() / 2, 1000, 1000);
+            lingkaran6.createSphere(lingkaran4.getPos().X, lingkaran4.getPos().Y, lingkaran4.getPos().Z + lingkaran4.getradz(), lingkaran4.getradx() / 2, lingkaran4.getrady() / 2, lingkaran4.getradz() / 2, 1000, 1000);
             lingkaran6.load(sizeX, sizeY);
 
             oval9.createSphere(balok1.getPos().X, balok1.getPos().Y, balok1.getPos().Z + balok1.getlenz() / 2, balok1.getlenx() / 25, balok1.getleny() / 25, balok1.getlenz() / 2, 1000, 1000);
             oval9.load(sizeX, sizeY);
 
-            balok8.createCube(lingkaran1.getPos().X + lingkaran1.getradx(), lingkaran1.getPos().Y + lingkaran1.getrady() * 3.5f, lingkaran1.getPos().Z + lingkaran1.getradz() * 3.5f, lingkaran1.getradx() / 5, lingkaran1.getrady() / 3f, lingkaran1.getradz() / 2);
+            balok8.createCube(lingkaran1.getPos().X, lingkaran1.getPos().Y + lingkaran1.getrady() * 1.25f, lingkaran1.getPos().Z, lingkaran1.getradx() / 5, lingkaran1.getrady() / 3f, lingkaran1.getradz() / 2);
             balok8.load(sizeX, sizeY);
 
-            balok9.createCube(lingkaran1.getPos().X + lingkaran1.getradx() * 1.6f, lingkaran1.getPos().Y + lingkaran1.getrady() * 2.85f, lingkaran1.getPos().Z + lingkaran1.getradz() * 3.5f, lingkaran1.getradx() / 5, lingkaran1.getrady() / 3f, lingkaran1.getradz() / 2);
+            balok9.createCube(lingkaran1.getPos().X - lingkaran1.getradx() / 2, lingkaran1.getPos().Y + lingkaran1.getrady() * 1.15f, lingkaran1.getPos().Z, lingkaran1.getradx() / 5, lingkaran1.getrady() / 3f, lingkaran1.getradz() / 2);
             balok9.load(sizeX, sizeY);
-            balok9.rotate(30, 'z');
+            balok9.rotatecenter(30, 'z');
 
-            balok10.createCube(lingkaran1.getPos().X + lingkaran1.getradx() / 7f, lingkaran1.getPos().Y + lingkaran1.getrady() * 3.85f, lingkaran1.getPos().Z + lingkaran1.getradz() * 3.5f, lingkaran1.getradx() / 5, lingkaran1.getrady() / 3f, lingkaran1.getradz() / 2);
+            balok10.createCube(lingkaran1.getPos().X + lingkaran1.getradx() / 2, lingkaran1.getPos().Y + lingkaran1.getrady() * 1.15f, lingkaran1.getPos().Z, lingkaran1.getradx() / 5, lingkaran1.getrady() / 3f, lingkaran1.getradz() / 2);
             balok10.load(sizeX, sizeY);
-            balok10.rotate(-30, 'z');
+            balok10.rotatecenter(-30, 'z');
 
-            balok11.createCube(lingkaran2.getPos().X - lingkaran2.getradx(), lingkaran2.getPos().Y + lingkaran2.getrady() * 3.5f, lingkaran2.getPos().Z + lingkaran2.getradz() * 3.5f, lingkaran2.getradx() / 5, lingkaran2.getrady() / 3f, lingkaran2.getradz() / 2);
+            balok11.createCube(lingkaran2.getPos().X, lingkaran2.getPos().Y + lingkaran2.getrady() * 1.25f, lingkaran2.getPos().Z, lingkaran2.getradx() / 5, lingkaran2.getrady() / 3f, lingkaran2.getradz() / 2);
             balok11.load(sizeX, sizeY);
 
-            balok12.createCube(lingkaran2.getPos().X - lingkaran2.getradx() * 1.6f, lingkaran2.getPos().Y + lingkaran2.getrady() * 2.85f, lingkaran2.getPos().Z + lingkaran2.getradz() * 3.5f, lingkaran2.getradx() / 5, lingkaran2.getrady() / 3f, lingkaran2.getradz() / 2);
+            balok12.createCube(lingkaran2.getPos().X + lingkaran2.getradx() / 2f, lingkaran2.getPos().Y + lingkaran2.getrady() * 1.15f, lingkaran2.getPos().Z, lingkaran2.getradx() / 5, lingkaran2.getrady() / 3f, lingkaran2.getradz() / 2);
             balok12.load(sizeX, sizeY);
-            balok12.rotate(-30, 'z');
+            balok12.rotatecenter(-30, 'z');
 
-            balok13.createCube(lingkaran2.getPos().X - lingkaran2.getradx() / 7f, lingkaran2.getPos().Y + lingkaran2.getrady() * 3.85f, lingkaran2.getPos().Z + lingkaran2.getradz() * 3.5f, lingkaran2.getradx() / 5, lingkaran2.getrady() / 3f, lingkaran2.getradz() / 2);
+            balok13.createCube(lingkaran2.getPos().X - lingkaran1.getradx() / 2f, lingkaran2.getPos().Y + lingkaran2.getrady() * 1.15f, lingkaran2.getPos().Z, lingkaran2.getradx() / 5, lingkaran2.getrady() / 3f, lingkaran2.getradz() / 2);
             balok13.load(sizeX, sizeY);
-            balok13.rotate(30, 'z');
+            balok13.rotatecenter(30, 'z');
+
+            /*curva.AddPosition(balok1.getPos().X, balok1.getPos().Y, balok1.getPos().Z + balok1.getlenz());
+            curva.AddPosition(balok1.getPos().X + balok1.getlenx() / 2, balok1.getPos().Y + balok1.getleny(), balok1.getPos().Z + balok1.getlenz());
+            curva.AddPosition(balok1.getPos().X + balok1.getlenx(), balok1.getPos().Y, balok1.getPos().Z + balok1.getlenz());*/
+            /*curva.AddPosition(2.1f, 0.4f, 0.4f);
+            curva.AddPosition(2f, 0.5f, 0.4f);
+            curva.AddPosition(1.9f, 0.4f, 0.4f);
+            curva.createCurveBezier();
+            curva.load(sizeX, sizeY);*/
         }
 
         public void render(Camera _camera)
@@ -300,6 +310,8 @@ namespace Project_UTS
 
             balok13.CameraMovement(_camera);
             balok13.render();
+
+            //curva.render();
         }
 
         public void rotate(float angle, char x)

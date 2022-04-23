@@ -64,7 +64,7 @@ namespace Project_UTS
             //patrick.load(Size.X, Size.Y);
 
             //plankton.scale(3f);
-            //spongebob.scale(1.2f);
+            spongebob.scale(1.2f);
             //patrick.scale(0.6f);
 
             _camera = new Camera(new Vector3(3.0f, 3.0f, 3.0f), Size.X / (float)Size.Y);
@@ -124,37 +124,37 @@ namespace Project_UTS
 
         protected void KeyPress()
         {
-            float angle = 0.7f;
+            float angle = 1f;
 
-            //if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad4))
-            //{
-            //    rotate(angle, 'y');
+            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad4))
+            {
+                rotate(angle, 'y');
 
-            //}
-            //if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad6))
-            //{
-            //    rotate(-angle, 'y');
+            }
+            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad6))
+            {
+                rotate(-angle, 'y');
 
-            //}
+            }
 
-            //if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad8))
-            //{
-            //    rotate(angle, 'x');
+            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad8))
+            {
+                rotate(angle, 'x');
 
-            //}
-            //if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad2))
-            //{
-            //    rotate(-angle, 'x');
-            //}
+            }
+            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad2))
+            {
+                rotate(-angle, 'x');
+            }
 
-            //if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad7))
-            //{
-            //    rotate(angle, 'z');
-            //}
-            //if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad9))
-            //{
-            //    rotate(-angle, 'z');
-            //}
+            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad7))
+            {
+                rotate(angle, 'z');
+            }
+            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad9))
+            {
+                rotate(-angle, 'z');
+            }
 
             float m = 0.01f;
             if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.Up))
