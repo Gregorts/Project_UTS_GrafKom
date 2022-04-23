@@ -164,22 +164,22 @@ namespace Project_UTS
             balok8.createCube(lingkaran1.getPos().X + lingkaran1.getradx(), lingkaran1.getPos().Y + lingkaran1.getrady() * 3.5f, lingkaran1.getPos().Z + lingkaran1.getradz() * 3.5f, lingkaran1.getradx() / 5, lingkaran1.getrady() / 3f, lingkaran1.getradz() / 2);
             balok8.load(sizeX, sizeY);
 
-            balok9.createCube(lingkaran1.getPos().X + lingkaran1.getradx() / 2f, lingkaran1.getPos().Y + lingkaran1.getrady() * 3.4f, lingkaran1.getPos().Z + lingkaran1.getradz() * 3.5f, lingkaran1.getradx() / 5, lingkaran1.getrady() / 3f, lingkaran1.getradz() / 2);
+            balok9.createCube(lingkaran1.getPos().X + lingkaran1.getradx() * 1.6f, lingkaran1.getPos().Y + lingkaran1.getrady() * 2.85f, lingkaran1.getPos().Z + lingkaran1.getradz() * 3.5f, lingkaran1.getradx() / 5, lingkaran1.getrady() / 3f, lingkaran1.getradz() / 2);
             balok9.load(sizeX, sizeY);
             balok9.rotate(30, 'z');
 
-            balok10.createCube(lingkaran1.getPos().X + lingkaran1.getradx() * 1.5f, lingkaran1.getPos().Y + lingkaran1.getrady() * 3.4f, lingkaran1.getPos().Z + lingkaran1.getradz() * 3.5f, lingkaran1.getradx() / 5, lingkaran1.getrady() / 3f, lingkaran1.getradz() / 2);
+            balok10.createCube(lingkaran1.getPos().X + lingkaran1.getradx() / 7f, lingkaran1.getPos().Y + lingkaran1.getrady() * 3.85f, lingkaran1.getPos().Z + lingkaran1.getradz() * 3.5f, lingkaran1.getradx() / 5, lingkaran1.getrady() / 3f, lingkaran1.getradz() / 2);
             balok10.load(sizeX, sizeY);
             balok10.rotate(-30, 'z');
 
             balok11.createCube(lingkaran2.getPos().X - lingkaran2.getradx(), lingkaran2.getPos().Y + lingkaran2.getrady() * 3.5f, lingkaran2.getPos().Z + lingkaran2.getradz() * 3.5f, lingkaran2.getradx() / 5, lingkaran2.getrady() / 3f, lingkaran2.getradz() / 2);
             balok11.load(sizeX, sizeY);
 
-            balok12.createCube(lingkaran2.getPos().X - lingkaran2.getradx() / 2f, lingkaran2.getPos().Y + lingkaran2.getrady() * 3.4f, lingkaran2.getPos().Z + lingkaran2.getradz() * 3.5f, lingkaran2.getradx() / 5, lingkaran2.getrady() / 3f, lingkaran2.getradz() / 2);
+            balok12.createCube(lingkaran2.getPos().X - lingkaran2.getradx() * 1.6f, lingkaran2.getPos().Y + lingkaran2.getrady() * 2.85f, lingkaran2.getPos().Z + lingkaran2.getradz() * 3.5f, lingkaran2.getradx() / 5, lingkaran2.getrady() / 3f, lingkaran2.getradz() / 2);
             balok12.load(sizeX, sizeY);
             balok12.rotate(-30, 'z');
 
-            balok13.createCube(lingkaran2.getPos().X - lingkaran2.getradx() * 1.5f, lingkaran2.getPos().Y + lingkaran2.getrady() * 3.4f, lingkaran2.getPos().Z + lingkaran2.getradz() * 3.5f, lingkaran2.getradx() / 5, lingkaran2.getrady() / 3f, lingkaran2.getradz() / 2);
+            balok13.createCube(lingkaran2.getPos().X - lingkaran2.getradx() / 7f, lingkaran2.getPos().Y + lingkaran2.getrady() * 3.85f, lingkaran2.getPos().Z + lingkaran2.getradz() * 3.5f, lingkaran2.getradx() / 5, lingkaran2.getrady() / 3f, lingkaran2.getradz() / 2);
             balok13.load(sizeX, sizeY);
             balok13.rotate(30, 'z');
         }
