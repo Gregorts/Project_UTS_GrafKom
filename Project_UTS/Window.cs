@@ -18,7 +18,7 @@ namespace Project_UTS
 
         Camera _camera;
 
-        Spongebob spongebob = new Spongebob();
+        Spongebob spongebob = new Spongebob(5f, 0f, 0f);
         Patrick patrick = new Patrick();
         Plankton plankton = new Plankton();
 
@@ -61,10 +61,10 @@ namespace Project_UTS
             }*/
             //plankton.load(Size.X, Size.Y);
             spongebob.load(Size.X, Size.Y);
-            //patrick.load(Size.X, Size.Y);
+            patrick.load(Size.X, Size.Y);
 
             //plankton.scale(3f);
-            spongebob.scale(1.2f);
+            //spongebob.scale(1.2f);
             //patrick.scale(0.6f);
 
             _camera = new Camera(new Vector3(3.0f, 3.0f, 3.0f), Size.X / (float)Size.Y);
@@ -95,7 +95,7 @@ namespace Project_UTS
             }*/
 
             spongebob.render(_camera);
-            //patrick.render(_camera);
+            patrick.render(_camera);
             //plankton.render(_camera);
 
             SwapBuffers();
