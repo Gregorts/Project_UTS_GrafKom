@@ -282,10 +282,52 @@ namespace Project_UTS
             }
         }
 
+        public void rotatepoint(float angle = 90f, char a = 'y', Vector3 pos = new Vector3())
+        {
+            //Console.WriteLine(pos);
+            Vector3 temp = new Vector3();
+            switch (a)
+            {
+                case 'x':
+                    model = model * Matrix4.CreateTranslation(1 * pos.X, 1 * pos.Y, 1 * pos.Z) * Matrix4.CreateRotationX(MathHelper.DegreesToRadians(angle)) * Matrix4.CreateTranslation(-pos.X, -pos.Y, -pos.Z);
+
+                    temp.X = posX;
+                    temp.Y = (float)Math.Cos(angle) * (pos.Y) - (float)Math.Sin(angle) * (pos.Z) + (posY - pos.Y);
+                    temp.Z = (float)Math.Sin(angle) * (pos.Y) + (float)Math.Cos(angle) * (pos.Z) + (posZ - pos.Z);
+
+                break;
+                case 'y':
+                    model = model * Matrix4.CreateTranslation(1 * pos.X, 1 * pos.Y, 1 * pos.Z) * Matrix4.CreateRotationY(MathHelper.DegreesToRadians(angle)) * Matrix4.CreateTranslation(-pos.X, -pos.Y, -pos.Z);
+
+                    temp = pos;
+
+                    temp.X = (float)Math.Cos(angle) * pos.Y - (float)Math.Sin(angle) * pos.Z;
+                    temp.Z = (float)Math.Sin(angle) * pos.Y + (float)Math.Cos(angle) * pos.Z;
+
+                    temp.X += (pos.X - posX);
+                    temp.Y += (pos.Y - posY);
+                    temp.Z += (pos.Z - posZ);
+
+                    //temp.X = (float)Math.Cos(angle) * (   pos.X) - (float)Math.Sin(angle) * ( pos.Z) + (_positionX - pos.X);
+                    //temp.Y = _positionY;
+                    //temp.Z = (float)Math.Sin(angle) * (   pos.X) + (float)Math.Cos(angle) * ( pos.Z) + (_positionZ - pos.Z);
+
+                break;
+                case 'z':
+                    model = model * Matrix4.CreateTranslation(1 * pos.X, 1 * pos.Y, 1 * pos.Z) * Matrix4.CreateRotationZ(MathHelper.DegreesToRadians(angle)) * Matrix4.CreateTranslation(-pos.X, -pos.Y, -pos.Z);
+
+                    temp.X = (float)Math.Cos(angle) * (pos.X) - (float)Math.Sin(angle) * (pos.Y) + (posX - pos.X);
+                    temp.Y = (float)Math.Sin(angle) * (pos.X) + (float)Math.Cos(angle) * (pos.Y) + (posY - pos.Y);
+                    temp.Z = posZ;
+
+                    break;
+            }
+        }
+
         public void animation(double time)
         {
             model *= Matrix4.CreateRotationY((float)MathHelper.DegreesToRadians(time));
-            Console.WriteLine(posX);
+            //Console.WriteLine(posX);
         }
 
         public void CameraMovement(Camera _camera)

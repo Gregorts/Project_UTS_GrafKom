@@ -42,9 +42,9 @@ namespace Project_UTS
             cone1.createCone(positionX, positionY, positionZ, 1.5f, 4f, 10000);
             cone1.load(sizeX, sizeY);
 
-            halflingkaran1.createHalfSphere(cone1.getPos().X * cone1.getheight() / -cone1.getheight(), cone1.getPos().Y * cone1.getheight() / -cone1.getheight(), cone1.getPos().Z, cone1.getrad(), cone1.getrad(), cone1.getrad(), 1000, 1000);
+            halflingkaran1.createHalfSphere(cone1.getPos().X, cone1.getPos().Y, cone1.getPos().Z, cone1.getrad(), cone1.getrad(), cone1.getrad(), 1000, 1000);
             halflingkaran1.load(sizeX, sizeY);
-            halflingkaran1.rotate(180, 'z');
+            halflingkaran1.rotatecenter(180, 'z');
 
             lingkaran1.createSphere(cone1.getPos().X + cone1.getrad() * 0.15f, cone1.getPos().Y + cone1.getheight() / 2, cone1.getPos().Z + cone1.getrad() / 2.5f, cone1.getrad() / 6, cone1.getrad() / 5, cone1.getrad() / 6, 1000, 1000);
             lingkaran1.load(sizeX, sizeY);
@@ -52,32 +52,32 @@ namespace Project_UTS
             lingkaran2.createSphere(cone1.getPos().X - cone1.getrad() * 0.15f, cone1.getPos().Y + cone1.getheight() / 2, cone1.getPos().Z + cone1.getrad() / 2.5f, cone1.getrad() / 6, cone1.getrad() / 5, cone1.getrad() / 6, 1000, 1000);
             lingkaran2.load(sizeX, sizeY);
 
-            cone2.createCone(cone1.getPos().X, cone1.getPos().Y + cone1.getheight() / 4, cone1.getPos().Z, cone1.getrad() / 3, cone1.getheight() / 2.5f, 10000);
+            cone2.createCone(cone1.getPos().X - cone1.getrad() / 2f, cone1.getPos().Y + cone1.getheight() / 4, cone1.getPos().Z, cone1.getrad() / 3, cone1.getheight() / 2.5f, 10000);
             cone2.load(sizeX, sizeY);
-            cone2.rotate(45, 'z');
+            cone2.rotatecenter(45, 'z');
 
-            cone3.createCone(cone1.getPos().X, cone1.getPos().Y + cone1.getheight() / 4, cone1.getPos().Z, cone1.getrad() / 3, cone1.getheight() / 2.5f, 10000);
+            cone3.createCone(cone1.getPos().X + cone1.getrad() / 2f, cone1.getPos().Y + cone1.getheight() / 4, cone1.getPos().Z, cone1.getrad() / 3, cone1.getheight() / 2.5f, 10000);
             cone3.load(sizeX, sizeY);
-            cone3.rotate(-45, 'z');
+            cone3.rotatecenter(-45, 'z');
 
-            tabung1.createTube(halflingkaran1.getPos().X - halflingkaran1.getradx() / 2f, halflingkaran1.getPos().Y - halflingkaran1.getrady() * 1.5f, cone1.getPos().Z, 100, halflingkaran1.getradx() / 3, halflingkaran1.getrady() / 1.5f);
+            tabung1.createTube(halflingkaran1.getPos().X - halflingkaran1.getradx() / 2f, halflingkaran1.getPos().Y - halflingkaran1.getrady() * 1.25f, halflingkaran1.getPos().Z, 100, halflingkaran1.getradx() / 3, halflingkaran1.getrady() / 1.5f);
             tabung1.load(sizeX, sizeY);
             
-            tabung2.createTube(halflingkaran1.getPos().X + halflingkaran1.getradx() / 2f, halflingkaran1.getPos().Y - halflingkaran1.getrady() * 1.5f, cone1.getPos().Z, 100, halflingkaran1.getradx() / 3, halflingkaran1.getrady() / 1.5f);
+            tabung2.createTube(halflingkaran1.getPos().X + halflingkaran1.getradx() / 2f, halflingkaran1.getPos().Y - halflingkaran1.getrady() * 1.25f, halflingkaran1.getPos().Z, 100, halflingkaran1.getradx() / 3, halflingkaran1.getrady() / 1.5f);
             tabung2.load(sizeX, sizeY);
 
-            cone4.createCone(tabung1.getPos().X + tabung1.getrad() * 2, tabung1.getPos().Y + tabung1.getheight() * 2.5f, tabung1.getPos().Z, tabung1.getrad()/1.5f, tabung1.getheight(), 10000);
+            cone4.createCone(tabung1.getPos().X - tabung1.getrad(), tabung1.getPos().Y - tabung1.getheight(), tabung1.getPos().Z, tabung1.getrad() / 1.5f, tabung1.getheight(), 10000);
             cone4.load(sizeX, sizeY);
-            cone4.rotate(180, 'z');
+            cone4.rotatecenter(180, 'z');
 
-            cone5.createCone(tabung2.getPos().X - tabung2.getrad() * 4, tabung2.getPos().Y + tabung2.getheight() * 2.5f, tabung2.getPos().Z, tabung2.getrad() / 1.5f, tabung2.getheight(), 10000);
+            cone5.createCone(tabung2.getPos().X - tabung2.getrad(), tabung2.getPos().Y - tabung2.getheight(), tabung2.getPos().Z, tabung2.getrad() / 1.5f, tabung2.getheight(), 10000);
             cone5.load(sizeX, sizeY);
-            cone5.rotate(180, 'z');
+            cone5.rotatecenter(180, 'z');
 
-            lingkaran3.createSphere(lingkaran1.getPos().X + lingkaran1.getradx() / 1.1f, lingkaran1.getPos().Y + lingkaran1.getrady() * 6f, lingkaran1.getPos().Z + lingkaran1.getradz() * 3.3f, lingkaran1.getradx() / 3, lingkaran1.getrady() / 4, lingkaran1.getradz() / 5, 1000, 1000);
+            lingkaran3.createSphere(lingkaran1.getPos().X, lingkaran1.getPos().Y, lingkaran1.getPos().Z + lingkaran1.getradz(), lingkaran1.getradx() / 3, lingkaran1.getrady() / 4, lingkaran1.getradz() / 5, 1000, 1000);
             lingkaran3.load(sizeX, sizeY);
 
-            lingkaran4.createSphere(lingkaran2.getPos().X - lingkaran2.getradx() / 1.1f, lingkaran1.getPos().Y + lingkaran1.getrady() * 6f, lingkaran1.getPos().Z + lingkaran1.getradz() * 3.3f, lingkaran2.getradx() / 3, lingkaran2.getrady() / 4, lingkaran2.getradz() / 5, 1000, 1000);
+            lingkaran4.createSphere(lingkaran2.getPos().X, lingkaran1.getPos().Y, lingkaran1.getPos().Z + lingkaran1.getradz(), lingkaran2.getradx() / 3, lingkaran2.getrady() / 4, lingkaran2.getradz() / 5, 1000, 1000);
             lingkaran4.load(sizeX, sizeY);
         }
 

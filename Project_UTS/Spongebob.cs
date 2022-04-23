@@ -359,6 +359,48 @@ namespace Project_UTS
             balok12.rotate(angle, x);
             balok13.rotate(angle, x);
         }
+        
+        public void rotatepoint(float angle, char x, Vector3 pos)
+        {
+            balok1.rotatepoint(angle, x);
+            balok2.rotatepoint(angle, x);
+            balok3.rotatepoint(angle, x);
+            lingkaran1.rotatepoint(angle, x);
+            lingkaran2.rotatepoint(angle, x);
+            tabung1.rotatepoint(angle, x);
+            tabung2.rotatepoint(angle, x);
+            tabung3.rotatepoint(angle, x);
+            tabung4.rotatepoint(angle, x);
+            tabung5.rotatepoint(angle, x);
+            tabung6.rotatepoint(angle, x);
+            tabung7.rotatepoint(angle, x);
+            tabung8.rotatepoint(angle, x);
+            tabung9.rotatepoint(angle, x);
+            tabung10.rotatepoint(angle, x);
+            balok4.rotatepoint(angle, x);
+            balok5.rotatepoint(angle, x);
+            oval1.rotatepoint(angle, x);
+            oval2.rotatepoint(angle, x);
+            oval3.rotatepoint(angle, x);
+            oval4.rotatepoint(angle, x);
+            oval5.rotatepoint(angle, x);
+            oval6.rotatepoint(angle, x);
+            oval7.rotatepoint(angle, x);
+            oval8.rotatepoint(angle, x);
+            balok6.rotatepoint(angle, x);
+            balok7.rotatepoint(angle, x);
+            lingkaran3.rotatepoint(angle, x);
+            lingkaran4.rotatepoint(angle, x);
+            lingkaran5.rotatepoint(angle, x);
+            lingkaran6.rotatepoint(angle, x);
+            oval9.rotatepoint(angle, x);
+            balok8.rotatepoint(angle, x);
+            balok9.rotatepoint(angle, x);
+            balok10.rotatepoint(angle, x);
+            balok11.rotatepoint(angle, x);
+            balok12.rotatepoint(angle, x);
+            balok13.rotatepoint(angle, x);
+        }
 
         public void scale(float m)
         {
@@ -402,11 +444,48 @@ namespace Project_UTS
             balok13.scale(m);
         }
 
-        public void animate()
+        public void animate(double time)
         {
+            balok1.animation(time);
+            balok2.animation(time);
+            balok3.animation(time);
+            lingkaran1.animation(time);
+            lingkaran2.animation(time);
+            tabung1.animation(time);
+            tabung2.animation(time);
+            tabung3.animation(time);
+            tabung4.animation(time);
+            tabung5.animation(time);
+            tabung6.animation(time);
+            tabung7.animation(time);
+            tabung8.animation(time);
+            tabung9.animation(time);
+            tabung10.animation(time);
+            balok4.animation(time);
+            balok5.animation(time);
+            oval1.animation(time);
+            oval2.animation(time);
+            oval3.animation(time);
+            oval4.animation(time);
+            oval5.animation(time);
+            oval6.animation(time);
+            oval7.animation(time);
+            oval8.animation(time);
+            balok6.animation(time);
+            balok7.animation(time);
+            lingkaran3.animation(time);
+            lingkaran4.animation(time);
+            lingkaran5.animation(time);
+            lingkaran6.animation(time);
+            oval9.animation(time);
+            balok8.animation(time);
+            balok9.animation(time);
+            balok10.animation(time);
+            balok11.animation(time);
+            balok12.animation(time);
+            balok13.animation(time);
 
-
-            switch (animate_number)
+            /*switch (animate_number)
             {
                 case 0:
                     //Console.WriteLine(plank.getPosY() + " " + (box1.getPosY() + box1.getLengthX()));
@@ -501,7 +580,8 @@ namespace Project_UTS
                     break;
 
                 default: break;
-            }
+            }*/
         }
+        public Vector3 getPos() { return new Vector3(positionX, positionY, positionZ); }
     }
 }

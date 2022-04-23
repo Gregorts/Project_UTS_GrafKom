@@ -60,38 +60,37 @@ namespace Project_UTS
             badan.createSphere(positionX, positionY, positionZ, 1f, 2f, 1f, 1000, 1000);
             badan.load(sizeX, sizeY);
 
-            mata.createSphere(badan.getPos().X, badan.getPos().Y + badan.getrady() * 1.25f, badan.getPos().Z + badan.getradz() / 1.75f, badan.getradx() / 2.5f, badan.getrady() / 4f, badan.getradz() / 2f, 1000, 1000);
+            mata.createSphere(badan.getPos().X, badan.getPos().Y + badan.getrady() / 4, badan.getPos().Z + badan.getradz() / 1.5f, badan.getradx() / 2.5f, badan.getrady() / 4f, badan.getradz() / 2f, 1000, 1000);
             mata.load(sizeX, sizeY);
-            Console.WriteLine(mata.getPos().X);
 
-            kornea.createSphere(mata.getPos().X, mata.getPos().Y + mata.getrady() * 2.1f, mata.getPos().Z + mata.getradz() * 2, mata.getradx() / 3f, mata.getrady() / 3f, mata.getradz() / 3f, 1000, 1000);
+            kornea.createSphere(mata.getPos().X, mata.getPos().Y, mata.getPos().Z + mata.getradz() / 1.25f, mata.getradx() / 3f, mata.getrady() / 3f, mata.getradz() / 3f, 1000, 1000);
             kornea.load(sizeX, sizeY);
 
-            kaki1.createCone(badan.getPos().X + badan.getradx() / 2, badan.getPos().Y + badan.getrady() * 1.65f, badan.getPos().Z, badan.getradx() / 5, badan.getrady() / 2, 10000);
+            kaki1.createCone(badan.getPos().X - badan.getradx() / 2, badan.getPos().Y - badan.getrady() / 1.5f, badan.getPos().Z, badan.getradx() / 5, badan.getrady() / 1.5f, 10000);
             kaki1.load(sizeX, sizeY);
-            kaki1.rotate(180, 'z');
+            kaki1.rotatecenter(180, 'z');
 
-            kaki2.createCone(badan.getPos().X - badan.getradx() / 2, badan.getPos().Y + badan.getrady() * 1.65f, badan.getPos().Z, badan.getradx() / 5, badan.getrady() / 2, 10000);
+            kaki2.createCone(badan.getPos().X + badan.getradx() / 2, badan.getPos().Y - badan.getrady() / 1.5f, badan.getPos().Z, badan.getradx() / 5, badan.getrady() / 1.5f, 10000);
             kaki2.load(sizeX, sizeY);
-            kaki2.rotate(180, 'z');
+            kaki2.rotatecenter(180, 'z');
 
-            tangan1.createCone(badan.getPos().X - badan.getradx(), badan.getPos().Y + badan.getrady(), badan.getPos().Z, badan.getradx() / 5, badan.getrady() * 0.75f, 10000);
+            tangan1.createCone(badan.getPos().X - badan.getradx() / 1.5f, badan.getPos().Y, badan.getPos().Z, badan.getradx() / 5, badan.getrady() * 0.75f, 10000);
             tangan1.load(sizeX, sizeY);
-            tangan1.rotate(45, 'z');
+            tangan1.rotatecenter(45, 'z');
 
-            tangan2.createCone(badan.getPos().X + badan.getradx(), badan.getPos().Y + badan.getrady(), badan.getPos().Z, badan.getradx() / 5, badan.getrady() * 0.75f, 10000);
+            tangan2.createCone(badan.getPos().X + badan.getradx() / 1.5f, badan.getPos().Y, badan.getPos().Z, badan.getradx() / 5, badan.getrady() * 0.75f, 10000);
             tangan2.load(sizeX, sizeY);
-            tangan2.rotate(-45, 'z');
+            tangan2.rotatecenter(-45, 'z');
 
-            antena1.createCube(badan.getPos().X - badan.getradx() / 2, badan.getPos().Y + badan.getrady() * 2f, badan.getPos().Z, badan.getradx() / 10, badan.getrady() * 0.75f, badan.getradz() / 10);
+            antena1.createCube(badan.getPos().X - badan.getradx() / 1.5f, badan.getPos().Y + badan.getrady(), badan.getPos().Z, badan.getradx() / 10, badan.getrady() * 0.75f, badan.getradz() / 10);
             antena1.load(sizeX, sizeY);
-            antena1.rotate(30, 'z');
+            antena1.rotatecenter(30, 'z');
 
-            antena2.createCube(badan.getPos().X + badan.getradx() / 2, badan.getPos().Y + badan.getrady() * 2f, badan.getPos().Z, badan.getradx() / 10, badan.getrady() * 0.75f, badan.getradz() / 10);
+            antena2.createCube(badan.getPos().X + badan.getradx() / 1.5f, badan.getPos().Y + badan.getrady(), badan.getPos().Z, badan.getradx() / 10, badan.getrady() * 0.75f, badan.getradz() / 10);
             antena2.load(sizeX, sizeY);
-            antena2.rotate(-30, 'z');
+            antena2.rotatecenter(-30, 'z');
 
-            alis.createCube(mata.getPos().X, mata.getPos().Y + mata.getrady() * 2.75f, mata.getPos().Z + mata.getrady() * 1.75f, mata.getradx() * 1.75f, mata.getrady() / 4, mata.getradz() / 2);
+            alis.createCube(mata.getPos().X, mata.getPos().Y + mata.getrady() * 0.85f, mata.getPos().Z + mata.getrady() * 0.25f, mata.getradx() * 1.75f, mata.getrady() / 3f, mata.getradz());
             alis.load(sizeX, sizeY);
         }
 

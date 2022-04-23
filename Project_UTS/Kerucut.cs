@@ -44,6 +44,9 @@ namespace Project_UTS
                 vertices.Add(temp_vector);
                 angle += sliceArc;
             }
+            posX = _x;
+            posY = _y;
+            posZ = _z;
             //GL.DrawArrays(PrimitiveType.TriangleFan, 30, vertices.Count);
 
         }
