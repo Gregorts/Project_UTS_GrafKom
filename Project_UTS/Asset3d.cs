@@ -310,6 +310,52 @@ namespace Project_UTS
             posZ *= (_size + m * _size);
         }
 
+        public void translate(float length, char x)
+        {
+            Vector3 _translate = new Vector3();
+            switch (x)
+            {
+                case 'a':
+                    _translate.X = -length;
+                    _translate.Y = 0;
+                    _translate.Z = 0; break;
+                case 'w':
+                    _translate.X = 0;
+                    _translate.Y = 0;
+                    _translate.Z = -length; break;
+                case 's':
+                    _translate.X = 0;
+                    _translate.Y = 0;
+                    _translate.Z = length; break;
+                case 'd':
+                    _translate.X = length;
+                    _translate.Y = 0;
+                    _translate.Z = 0; break;
+
+                case 'x':
+                    _translate.X = length;
+                    _translate.Y = 0;
+                    _translate.Z = 0; break;
+
+                case 'y':
+                    _translate.X = 0;
+                    _translate.Y = length;
+                    _translate.Z = 0; break;
+
+                case 'z':
+                    _translate.X = 0;
+                    _translate.Y = 0;
+                    _translate.Z = length; break;
+
+            }
+
+            model = model * Matrix4.CreateTranslation(_translate);
+
+            posX += _translate.X;
+            posY += _translate.Y;
+            posZ += _translate.Z;
+        }
+
         //public void scale(float scaleX, float scaleY, float scaleZ)
         //{
         //    model *= Matrix4.CreateTranslation(-objectCenter);

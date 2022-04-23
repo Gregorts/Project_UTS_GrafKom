@@ -22,6 +22,8 @@ namespace Project_UTS
         Patrick patrick = new Patrick();
         Plankton plankton = new Plankton();
 
+        bool animation = false;
+
         private double time;
         private double deltaTime;
 
@@ -93,6 +95,11 @@ namespace Project_UTS
                     j.rotate(Vector3.Zero, Vector3.UnitY, 720 * time);
                 }*//*
             }*/
+
+            if (animation)
+            {
+
+            }
 
             spongebob.render(_camera);
             patrick.render(_camera);

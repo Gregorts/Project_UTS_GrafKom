@@ -18,6 +18,10 @@ namespace Project_UTS
         protected Tabung tabung1, tabung2, tabung3, tabung4, tabung5, tabung6, tabung7, tabung8, tabung9, tabung10;
         protected Asset3d curva;
 
+        int animate_number;
+        float angle = 0;
+        float counter = 0;
+
         public Spongebob(float posX = 1f, float posY = 0.5f, float posZ = 0f)
         {
             positionX = posX;
@@ -396,6 +400,108 @@ namespace Project_UTS
             balok11.scale(m);
             balok12.scale(m);
             balok13.scale(m);
+        }
+
+        public void animate()
+        {
+
+
+            switch (animate_number)
+            {
+                case 0:
+                    //Console.WriteLine(plank.getPosY() + " " + (box1.getPosY() + box1.getLengthX()));
+                    balok1.translate(0.01f, 'y');
+                    if (balok1.getPos().Y >= box1.getPosY() + box1.getLengthX() - 0.05f)
+                    {
+                        animate_number++;
+                        plank.translate(0f, 'y');
+                    }
+                    break;
+
+                case 1:
+                    //Console.WriteLine(plank.getPosY() + " " + (box1.getPosY() + box1.getLengthX()));
+                    plank.translate(-0.01f, 'y');
+                    if (plank.getPosY() <= box1.getPosY())
+                    {
+                        animate_number++;
+                        plank.translate(0f, 'y');
+                    }
+                    break;
+                case 2:
+                    //Console.WriteLine(plank.getPosY() + " " + (box1.getPosY() + box1.getLengthX()));
+                    plank.translate(0.01f, 'y');
+                    if (plank.getPosY() >= box1.getPosY() + box1.getLengthX() - 0.05f)
+                    {
+                        animate_number++;
+                        plank.translate(0f, 'y');
+                    }
+                    break;
+
+                case 3:
+                    //Console.WriteLine(plank.getPosY() + " " + (box1.getPosY() + box1.getLengthX()));
+                    plank.translate(-0.01f, 'y');
+                    if (plank.getPosY() <= box1.getPosY())
+                    {
+                        animate_number++;
+                        plank.translate(0f, 'y');
+                    }
+                    break;
+                case 4:
+
+                    if (angle <= 10 && angle >= 0)
+                    {
+                        translate(-0.1f, 'z');
+                    }
+                    else if (angle >= 80 && angle <= 100)
+                    {
+                        translate(-0.1f, 'x');
+
+                    }
+                    else if (angle >= 170 && angle <= 190)
+                    {
+
+                        translate(0.1f, 'z');
+
+                    }
+                    else if (angle >= 260 && angle <= 280)
+                    {
+                        translate(0.1f, 'x');
+                    }
+
+                    counter += 0.1f;
+                    if (counter >= 10f)
+                    {
+                        animate_number++;
+                        counter = 0;
+
+                    }
+                    break;
+                case 5:
+                    rotatecenter(1f, 'y');
+                    angle += 1f;
+
+                    if (angle >= 360f)
+                    {
+                        angle = 0;
+                        animate_number = 0;
+                    }
+                    else if (angle >= 90f && angle < 90.5f)
+                    {
+                        animate_number = 0;
+                    }
+                    else if (angle >= 180f && angle < 180.5f)
+                    {
+                        animate_number = 0;
+                    }
+                    else if (angle >= 270f && angle < 270.5f)
+                    {
+                        animate_number = 0;
+                    }
+                    Console.WriteLine(angle);
+                    break;
+
+                default: break;
+            }
         }
     }
 }
