@@ -120,6 +120,22 @@ namespace Project_UTS
             lingkaran4.render();
         }
 
+        public void rotate(float angle, char x)
+        {
+            cone1.rotate(angle, x);
+            halflingkaran1.rotate(angle, x);
+            lingkaran1.rotate(angle, x);
+            lingkaran2.rotate(angle, x);
+            cone2.rotate(angle, x);
+            cone3.rotate(angle, x);
+            tabung1.rotate(angle, x);
+            tabung2.rotate(angle, x);
+            cone4.rotate(angle, x);
+            cone5.rotate(angle, x);
+            lingkaran3.rotate(angle, x);
+            lingkaran4.rotate(angle, x);
+        }
+
         public void scale(float m)
         {
             cone1.scale(m);

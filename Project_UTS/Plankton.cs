@@ -128,6 +128,20 @@ namespace Project_UTS
             alis.render();
         }
 
+        public void rotate(float angle, char x)
+        {
+            badan.rotate(angle, x);
+            mata.rotate(angle, x);
+            kornea.rotate(angle, x);
+            kaki1.rotate(angle, x);
+            kaki2.rotate(angle, x);
+            tangan1.rotate(angle, x);
+            tangan2.rotate(angle, x);
+            antena1.rotate(angle, x);
+            antena2.rotate(angle, x);
+            alis.rotate(angle, x);
+        }
+
         public void scale(float m)
         {
             badan.scale(m);

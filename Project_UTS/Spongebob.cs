@@ -17,7 +17,7 @@ namespace Project_UTS
         protected Lingkaran oval1, oval2, oval3, oval4, oval5, oval6, oval7, oval8, oval9;
         protected Tabung tabung1, tabung2, tabung3, tabung4, tabung5, tabung6, tabung7, tabung8, tabung9, tabung10;
 
-        public Spongebob(float posX = 0f, float posY = 0f, float posZ = 0f)
+        public Spongebob(float posX = 2f, float posY = 0.5f, float posZ = 0f)
         {
             positionX = posX;
             positionY = posY;
@@ -74,6 +74,7 @@ namespace Project_UTS
             balok3.createCube(balok2.getPos().X, balok2.getPos().Y - balok2.getleny() / 2, balok2.getPos().Z, balok2.getlenx(), balok2.getleny(), balok2.getlenz());
             balok3.load(sizeX, sizeY);
 
+            Console.WriteLine(lingkaran1.getPos().X);
             lingkaran1.createSphere(balok1.getPos().X + balok1.getlenx() / 6, balok1.getPos().Y + balok1.getleny() / 5, balok1.getPos().Z + balok1.getlenz() / 2, balok1.getlenx() / 6, balok1.getleny() / 6, balok1.getlenz() / 7, 1000, 1000);
             lingkaran1.load(sizeX, sizeY);
 

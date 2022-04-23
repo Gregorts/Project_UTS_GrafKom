@@ -63,6 +63,10 @@ namespace Project_UTS
             spongebob.load(Size.X, Size.Y);
             //patrick.load(Size.X, Size.Y);
 
+            //plankton.scale(3f);
+            //spongebob.scale(1.2f);
+            //patrick.scale(0.6f);
+
             _camera = new Camera(new Vector3(3.0f, 3.0f, 3.0f), Size.X / (float)Size.Y);
 
             base.OnLoad();
@@ -122,35 +126,35 @@ namespace Project_UTS
         {
             float angle = 0.7f;
 
-            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad4))
-            {
-                rotate(angle, 'y');
+            //if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad4))
+            //{
+            //    rotate(angle, 'y');
 
-            }
-            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad6))
-            {
-                rotate(-angle, 'y');
+            //}
+            //if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad6))
+            //{
+            //    rotate(-angle, 'y');
 
-            }
+            //}
 
-            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad8))
-            {
-                rotate(angle, 'x');
+            //if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad8))
+            //{
+            //    rotate(angle, 'x');
 
-            }
-            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad2))
-            {
-                rotate(-angle, 'x');
-            }
+            //}
+            //if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad2))
+            //{
+            //    rotate(-angle, 'x');
+            //}
 
-            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad7))
-            {
-                rotate(angle, 'z');
-            }
-            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad9))
-            {
-                rotate(-angle, 'z');
-            }
+            //if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad7))
+            //{
+            //    rotate(angle, 'z');
+            //}
+            //if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad9))
+            //{
+            //    rotate(-angle, 'z');
+            //}
 
             float m = 0.01f;
             if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.Up))
@@ -214,8 +218,8 @@ namespace Project_UTS
         protected void rotate(float angle, char x)
         {
             spongebob.rotate(angle, x);
-            //patrick.rotate(angle, x);
-            //plankton.rotate(angle, x);
+            patrick.rotate(angle, x);
+            plankton.rotate(angle, x);
 
         }
     }
