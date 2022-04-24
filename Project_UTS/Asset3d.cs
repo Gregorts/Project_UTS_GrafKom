@@ -42,9 +42,9 @@ namespace Project_UTS
         public Asset3d(Vector3 color, Vector3 pos)
         {
             this.color = color;
-            this.posX = pos.X;
-            this.posY = pos.Y;
-            this.posZ = pos.Z;
+            posX = pos.X;
+            posY = pos.Y;
+            posZ = pos.Z;
             /*_euler.Add(Vector3.UnitX); // Masukkan sudut Euler di Constructor.
             _euler.Add(Vector3.UnitY);
             _euler.Add(Vector3.UnitZ);*/

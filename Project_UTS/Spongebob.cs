@@ -16,11 +16,11 @@ namespace Project_UTS
         protected Lingkaran lingkaran1, lingkaran2, lingkaran3, lingkaran4, lingkaran5, lingkaran6;
         protected Lingkaran oval1, oval2, oval3, oval4, oval5, oval6, oval7, oval8, oval9;
         protected Tabung tabung1, tabung2, tabung3, tabung4, tabung5, tabung6, tabung7, tabung8, tabung9, tabung10;
-        protected Asset3d curva;
+        protected Curva curva;
 
-        int animate_number;
-        float angle = 0;
-        float counter = 0;
+        //int animate_number;
+        //float angle = 0;
+        //float counter = 0;
 
         public Spongebob(float posX = 1f, float posY = 0.5f, float posZ = 0f)
         {
@@ -59,14 +59,15 @@ namespace Project_UTS
             lingkaran4 = new Lingkaran(new Vector3(0.15f, 0.72f, 0.78f), new Vector3(positionX, positionY, positionZ));
             lingkaran5 = new Lingkaran(new Vector3(0, 0, 0), new Vector3(positionX, positionY, positionZ));
             lingkaran6 = new Lingkaran(new Vector3(0, 0, 0), new Vector3(positionX, positionY, positionZ));
-            oval9 = new Lingkaran(new Vector3(1.0f, 0.9f, 0.4f), new Vector3(positionX, positionY, positionZ));
+            oval9 = new Lingkaran(new Vector3(1.0f, 0.93f, 0.4f), new Vector3(positionX, positionY, positionZ));
             balok8 = new Balok(new Vector3(0, 0, 0), new Vector3(positionX, positionY, positionZ));
             balok9 = new Balok(new Vector3(0, 0, 0), new Vector3(positionX, positionY, positionZ));
             balok10 = new Balok(new Vector3(0, 0, 0), new Vector3(positionX, positionY, positionZ));
             balok11 = new Balok(new Vector3(0, 0, 0), new Vector3(positionX, positionY, positionZ));
             balok12 = new Balok(new Vector3(0, 0, 0), new Vector3(positionX, positionY, positionZ));
             balok13 = new Balok(new Vector3(0, 0, 0), new Vector3(positionX, positionY, positionZ));
-            curva = new Balok(new Vector3(1.0f, 0.9f, 0.4f), new Vector3(positionX, positionY, positionZ));
+            
+            curva = new Curva(new Vector3(0f, 0f, 0f), new Vector3(positionX, positionY, positionZ));
         }
 
         public void load(int sizeX, int sizeY)
@@ -189,14 +190,11 @@ namespace Project_UTS
             balok13.load(sizeX, sizeY);
             balok13.rotatecenter(30, 'z');
 
-            /*curva.AddPosition(balok1.getPos().X, balok1.getPos().Y, balok1.getPos().Z + balok1.getlenz());
-            curva.AddPosition(balok1.getPos().X + balok1.getlenx() / 2, balok1.getPos().Y + balok1.getleny(), balok1.getPos().Z + balok1.getlenz());
-            curva.AddPosition(balok1.getPos().X + balok1.getlenx(), balok1.getPos().Y, balok1.getPos().Z + balok1.getlenz());*/
-            /*curva.AddPosition(2.1f, 0.4f, 0.4f);
-            curva.AddPosition(2f, 0.5f, 0.4f);
-            curva.AddPosition(1.9f, 0.4f, 0.4f);
-            curva.createCurveBezier();
-            curva.load(sizeX, sizeY);*/
+            curva.createEllipsoidVertices(balok1.getPos().X, balok1.getPos().Y - balok1.getleny() / 4.5f, balok1.getPos().Z + balok1.getlenz() / 1.95f, balok1.getlenx() / 30, balok1.getleny() / 2, 0f, 0.5f);
+            curva.load(sizeX, sizeY);
+            curva.rotatecenter(90, 'x');
+            curva.rotatecenter(180, 'y');
+            curva.rotatecenter(90, 'z');
         }
 
         public void render(Camera _camera)
@@ -315,7 +313,8 @@ namespace Project_UTS
             balok13.CameraMovement(_camera);
             balok13.render();
 
-            //curva.render();
+            curva.CameraMovement(_camera);
+            curva.render();
         }
 
         public void rotate(float angle, char x)
@@ -358,6 +357,8 @@ namespace Project_UTS
             balok11.rotate(angle, x);
             balok12.rotate(angle, x);
             balok13.rotate(angle, x);
+            
+            curva.rotate(angle, x);
         }
         
         public void rotatepoint(float angle, char x, Vector3 pos)
@@ -400,6 +401,8 @@ namespace Project_UTS
             balok11.rotatepoint(angle, x);
             balok12.rotatepoint(angle, x);
             balok13.rotatepoint(angle, x);
+
+            curva.rotatepoint(angle, x);
         }
 
         public void scale(float m)
@@ -442,6 +445,8 @@ namespace Project_UTS
             balok11.scale(m);
             balok12.scale(m);
             balok13.scale(m);
+
+            curva.scale(m);
         }
 
         public void animate(double time)
@@ -484,6 +489,8 @@ namespace Project_UTS
             balok11.animation(time);
             balok12.animation(time);
             balok13.animation(time);
+
+            curva.animation(time);
 
             /*switch (animate_number)
             {
@@ -582,6 +589,7 @@ namespace Project_UTS
                 default: break;
             }*/
         }
+
         public Vector3 getPos() { return new Vector3(positionX, positionY, positionZ); }
     }
 }

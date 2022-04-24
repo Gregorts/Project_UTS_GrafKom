@@ -19,9 +19,6 @@ namespace Project_UTS
         protected Lingkaran mata, kornea;
 
         // kaki
-        protected Tabung kt1, kt2; 
-        protected Lingkaran ko1, ko2;
-
         protected Kerucut kaki1, kaki2;
 
         // tangan
@@ -32,6 +29,9 @@ namespace Project_UTS
 
         // alis
         protected Balok alis;
+
+        // mulut
+        protected Curva mulut;
 
         public Plankton(float posX = 0f, float posY = 0f, float posZ = 0f)
         {
@@ -53,6 +53,8 @@ namespace Project_UTS
             antena2 = new Balok(new Vector3(0.25f, 0.51f, 0.42f), new Vector3(positionX, positionY, positionZ));
 
             alis = new Balok(new Vector3(0f, 0f, 0f), new Vector3(positionX, positionY, positionZ));
+
+            mulut = new Curva(new Vector3(0f, 0f, 0f), new Vector3(positionX, positionY, positionZ));
         }
 
         public void load(int sizeX, int sizeY)
@@ -92,6 +94,12 @@ namespace Project_UTS
 
             alis.createCube(mata.getPos().X, mata.getPos().Y + mata.getrady() * 0.85f, mata.getPos().Z + mata.getrady() * 0.25f, mata.getradx() * 1.75f, mata.getrady() / 3f, mata.getradz());
             alis.load(sizeX, sizeY);
+
+            mulut.createEllipsoidVertices(badan.getPos().X, badan.getPos().Y - badan.getrady() / 4.5f, badan.getPos().Z + badan.getradz() / 1.05f, badan.getradx() / 30, badan.getrady() / 2, 0f, 0.5f);
+            mulut.load(sizeX, sizeY);
+            mulut.rotatecenter(90, 'x');
+            mulut.rotatecenter(180, 'y');
+            mulut.rotatecenter(90, 'z');
         }
 
         public void render(Camera _camera)
@@ -125,6 +133,9 @@ namespace Project_UTS
 
             alis.CameraMovement(_camera);
             alis.render();
+
+            mulut.CameraMovement(_camera);
+            mulut.render();
         }
 
         public void rotate(float angle, char x)
@@ -139,6 +150,7 @@ namespace Project_UTS
             antena1.rotate(angle, x);
             antena2.rotate(angle, x);
             alis.rotate(angle, x);
+            mulut.rotate(angle, x);
         }
 
         public void scale(float m)
@@ -153,6 +165,22 @@ namespace Project_UTS
             antena1.scale(m);
             antena2.scale(m);
             alis.scale(m);
+            mulut.scale(m);
+        }
+        
+        public void animate(double time)
+        {
+            badan.animation(time);
+            mata.animation(time);
+            kornea.animation(time);
+            kaki1.animation(time);
+            kaki2.animation(time);
+            tangan1.animation(time);
+            tangan2.animation(time);
+            antena1.animation(time);
+            antena2.animation(time);
+            alis.animation(time);
+            mulut.animation(time);
         }
     }
 }

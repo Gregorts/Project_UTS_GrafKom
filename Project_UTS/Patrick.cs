@@ -16,6 +16,7 @@ namespace Project_UTS
         protected Lingkaran lingkaran1, lingkaran2, lingkaran3, lingkaran4;
         protected Lingkaran halflingkaran1;
         protected Tabung tabung1, tabung2;
+        protected Curva curva;
 
         public Patrick(float posX = 0f, float posY = -0.5f, float posZ = 0f)
         {
@@ -35,6 +36,7 @@ namespace Project_UTS
             cone5 = new Kerucut(new Vector3(0.92f, 0.69f, 0.69f), new Vector3(positionX, positionY, positionZ));
             lingkaran3 = new Lingkaran(new Vector3(0, 0, 0), new Vector3(positionX, positionY, positionZ));
             lingkaran4 = new Lingkaran(new Vector3(0, 0, 0), new Vector3(positionX, positionY, positionZ));
+            curva = new Curva(new Vector3(0f, 0f, 0f), new Vector3(positionX, positionY, positionZ));
         }
 
         public void load(int sizeX, int sizeY)
@@ -79,6 +81,12 @@ namespace Project_UTS
 
             lingkaran4.createSphere(lingkaran2.getPos().X, lingkaran1.getPos().Y, lingkaran1.getPos().Z + lingkaran1.getradz(), lingkaran2.getradx() / 3, lingkaran2.getrady() / 4, lingkaran2.getradz() / 5, 1000, 1000);
             lingkaran4.load(sizeX, sizeY);
+
+            curva.createEllipsoidVertices(cone1.getPos().X, cone1.getPos().Y + cone1.getrad() / 1.25f, cone1.getPos().Z + cone1.getrad() / 1.3f, cone1.getrad() / 30, cone1.getheight() / 4, 0f, 0.5f);
+            curva.load(sizeX, sizeY);
+            curva.rotatecenter(90, 'x');
+            curva.rotatecenter(180, 'y');
+            curva.rotatecenter(90, 'z');
         }
 
         public void render(Camera _camera)
@@ -118,6 +126,9 @@ namespace Project_UTS
 
             lingkaran4.CameraMovement(_camera);
             lingkaran4.render();
+
+            curva.CameraMovement(_camera);
+            curva.render();
         }
 
         public void rotate(float angle, char x)
@@ -134,6 +145,7 @@ namespace Project_UTS
             cone5.rotate(angle, x);
             lingkaran3.rotate(angle, x);
             lingkaran4.rotate(angle, x);
+            curva.rotate(angle, x);
         }
 
         public void scale(float m)
@@ -150,6 +162,24 @@ namespace Project_UTS
             cone5.scale(m);
             lingkaran3.scale(m);
             lingkaran4.scale(m);
+            curva.scale(m);
+        }
+
+        public void animate(double time)
+        {
+            cone1.animation(time);
+            halflingkaran1.animation(time);
+            lingkaran1.animation(time);
+            lingkaran2.animation(time);
+            cone2.animation(time);
+            cone3.animation(time);
+            tabung1.animation(time);
+            tabung2.animation(time);
+            cone4.animation(time);
+            cone5.animation(time);
+            lingkaran3.animation(time);
+            lingkaran4.animation(time);
+            curva.animation(time);
         }
     }
 }

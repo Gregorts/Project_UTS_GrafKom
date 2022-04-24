@@ -22,15 +22,15 @@ namespace Project_UTS
 
         bool animation = false;
 
-        private double time;
-        private double deltaTime;
+        //private double time;
+        //private double deltaTime;
 
-        private bool _firstMove = true;
+        //private bool _firstMove = true;
 
         public Window(GameWindowSettings gameWindowSettings, NativeWindowSettings nativeWindowSettings) : base(gameWindowSettings, nativeWindowSettings)
         {
-            time = RenderTime;
-            deltaTime = 0;
+            //time = RenderTime;
+            //deltaTime = 0;
         }
 
         protected override void OnLoad()
@@ -93,11 +93,14 @@ namespace Project_UTS
             if (animation)
             {
                 spongebob.animate(time);
+                patrick.animate(time);
+                plankton.animate(time);
             }
 
             spongebob.render(_camera);
             patrick.render(_camera);
             plankton.render(_camera);
+
             SwapBuffers();
             base.OnRenderFrame(args);
         }
@@ -124,7 +127,7 @@ namespace Project_UTS
 
         protected void KeyPress()
         {
-            float angle = 4f;
+            float angle = 2f;
 
             if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad4))
             {
@@ -165,12 +168,24 @@ namespace Project_UTS
             {
                 Scale(-m);
             }
+
+            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.P))
+            {
+                if(animation == false)
+                {
+                    animation = true;
+                }
+                else
+                {
+                    animation = false;
+                }
+            }
         }
 
         protected void CameraMovement()
         {
             var input = KeyboardState;
-            const float camera_speed = 5f;
+            const float camera_speed = 10f;
 
             if (!IsFocused) //Reject semua input saat window bukan focus.
             {
