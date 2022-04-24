@@ -14,13 +14,11 @@ namespace Project_UTS
 {
     internal class Window : GameWindow
     {
-        //List<Balok> objectList = new List<Balok>();
-
         Camera _camera;
 
-        Spongebob spongebob = new Spongebob(10f, 0f, 0f);
-        Patrick patrick = new Patrick(5f, 0f, 0f);
-        Plankton plankton = new Plankton(0f, 0f, 0f);
+        Spongebob spongebob = new Spongebob(0f, 0f, -5f);
+        Patrick patrick = new Patrick(5f, 0f, -5f);
+        Plankton plankton = new Plankton(9f, -8.1f, -20f);
 
         bool animation = false;
 
@@ -61,13 +59,13 @@ namespace Project_UTS
                 i.load(Size.X, Size.Y);
                 //i.rotate();
             }*/
-            //plankton.load(Size.X, Size.Y);
+            plankton.load(Size.X, Size.Y);
             spongebob.load(Size.X, Size.Y);
-            //patrick.load(Size.X, Size.Y);
+            patrick.load(Size.X, Size.Y);
 
-            //plankton.scale(1f);
-            spongebob.scale(1f);
-            //patrick.scale(1f);
+            plankton.scale(0.5f);
+            spongebob.scale(5f);
+            patrick.scale(5f);
 
             _camera = new Camera(new Vector3(3.0f, 3.0f, 3.0f), Size.X / (float)Size.Y);
 
@@ -76,13 +74,6 @@ namespace Project_UTS
 
         protected override void OnRenderFrame(FrameEventArgs args)
         {
-            //float time = (float)args.Time; //Deltatime ==> waktu antara frame sebelumnya ke frame berikutnya, gunakan untuk animasi
-
-            //time += 7.0f * (float)args.Time;
-
-            /*deltaTime = RenderTime - time;
-            time = RenderTime;*/
-
             float time = (float)args.Time;
             time += 15.0f * (float)args.Time;
 
@@ -101,13 +92,12 @@ namespace Project_UTS
 
             if (animation)
             {
-
-                //spongebob.animate(time);
+                spongebob.animate(time);
             }
 
             spongebob.render(_camera);
-            //patrick.render(_camera);
-            //plankton.render(_camera);
+            patrick.render(_camera);
+            plankton.render(_camera);
             SwapBuffers();
             base.OnRenderFrame(args);
         }
@@ -143,7 +133,7 @@ namespace Project_UTS
             }
             if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad6))
             {
-                rotatepoint(-angle, 'y', spongebob.getPos());
+                rotate(-angle, 'y');
 
             }
 
@@ -180,7 +170,7 @@ namespace Project_UTS
         protected void CameraMovement()
         {
             var input = KeyboardState;
-            const float camera_speed = 2.5f;
+            const float camera_speed = 5f;
 
             if (!IsFocused) //Reject semua input saat window bukan focus.
             {
@@ -221,15 +211,15 @@ namespace Project_UTS
         protected void Scale(float m)
         {
             spongebob.scale(m);
-            //patrick.scale(m);
-            //plankton.scale(m);
+            patrick.scale(m);
+            plankton.scale(m);
         }
 
         protected void rotate(float angle, char x)
         {
             spongebob.rotate(angle, x);
-            //patrick.rotate(angle, x);
-            //plankton.rotate(angle, x);
+            patrick.rotate(angle, x);
+            plankton.rotate(angle, x);
         }
 
         protected void rotatepoint(float angle, char x, Vector3 pos)
