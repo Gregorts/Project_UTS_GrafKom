@@ -34,6 +34,9 @@ namespace Project_UTS
 
         protected float _size = 1;
 
+
+        int animate = 0;
+
         //public List<Vector3> _euler = new List<Vector3>();  // Sudut lokal, relatif terhadap objek yang bersangkutan.
         //public Vector3 objectCenter = Vector3.Zero;         // Titik tengah objek
 
@@ -266,7 +269,76 @@ namespace Project_UTS
         public void animation(double time)
         {
             model *= Matrix4.CreateRotationY((float)MathHelper.DegreesToRadians(time));
+            if(animate <= 20)
+            {
+                translateup();
+                scaleup();
+            }
+            else if(animate >= 20 && animate <= 40)
+            {
+                translatedown();
+                scaledown();
+            }
+            else
+            {
+                animate = 0;
+            }
+            animate++;
             //Console.WriteLine(posX);
+        }
+
+        public void translateup()
+        {
+            Vector3 _translate = new Vector3();
+            _translate.X = 0;
+            _translate.Y = 1f;
+            _translate.Z = 0;
+            model *= Matrix4.CreateTranslation(_translate);
+        }
+
+        public void translatedown()
+        {
+            Vector3 _translate = new Vector3();
+            _translate.X = 0;
+            _translate.Y = -1f;
+            _translate.Z = 0;
+            model *= Matrix4.CreateTranslation(_translate);
+        }
+
+        public void translatefront()
+        {
+            Vector3 _translate = new Vector3();
+            _translate.X = 0;
+            _translate.Y = 0;
+            _translate.Z = 1f;
+            model *= Matrix4.CreateTranslation(_translate);
+        }
+
+        public void translateback()
+        {
+            Vector3 _translate = new Vector3();
+            _translate.X = 0;
+            _translate.Y = 0;
+            _translate.Z = -1f;
+            model *= Matrix4.CreateTranslation(_translate);
+        }
+
+        public void translateleft()
+        {
+            Vector3 _translate = new Vector3();
+            _translate.X = -1f;
+            _translate.Y = 0;
+            _translate.Z = 0;
+            model *= Matrix4.CreateTranslation(_translate);
+        }
+
+        public void translateright()
+        {
+            Vector3 _translate = new Vector3();
+            _translate.X = 1f;
+            _translate.Y = 0;
+            _translate.Z = 0;
+            model *= Matrix4.CreateTranslation(_translate);
         }
 
         public void CameraMovement(Camera _camera)
@@ -291,24 +363,34 @@ namespace Project_UTS
             posZ *= (_size + m * _size);
         }
 
-        public void translate(float length, char x)
+        public void scaledown()
+        {
+            model = model * Matrix4.CreateScale(_size - 0.05f * _size);
+        }
+
+        public void scaleup()
+        {
+            model = model * Matrix4.CreateScale(_size + 0.05f * _size);
+        }
+
+        /*public void translate(float length, char x)
         {
             Vector3 _translate = new Vector3();
             switch (x)
             {
-                case 'a':
+                case 'j':
                     _translate.X = -length;
                     _translate.Y = 0;
                     _translate.Z = 0; break;
-                case 'w':
+                case 'i':
                     _translate.X = 0;
                     _translate.Y = 0;
                     _translate.Z = -length; break;
-                case 's':
+                case 'k':
                     _translate.X = 0;
                     _translate.Y = 0;
                     _translate.Z = length; break;
-                case 'd':
+                case 'l':
                     _translate.X = length;
                     _translate.Y = 0;
                     _translate.Z = 0; break;
@@ -335,7 +417,7 @@ namespace Project_UTS
             posX += _translate.X;
             posY += _translate.Y;
             posZ += _translate.Z;
-        }
+        }*/
 
         //public void scale(float scaleX, float scaleY, float scaleZ)
         //{

@@ -18,14 +18,9 @@ namespace Project_UTS
 
         Spongebob spongebob = new Spongebob(0f, 0f, -5f);
         Patrick patrick = new Patrick(5f, 0f, -5f);
-        Plankton plankton = new Plankton(9f, -8.1f, -20f);
+        Plankton plankton = new Plankton(10f, -8.1f, -20f);
 
         bool animation = false;
-
-        //private double time;
-        //private double deltaTime;
-
-        //private bool _firstMove = true;
 
         public Window(GameWindowSettings gameWindowSettings, NativeWindowSettings nativeWindowSettings) : base(gameWindowSettings, nativeWindowSettings)
         {
@@ -38,27 +33,6 @@ namespace Project_UTS
             GL.ClearColor(0.5f, 0.5f, 0.5f, 1.0f);
             GL.Enable(EnableCap.DepthTest);
 
-            /*var cube1 = new Balok(new Vector3(1.0f, 0.9f, 0.4f));
-            cube1.createCuboid(0, 0, 0.5f, 2.5f, 3, 1.5f); //sama dengan createBoxVertices
-            objectList.Add(cube1);*/
-
-            /*var elipse1 = new Asset3d(new Vector3(0.1f, 0.5f, 0));
-            elipse1.createEllipsoid(0, 0, 0, 0.5f, 0.5f, 0.5f);
-            objectList.Add(elipse1);*/
-
-            //var halfelipse1 = new Asset3d(new Vector3(1, 1, 1));
-            //halfelipse1.createHalfEllipsoid(0.5f, 0.5f, 0, 0.4f, 0.4f, 0.4f);
-            //objectList.Add(halfelipse1);
-
-            //var halfelipse2 = new Asset3d(new Vector3(1, 1, 1));
-            //halfelipse1.createHalfEllipsoid(-0.5f, 0.5f, 0, 0.4f, 0.4f, 0.4f);
-            //objectList.Add(halfelipse1);
-
-            /*foreach (Balok i in objectList)
-            {
-                i.load(Size.X, Size.Y);
-                //i.rotate();
-            }*/
             plankton.load(Size.X, Size.Y);
             spongebob.load(Size.X, Size.Y);
             patrick.load(Size.X, Size.Y);
@@ -127,7 +101,7 @@ namespace Project_UTS
 
         protected void KeyPress()
         {
-            float angle = 2f;
+            float angle = 5f;
 
             if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.KeyPad4))
             {
@@ -159,7 +133,7 @@ namespace Project_UTS
                 rotate(-angle, 'z');
             }
 
-            float m = 0.01f;
+            float m = 0.05f;
             if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.Up))
             {
                 Scale(m);
@@ -171,7 +145,7 @@ namespace Project_UTS
 
             if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.P))
             {
-                if(animation == false)
+                if (animation == false)
                 {
                     animation = true;
                 }
@@ -180,12 +154,58 @@ namespace Project_UTS
                     animation = false;
                 }
             }
+
+            //spongebob
+            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.D1))
+            {
+                spongebob.translateup();
+            }
+            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.D2))
+            {
+                spongebob.translatedown();
+            }
+
+            //plankton
+            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.D3))
+            {
+                plankton.translateup();
+            }
+            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.D4))
+            {
+                plankton.translatedown();
+            }
+            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.U))
+            {
+                plankton.translatefront();
+            }
+            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.J))
+            {
+                plankton.translateback();
+            }
+            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.K))
+            {
+                plankton.translateright();
+            }
+            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.H))
+            {
+                plankton.translateleft();
+            }
+
+            //patrick
+            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.D5))
+            {
+                patrick.translateup();
+            }
+            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.D6))
+            {
+                patrick.translatedown();
+            }
         }
 
         protected void CameraMovement()
         {
             var input = KeyboardState;
-            const float camera_speed = 10f;
+            const float camera_speed = 20f;
 
             if (!IsFocused) //Reject semua input saat window bukan focus.
             {

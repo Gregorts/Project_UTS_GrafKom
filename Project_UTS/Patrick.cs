@@ -62,10 +62,10 @@ namespace Project_UTS
             cone3.load(sizeX, sizeY);
             cone3.rotatecenter(-45, 'z');
 
-            tabung1.createTube(halflingkaran1.getPos().X - halflingkaran1.getradx() / 2f, halflingkaran1.getPos().Y - halflingkaran1.getrady() * 1.25f, halflingkaran1.getPos().Z, 100, halflingkaran1.getradx() / 3, halflingkaran1.getrady() / 1.5f);
+            tabung1.createTube(halflingkaran1.getPos().X - halflingkaran1.getradx() / 2f, halflingkaran1.getPos().Y - halflingkaran1.getrady() * 1.05f, halflingkaran1.getPos().Z, 100, halflingkaran1.getradx() / 3, halflingkaran1.getrady() / 1.5f);
             tabung1.load(sizeX, sizeY);
             
-            tabung2.createTube(halflingkaran1.getPos().X + halflingkaran1.getradx() / 2f, halflingkaran1.getPos().Y - halflingkaran1.getrady() * 1.25f, halflingkaran1.getPos().Z, 100, halflingkaran1.getradx() / 3, halflingkaran1.getrady() / 1.5f);
+            tabung2.createTube(halflingkaran1.getPos().X + halflingkaran1.getradx() / 2f, halflingkaran1.getPos().Y - halflingkaran1.getrady() * 1.05f, halflingkaran1.getPos().Z, 100, halflingkaran1.getradx() / 3, halflingkaran1.getrady() / 1.5f);
             tabung2.load(sizeX, sizeY);
 
             cone4.createCone(tabung1.getPos().X - tabung1.getrad(), tabung1.getPos().Y - tabung1.getheight(), tabung1.getPos().Z, tabung1.getrad() / 1.5f, tabung1.getheight(), 10000);
@@ -163,6 +163,40 @@ namespace Project_UTS
             lingkaran3.scale(m);
             lingkaran4.scale(m);
             curva.scale(m);
+        }
+
+        public void translateup()
+        {
+            cone1.translateup();
+            halflingkaran1.translateup();
+            lingkaran1.translateup();
+            lingkaran2.translateup();
+            cone2.translateup();
+            cone3.translateup();
+            tabung1.translateup();
+            tabung2.translateup();
+            cone4.translateup();
+            cone5.translateup();
+            lingkaran3.translateup();
+            lingkaran4.translateup();
+            curva.translateup();
+        }
+
+        public void translatedown()
+        {
+            cone1.translatedown();
+            halflingkaran1.translatedown();
+            lingkaran1.translatedown();
+            lingkaran2.translatedown();
+            cone2.translatedown();
+            cone3.translatedown();
+            tabung1.translatedown();
+            tabung2.translatedown();
+            cone4.translatedown();
+            cone5.translatedown();
+            lingkaran3.translatedown();
+            lingkaran4.translatedown();
+            curva.translatedown();
         }
 
         public void animate(double time)

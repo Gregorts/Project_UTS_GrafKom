@@ -449,6 +449,94 @@ namespace Project_UTS
             curva.scale(m);
         }
 
+        public void translateup()
+        {
+            balok1.translateup();
+            balok2.translateup();
+            balok3.translateup();
+            lingkaran1.translateup();
+            lingkaran2.translateup();
+            tabung1.translateup();
+            tabung2.translateup();
+            tabung3.translateup();
+            tabung4.translateup();
+            tabung5.translateup();
+            tabung6.translateup();
+            tabung7.translateup();
+            tabung8.translateup();
+            tabung9.translateup();
+            tabung10.translateup();
+            balok4.translateup();
+            balok5.translateup();
+            oval1.translateup();
+            oval2.translateup();
+            oval3.translateup();
+            oval4.translateup();
+            oval5.translateup();
+            oval6.translateup();
+            oval7.translateup();
+            oval8.translateup();
+            balok6.translateup();
+            balok7.translateup();
+            lingkaran3.translateup();
+            lingkaran4.translateup();
+            lingkaran5.translateup();
+            lingkaran6.translateup();
+            oval9.translateup();
+            balok8.translateup();
+            balok9.translateup();
+            balok10.translateup();
+            balok11.translateup();
+            balok12.translateup();
+            balok13.translateup();
+
+            curva.translateup();
+        }
+
+        public void translatedown()
+        {
+            balok1.translatedown();
+            balok2.translatedown();
+            balok3.translatedown();
+            lingkaran1.translatedown();
+            lingkaran2.translatedown();
+            tabung1.translatedown();
+            tabung2.translatedown();
+            tabung3.translatedown();
+            tabung4.translatedown();
+            tabung5.translatedown();
+            tabung6.translatedown();
+            tabung7.translatedown();
+            tabung8.translatedown();
+            tabung9.translatedown();
+            tabung10.translatedown();
+            balok4.translatedown();
+            balok5.translatedown();
+            oval1.translatedown();
+            oval2.translatedown();
+            oval3.translatedown();
+            oval4.translatedown();
+            oval5.translatedown();
+            oval6.translatedown();
+            oval7.translatedown();
+            oval8.translatedown();
+            balok6.translatedown();
+            balok7.translatedown();
+            lingkaran3.translatedown();
+            lingkaran4.translatedown();
+            lingkaran5.translatedown();
+            lingkaran6.translatedown();
+            oval9.translatedown();
+            balok8.translatedown();
+            balok9.translatedown();
+            balok10.translatedown();
+            balok11.translatedown();
+            balok12.translatedown();
+            balok13.translatedown();
+
+            curva.translatedown();
+        }
+
         public void animate(double time)
         {
             balok1.animation(time);
@@ -491,6 +579,15 @@ namespace Project_UTS
             balok13.animation(time);
 
             curva.animation(time);
+
+            //switch (animate_number)
+            //{
+            //    case 0:
+            //        balok1.translate(0.5f, 'x');
+            //        animate_number++;
+            //        break;
+            //    default: break;
+            //}
 
             /*switch (animate_number)
             {

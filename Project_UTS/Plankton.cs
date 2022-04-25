@@ -167,7 +167,97 @@ namespace Project_UTS
             alis.scale(m);
             mulut.scale(m);
         }
-        
+
+        public void translateup()
+        {
+            badan.translateup();
+            mata.translateup();
+            kornea.translateup();
+            kaki1.translateup();
+            kaki2.translateup();
+            tangan1.translateup();
+            tangan2.translateup();
+            antena1.translateup();
+            antena2.translateup();
+            alis.translateup();
+            mulut.translateup();
+        }
+
+        public void translatedown()
+        {
+            badan.translatedown();
+            mata.translatedown();
+            kornea.translatedown();
+            kaki1.translatedown();
+            kaki2.translatedown();
+            tangan1.translatedown();
+            tangan2.translatedown();
+            antena1.translatedown();
+            antena2.translatedown();
+            alis.translatedown();
+            mulut.translatedown();
+        }
+
+        public void translatefront()
+        {
+            badan.translatefront();
+            mata.translatefront();
+            kornea.translatefront();
+            kaki1.translatefront();
+            kaki2.translatefront();
+            tangan1.translatefront();
+            tangan2.translatefront();
+            antena1.translatefront();
+            antena2.translatefront();
+            alis.translatefront();
+            mulut.translatefront();
+        }
+
+        public void translateback()
+        {
+            badan.translateback();
+            mata.translateback();
+            kornea.translateback();
+            kaki1.translateback();
+            kaki2.translateback();
+            tangan1.translateback();
+            tangan2.translateback();
+            antena1.translateback();
+            antena2.translateback();
+            alis.translateback();
+            mulut.translateback();
+        }
+
+        public void translateright()
+        {
+            badan.translateright();
+            mata.translateright();
+            kornea.translateright();
+            kaki1.translateright();
+            kaki2.translateright();
+            tangan1.translateright();
+            tangan2.translateright();
+            antena1.translateright();
+            antena2.translateright();
+            alis.translateright();
+            mulut.translateright();
+        }
+
+        public void translateleft()
+        {
+            badan.translateleft();
+            mata.translateleft();
+            kornea.translateleft();
+            kaki1.translateleft();
+            kaki2.translateleft();
+            tangan1.translateleft();
+            tangan2.translateleft();
+            antena1.translateleft();
+            antena2.translateleft();
+            alis.translateleft();
+            mulut.translateleft();
+        }
+
         public void animate(double time)
         {
             badan.animation(time);
