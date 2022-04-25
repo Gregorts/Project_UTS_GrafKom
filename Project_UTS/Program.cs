@@ -10,7 +10,7 @@ namespace Project_UTS
         {
             var _NativeWindowSetting = new NativeWindowSettings()
             {
-                Size = new OpenTK.Mathematics.Vector2i(800, 800),
+                Size = new OpenTK.Mathematics.Vector2i(1920, 1080),
                 Title = "Project UTS GrafKom"
             };
 
