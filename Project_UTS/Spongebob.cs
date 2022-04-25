@@ -537,6 +537,182 @@ namespace Project_UTS
             curva.translatedown();
         }
 
+        public void translateright()
+        {
+            balok1.translateright();
+            balok2.translateright();
+            balok3.translateright();
+            lingkaran1.translateright();
+            lingkaran2.translateright();
+            tabung1.translateright();
+            tabung2.translateright();
+            tabung3.translateright();
+            tabung4.translateright();
+            tabung5.translateright();
+            tabung6.translateright();
+            tabung7.translateright();
+            tabung8.translateright();
+            tabung9.translateright();
+            tabung10.translateright();
+            balok4.translateright();
+            balok5.translateright();
+            oval1.translateright();
+            oval2.translateright();
+            oval3.translateright();
+            oval4.translateright();
+            oval5.translateright();
+            oval6.translateright();
+            oval7.translateright();
+            oval8.translateright();
+            balok6.translateright();
+            balok7.translateright();
+            lingkaran3.translateright();
+            lingkaran4.translateright();
+            lingkaran5.translateright();
+            lingkaran6.translateright();
+            oval9.translateright();
+            balok8.translateright();
+            balok9.translateright();
+            balok10.translateright();
+            balok11.translateright();
+            balok12.translateright();
+            balok13.translateright();
+
+            curva.translateright();
+        }
+
+        public void translateleft()
+        {
+            balok1.translateleft();
+            balok2.translateleft();
+            balok3.translateleft();
+            lingkaran1.translateleft();
+            lingkaran2.translateleft();
+            tabung1.translateleft();
+            tabung2.translateleft();
+            tabung3.translateleft();
+            tabung4.translateleft();
+            tabung5.translateleft();
+            tabung6.translateleft();
+            tabung7.translateleft();
+            tabung8.translateleft();
+            tabung9.translateleft();
+            tabung10.translateleft();
+            balok4.translateleft();
+            balok5.translateleft();
+            oval1.translateleft();
+            oval2.translateleft();
+            oval3.translateleft();
+            oval4.translateleft();
+            oval5.translateleft();
+            oval6.translateleft();
+            oval7.translateleft();
+            oval8.translateleft();
+            balok6.translateleft();
+            balok7.translateleft();
+            lingkaran3.translateleft();
+            lingkaran4.translateleft();
+            lingkaran5.translateleft();
+            lingkaran6.translateleft();
+            oval9.translateleft();
+            balok8.translateleft();
+            balok9.translateleft();
+            balok10.translateleft();
+            balok11.translateleft();
+            balok12.translateleft();
+            balok13.translateleft();
+
+            curva.translateleft();
+        }
+
+        public void translatefront()
+        {
+            balok1.translatefront();
+            balok2.translatefront();
+            balok3.translatefront();
+            lingkaran1.translatefront();
+            lingkaran2.translatefront();
+            tabung1.translatefront();
+            tabung2.translatefront();
+            tabung3.translatefront();
+            tabung4.translatefront();
+            tabung5.translatefront();
+            tabung6.translatefront();
+            tabung7.translatefront();
+            tabung8.translatefront();
+            tabung9.translatefront();
+            tabung10.translatefront();
+            balok4.translatefront();
+            balok5.translatefront();
+            oval1.translatefront();
+            oval2.translatefront();
+            oval3.translatefront();
+            oval4.translatefront();
+            oval5.translatefront();
+            oval6.translatefront();
+            oval7.translatefront();
+            oval8.translatefront();
+            balok6.translatefront();
+            balok7.translatefront();
+            lingkaran3.translatefront();
+            lingkaran4.translatefront();
+            lingkaran5.translatefront();
+            lingkaran6.translatefront();
+            oval9.translatefront();
+            balok8.translatefront();
+            balok9.translatefront();
+            balok10.translatefront();
+            balok11.translatefront();
+            balok12.translatefront();
+            balok13.translatefront();
+
+            curva.translatefront();
+        }
+
+        public void translateback()
+        {
+            balok1.translateback();
+            balok2.translateback();
+            balok3.translateback();
+            lingkaran1.translateback();
+            lingkaran2.translateback();
+            tabung1.translateback();
+            tabung2.translateback();
+            tabung3.translateback();
+            tabung4.translateback();
+            tabung5.translateback();
+            tabung6.translateback();
+            tabung7.translateback();
+            tabung8.translateback();
+            tabung9.translateback();
+            tabung10.translateback();
+            balok4.translateback();
+            balok5.translateback();
+            oval1.translateback();
+            oval2.translateback();
+            oval3.translateback();
+            oval4.translateback();
+            oval5.translateback();
+            oval6.translateback();
+            oval7.translateback();
+            oval8.translateback();
+            balok6.translateback();
+            balok7.translateback();
+            lingkaran3.translateback();
+            lingkaran4.translateback();
+            lingkaran5.translateback();
+            lingkaran6.translateback();
+            oval9.translateback();
+            balok8.translateback();
+            balok9.translateback();
+            balok10.translateback();
+            balok11.translateback();
+            balok12.translateback();
+            balok13.translateback();
+
+            curva.translateback();
+        }
+
         public void animate(double time)
         {
             balok1.animation(time);
@@ -579,112 +755,6 @@ namespace Project_UTS
             balok13.animation(time);
 
             curva.animation(time);
-
-            //switch (animate_number)
-            //{
-            //    case 0:
-            //        balok1.translate(0.5f, 'x');
-            //        animate_number++;
-            //        break;
-            //    default: break;
-            //}
-
-            /*switch (animate_number)
-            {
-                case 0:
-                    //Console.WriteLine(plank.getPosY() + " " + (box1.getPosY() + box1.getLengthX()));
-                    balok1.translate(0.01f, 'y');
-                    if (balok1.getPos().Y >= box1.getPosY() + box1.getLengthX() - 0.05f)
-                    {
-                        animate_number++;
-                        plank.translate(0f, 'y');
-                    }
-                    break;
-
-                case 1:
-                    //Console.WriteLine(plank.getPosY() + " " + (box1.getPosY() + box1.getLengthX()));
-                    plank.translate(-0.01f, 'y');
-                    if (plank.getPosY() <= box1.getPosY())
-                    {
-                        animate_number++;
-                        plank.translate(0f, 'y');
-                    }
-                    break;
-                case 2:
-                    //Console.WriteLine(plank.getPosY() + " " + (box1.getPosY() + box1.getLengthX()));
-                    plank.translate(0.01f, 'y');
-                    if (plank.getPosY() >= box1.getPosY() + box1.getLengthX() - 0.05f)
-                    {
-                        animate_number++;
-                        plank.translate(0f, 'y');
-                    }
-                    break;
-
-                case 3:
-                    //Console.WriteLine(plank.getPosY() + " " + (box1.getPosY() + box1.getLengthX()));
-                    plank.translate(-0.01f, 'y');
-                    if (plank.getPosY() <= box1.getPosY())
-                    {
-                        animate_number++;
-                        plank.translate(0f, 'y');
-                    }
-                    break;
-                case 4:
-
-                    if (angle <= 10 && angle >= 0)
-                    {
-                        translate(-0.1f, 'z');
-                    }
-                    else if (angle >= 80 && angle <= 100)
-                    {
-                        translate(-0.1f, 'x');
-
-                    }
-                    else if (angle >= 170 && angle <= 190)
-                    {
-
-                        translate(0.1f, 'z');
-
-                    }
-                    else if (angle >= 260 && angle <= 280)
-                    {
-                        translate(0.1f, 'x');
-                    }
-
-                    counter += 0.1f;
-                    if (counter >= 10f)
-                    {
-                        animate_number++;
-                        counter = 0;
-
-                    }
-                    break;
-                case 5:
-                    rotatecenter(1f, 'y');
-                    angle += 1f;
-
-                    if (angle >= 360f)
-                    {
-                        angle = 0;
-                        animate_number = 0;
-                    }
-                    else if (angle >= 90f && angle < 90.5f)
-                    {
-                        animate_number = 0;
-                    }
-                    else if (angle >= 180f && angle < 180.5f)
-                    {
-                        animate_number = 0;
-                    }
-                    else if (angle >= 270f && angle < 270.5f)
-                    {
-                        animate_number = 0;
-                    }
-                    Console.WriteLine(angle);
-                    break;
-
-                default: break;
-            }*/
         }
 
         public Vector3 getPos() { return new Vector3(positionX, positionY, positionZ); }

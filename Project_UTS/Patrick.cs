@@ -199,6 +199,74 @@ namespace Project_UTS
             curva.translatedown();
         }
 
+        public void translateright()
+        {
+            cone1.translateright();
+            halflingkaran1.translateright();
+            lingkaran1.translateright();
+            lingkaran2.translateright();
+            cone2.translateright();
+            cone3.translateright();
+            tabung1.translateright();
+            tabung2.translateright();
+            cone4.translateright();
+            cone5.translateright();
+            lingkaran3.translateright();
+            lingkaran4.translateright();
+            curva.translateright();
+        }
+
+        public void translateleft()
+        {
+            cone1.translateleft();
+            halflingkaran1.translateleft();
+            lingkaran1.translateleft();
+            lingkaran2.translateleft();
+            cone2.translateleft();
+            cone3.translateleft();
+            tabung1.translateleft();
+            tabung2.translateleft();
+            cone4.translateleft();
+            cone5.translateleft();
+            lingkaran3.translateleft();
+            lingkaran4.translateleft();
+            curva.translateleft();
+        }
+
+        public void translatefront()
+        {
+            cone1.translatefront();
+            halflingkaran1.translatefront();
+            lingkaran1.translatefront();
+            lingkaran2.translatefront();
+            cone2.translatefront();
+            cone3.translatefront();
+            tabung1.translatefront();
+            tabung2.translatefront();
+            cone4.translatefront();
+            cone5.translatefront();
+            lingkaran3.translatefront();
+            lingkaran4.translatefront();
+            curva.translatefront();
+        }
+
+        public void translateback()
+        {
+            cone1.translateback();
+            halflingkaran1.translateback();
+            lingkaran1.translateback();
+            lingkaran2.translateback();
+            cone2.translateback();
+            cone3.translateback();
+            tabung1.translateback();
+            tabung2.translateback();
+            cone4.translateback();
+            cone5.translateback();
+            lingkaran3.translateback();
+            lingkaran4.translateback();
+            curva.translateback();
+        }
+
         public void animate(double time)
         {
             cone1.animation(time);

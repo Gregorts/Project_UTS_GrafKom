@@ -20,6 +20,8 @@ namespace Project_UTS
         Patrick patrick = new Patrick(5f, 0f, -5f);
         Plankton plankton = new Plankton(10f, -8.1f, -20f);
 
+        String choice = "Spongebob";
+
         bool animation = false;
 
         public Window(GameWindowSettings gameWindowSettings, NativeWindowSettings nativeWindowSettings) : base(gameWindowSettings, nativeWindowSettings)
@@ -155,50 +157,109 @@ namespace Project_UTS
                 }
             }
 
-            //spongebob
             if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.D1))
             {
-                spongebob.translateup();
+                choice = "Spongebob";
             }
             if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.D2))
             {
-                spongebob.translatedown();
+                choice = "Patrick";
             }
-
-            //plankton
             if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.D3))
             {
-                plankton.translateup();
+                choice = "Plankton";
             }
-            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.D4))
+
+
+            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.Y))
             {
-                plankton.translatedown();
+                if(choice == "Spongebob")
+                {
+                    spongebob.translateup();
+                }
+                else if(choice == "Patrick")
+                {
+                    patrick.translateup();
+                }
+                else if(choice == "Plankton")
+                {
+                    plankton.translateup();
+                }
+            }
+            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.I))
+            {
+                if (choice == "Spongebob")
+                {
+                    spongebob.translatedown();
+                }
+                else if (choice == "Patrick")
+                {
+                    patrick.translatedown();
+                }
+                else if (choice == "Plankton")
+                {
+                    plankton.translatedown();
+                }
             }
             if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.U))
             {
-                plankton.translatefront();
+                if (choice == "Spongebob")
+                {
+                    spongebob.translatefront();
+                }
+                else if (choice == "Patrick")
+                {
+                    patrick.translatefront();
+                }
+                else if (choice == "Plankton")
+                {
+                    plankton.translatefront();
+                }
             }
             if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.J))
             {
-                plankton.translateback();
+                if (choice == "Spongebob")
+                {
+                    spongebob.translateback();
+                }
+                else if (choice == "Patrick")
+                {
+                    patrick.translateback();
+                }
+                else if (choice == "Plankton")
+                {
+                    plankton.translateback();
+                }
             }
             if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.K))
             {
-                plankton.translateright();
+                if (choice == "Spongebob")
+                {
+                    spongebob.translateright();
+                }
+                else if (choice == "Patrick")
+                {
+                    patrick.translateright();
+                }
+                else if (choice == "Plankton")
+                {
+                    plankton.translateright();
+                }
             }
             if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.H))
             {
-                plankton.translateleft();
-            }
-
-            //patrick
-            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.D5))
-            {
-                patrick.translateup();
-            }
-            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.D6))
-            {
-                patrick.translatedown();
+                if (choice == "Spongebob")
+                {
+                    spongebob.translateleft();
+                }
+                else if (choice == "Patrick")
+                {
+                    patrick.translateleft();
+                }
+                else if (choice == "Plankton")
+                {
+                    plankton.translateleft();
+                }
             }
         }
 
