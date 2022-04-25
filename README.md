@@ -10,6 +10,6 @@ Team Project:
 Topic: Spongebob Squarepants <br>
 <ul> 
   <li>Spongebob</li>
-  <li>Patrick</li>
   <li>Plankton</li>
+  <li>Patrick</li>
 </ul>
