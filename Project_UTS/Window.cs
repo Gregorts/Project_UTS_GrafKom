@@ -30,7 +30,7 @@ namespace Project_UTS
 
         protected override void OnLoad()
         {
-            GL.ClearColor(0.5f, 0.5f, 0.5f, 1.0f);
+            GL.ClearColor(0.58f, 0.84f, 0.98f, 0.8f);
             GL.Enable(EnableCap.DepthTest);
 
             plankton.load(Size.X, Size.Y);
