@@ -258,19 +258,21 @@ namespace Project_UTS
             mulut.translateleft();
         }
 
-        public void animate(double time)
+        public void animate(double time, float angle, char x, Vector3 pos)
         {
-            badan.animation(time);
-            mata.animation(time);
-            kornea.animation(time);
-            kaki1.animation(time);
-            kaki2.animation(time);
-            tangan1.animation(time);
-            tangan2.animation(time);
-            antena1.animation(time);
-            antena2.animation(time);
-            alis.animation(time);
-            mulut.animation(time);
+            badan.animation(time, angle, x, pos);
+            mata.animation(time, angle, x, pos);
+            kornea.animation(time, angle, x, pos);
+            kaki1.animation(time, angle, x, pos);
+            kaki2.animation(time, angle, x, pos);
+            tangan1.animation(time, angle, x, pos);
+            tangan2.animation(time, angle, x, pos);
+            antena1.animation(time, angle, x, pos);
+            antena2.animation(time, angle, x, pos);
+            alis.animation(time, angle, x, pos);
+            mulut.animation(time, angle, x, pos);
         }
+
+        public Vector3 getPos() { return new Vector3(positionX, positionY, positionZ); }
     }
 }

@@ -267,21 +267,23 @@ namespace Project_UTS
             curva.translateback();
         }
 
-        public void animate(double time)
+        public void animate(double time, float angle, char x, Vector3 pos)
         {
-            cone1.animation(time);
-            halflingkaran1.animation(time);
-            lingkaran1.animation(time);
-            lingkaran2.animation(time);
-            cone2.animation(time);
-            cone3.animation(time);
-            tabung1.animation(time);
-            tabung2.animation(time);
-            cone4.animation(time);
-            cone5.animation(time);
-            lingkaran3.animation(time);
-            lingkaran4.animation(time);
-            curva.animation(time);
+            cone1.animation(time, angle, x, pos);
+            halflingkaran1.animation(time, angle, x, pos);
+            lingkaran1.animation(time, angle, x, pos);
+            lingkaran2.animation(time, angle, x, pos);
+            cone2.animation(time, angle, x, pos);
+            cone3.animation(time, angle, x, pos);
+            tabung1.animation(time, angle, x, pos);
+            tabung2.animation(time, angle, x, pos);
+            cone4.animation(time, angle, x, pos);
+            cone5.animation(time, angle, x, pos);
+            lingkaran3.animation(time, angle, x, pos);
+            lingkaran4.animation(time, angle, x, pos);
+            curva.animation(time, angle, x, pos);
         }
+
+        public Vector3 getPos() { return new Vector3(positionX, positionY, positionZ); }
     }
 }

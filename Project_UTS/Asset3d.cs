@@ -226,19 +226,13 @@ namespace Project_UTS
 
         public void rotatepoint(float angle = 90f, char a = 'y', Vector3 pos = new Vector3())
         {
-            //Console.WriteLine(pos);
-            Vector3 temp = new Vector3();
             switch (a)
             {
                 case 'x':
                     model = model * Matrix4.CreateTranslation(1 * pos.X, 1 * pos.Y, 1 * pos.Z) * Matrix4.CreateRotationX(MathHelper.DegreesToRadians(angle)) * Matrix4.CreateTranslation(-pos.X, -pos.Y, -pos.Z);
 
-                    temp.X = posX;
-                    temp.Y = (float)Math.Cos(angle) * (pos.Y) - (float)Math.Sin(angle) * (pos.Z) + (posY - pos.Y);
-                    temp.Z = (float)Math.Sin(angle) * (pos.Y) + (float)Math.Cos(angle) * (pos.Z) + (posZ - pos.Z);
-
-                break;
-                case 'y':
+                    break;
+                /*case 'y':
                     model = model * Matrix4.CreateTranslation(1 * pos.X, 1 * pos.Y, 1 * pos.Z) * Matrix4.CreateRotationY(MathHelper.DegreesToRadians(angle)) * Matrix4.CreateTranslation(-pos.X, -pos.Y, -pos.Z);
 
                     temp = pos;
@@ -262,13 +256,17 @@ namespace Project_UTS
                     temp.Y = (float)Math.Sin(angle) * (pos.X) + (float)Math.Cos(angle) * (pos.Y) + (posY - pos.Y);
                     temp.Z = posZ;
 
-                    break;
+                    break;*/
+
             }
+            posX = pos.X;
+            posY = pos.Y;
+            posZ = pos.Z;
         }
 
-        public void animation(double time)
+        public void animation(double time, float angle, char a, Vector3 pos)
         {
-            model *= Matrix4.CreateRotationY((float)MathHelper.DegreesToRadians(time));
+            /*model *= Matrix4.CreateRotationY((float)MathHelper.DegreesToRadians(time));
             if(animate <= 20)
             {
                 translateup();
@@ -279,6 +277,25 @@ namespace Project_UTS
                 translatedown();
                 scaledown();
             }
+            else
+            {
+                animate = 0;
+            }
+            animate++;*/
+
+            if (animate <= 30)
+            {
+                translateup();
+            }
+            else if (animate > 30 && animate <= 42)
+            {
+                rotatepoint(angle, a, pos);
+            }
+            else if (animate > 42 && animate <= 72)
+            {
+                translatedown();
+            }
+            else if (animate > 72 && animate <= 80) { }
             else
             {
                 animate = 0;
@@ -294,6 +311,7 @@ namespace Project_UTS
             _translate.Y = 1f;
             _translate.Z = 0;
             model *= Matrix4.CreateTranslation(_translate);
+            posY += _translate.Y;
         }
 
         public void translatedown()
@@ -339,6 +357,11 @@ namespace Project_UTS
             _translate.Y = 0;
             _translate.Z = 0;
             model *= Matrix4.CreateTranslation(_translate);
+        }
+
+        public void reset(Vector3 pos)
+        {
+            model = Matrix4.CreateTranslation(pos);
         }
 
         public void CameraMovement(Camera _camera)

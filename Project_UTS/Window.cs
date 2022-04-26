@@ -19,6 +19,9 @@ namespace Project_UTS
         Spongebob spongebob = new Spongebob(0f, 0f, -5f);
         Patrick patrick = new Patrick(5f, 0f, -5f);
         Plankton plankton = new Plankton(10f, -8.1f, -20f);
+        Ground ground = new Ground(5f, -3.65f, -5f);
+
+        Vector3 spongebobpos, patrickpos, planktonpos;
 
         String choice = "Spongebob";
 
@@ -38,10 +41,12 @@ namespace Project_UTS
             plankton.load(Size.X, Size.Y);
             spongebob.load(Size.X, Size.Y);
             patrick.load(Size.X, Size.Y);
+            ground.load(Size.X, Size.Y);
 
             plankton.scale(0.5f);
             spongebob.scale(5f);
             patrick.scale(5f);
+            ground.scale(5f);
 
             _camera = new Camera(new Vector3(3.0f, 3.0f, 3.0f), Size.X / (float)Size.Y);
 
@@ -51,7 +56,7 @@ namespace Project_UTS
         protected override void OnRenderFrame(FrameEventArgs args)
         {
             float time = (float)args.Time;
-            time += 15.0f * (float)args.Time;
+            time += 10.0f * (float)args.Time;
 
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
 
@@ -68,14 +73,33 @@ namespace Project_UTS
 
             if (animation)
             {
-                spongebob.animate(time);
-                patrick.animate(time);
-                plankton.animate(time);
+                if (choice == "Spongebob")
+                {
+                    spongebob.animate(time, 30f, 'x', spongebobpos);
+                }
+                else if (choice == "Patrick")
+                {
+                    patrick.animate(time, 30f, 'x', patrickpos);
+                }
+                else if (choice == "Plankton")
+                {
+                    plankton.animate(time, 30f, 'x', planktonpos);
+                }
             }
+            spongebobpos = new Vector3(spongebob.getPos());
+            spongebobpos.Z *= -5;
+            spongebobpos.Y -= 30;
+            patrickpos = new Vector3(patrick.getPos());
+            patrickpos.Z *= -5;
+            patrickpos.Y -= 30;
+            planktonpos = new Vector3(patrick.getPos());
+            planktonpos.Z *= -5;
+            planktonpos.Y -= 20;
 
             spongebob.render(_camera);
             patrick.render(_camera);
             plankton.render(_camera);
+            ground.render(_camera);
 
             SwapBuffers();
             base.OnRenderFrame(args);
@@ -261,6 +285,13 @@ namespace Project_UTS
                     plankton.translateleft();
                 }
             }
+            if (KeyboardState.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys.B))
+            {
+                spongebob.rotatepoint(30f, 'x', spongebobpos);
+                Console.WriteLine(spongebobpos);
+                //spongebob.translateback();
+
+            }
         }
 
         protected void CameraMovement()
@@ -316,11 +347,6 @@ namespace Project_UTS
             spongebob.rotate(angle, x);
             patrick.rotate(angle, x);
             plankton.rotate(angle, x);
-        }
-
-        protected void rotatepoint(float angle, char x, Vector3 pos)
-        {
-            spongebob.rotatepoint(angle, x, pos);
         }
     }
 }
