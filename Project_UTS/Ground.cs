@@ -39,5 +39,19 @@ namespace Project_UTS
         {
             balok1.scale(m);
         }
+
+        public void rotate(float angle, char x)
+        {
+            balok1.rotate(angle, x);
+        }
+
+        public void rotatecenter(float angle, char x)
+        {
+            balok1.rotatecenter(angle, x);
+        }
+        public void rotatepoint(float angle, char x)
+        {
+            balok1.rotatepoint(angle, x);
+        }
     }
 }

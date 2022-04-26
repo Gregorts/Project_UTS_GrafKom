@@ -232,31 +232,31 @@ namespace Project_UTS
                     model = model * Matrix4.CreateTranslation(1 * pos.X, 1 * pos.Y, 1 * pos.Z) * Matrix4.CreateRotationX(MathHelper.DegreesToRadians(angle)) * Matrix4.CreateTranslation(-pos.X, -pos.Y, -pos.Z);
 
                     break;
-                /*case 'y':
+                case 'y':
                     model = model * Matrix4.CreateTranslation(1 * pos.X, 1 * pos.Y, 1 * pos.Z) * Matrix4.CreateRotationY(MathHelper.DegreesToRadians(angle)) * Matrix4.CreateTranslation(-pos.X, -pos.Y, -pos.Z);
 
-                    temp = pos;
+                    //temp = pos;
 
-                    temp.X = (float)Math.Cos(angle) * pos.Y - (float)Math.Sin(angle) * pos.Z;
-                    temp.Z = (float)Math.Sin(angle) * pos.Y + (float)Math.Cos(angle) * pos.Z;
+                    //temp.X = (float)Math.Cos(angle) * pos.Y - (float)Math.Sin(angle) * pos.Z;
+                    //temp.Z = (float)Math.Sin(angle) * pos.Y + (float)Math.Cos(angle) * pos.Z;
 
-                    temp.X += (pos.X - posX);
-                    temp.Y += (pos.Y - posY);
-                    temp.Z += (pos.Z - posZ);
+                    //temp.X += (pos.X - posX);
+                    //temp.Y += (pos.Y - posY);
+                    //temp.Z += (pos.Z - posZ);
 
                     //temp.X = (float)Math.Cos(angle) * (   pos.X) - (float)Math.Sin(angle) * ( pos.Z) + (_positionX - pos.X);
                     //temp.Y = _positionY;
                     //temp.Z = (float)Math.Sin(angle) * (   pos.X) + (float)Math.Cos(angle) * ( pos.Z) + (_positionZ - pos.Z);
 
-                break;
+                    break;
                 case 'z':
                     model = model * Matrix4.CreateTranslation(1 * pos.X, 1 * pos.Y, 1 * pos.Z) * Matrix4.CreateRotationZ(MathHelper.DegreesToRadians(angle)) * Matrix4.CreateTranslation(-pos.X, -pos.Y, -pos.Z);
 
-                    temp.X = (float)Math.Cos(angle) * (pos.X) - (float)Math.Sin(angle) * (pos.Y) + (posX - pos.X);
-                    temp.Y = (float)Math.Sin(angle) * (pos.X) + (float)Math.Cos(angle) * (pos.Y) + (posY - pos.Y);
-                    temp.Z = posZ;
+                    //temp.X = (float)Math.Cos(angle) * (pos.X) - (float)Math.Sin(angle) * (pos.Y) + (posX - pos.X);
+                    //temp.Y = (float)Math.Sin(angle) * (pos.X) + (float)Math.Cos(angle) * (pos.Y) + (posY - pos.Y);
+                    //temp.Z = posZ;
 
-                    break;*/
+                    break;
 
             }
             posX = pos.X;

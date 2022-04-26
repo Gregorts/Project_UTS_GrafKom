@@ -83,7 +83,7 @@ namespace Project_UTS
                 }
                 else if (choice == "Plankton")
                 {
-                    plankton.animate(time, 30f, 'x', planktonpos);
+                    plankton.animate();
                 }
             }
 

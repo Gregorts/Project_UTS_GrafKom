@@ -12,6 +12,10 @@ namespace Project_UTS
     {
         protected float positionX, positionY, positionZ;
 
+        int animate_ = 0;
+        int animation_play = 0;
+        float angle = 0f;
+
         // badan
         protected Lingkaran badan;
 
@@ -153,6 +157,36 @@ namespace Project_UTS
             mulut.rotate(angle, x);
         }
 
+        public void rotatecenter(float angle, char x)
+        {
+            badan.rotatecenter(angle, x);
+            mata.rotatecenter(angle, x);
+            kornea.rotatecenter(angle, x);
+            kaki1.rotatecenter(angle, x);
+            kaki2.rotatecenter(angle, x);
+            tangan1.rotatecenter(angle, x);
+            tangan2.rotatecenter(angle, x);
+            antena1.rotatecenter(angle, x);
+            antena2.rotatecenter(angle, x);
+            alis.rotatecenter(angle, x);
+            mulut.rotatecenter(angle, x);
+        }
+
+        public void rotatepoint(float angle, char x)
+        {
+            badan.rotatepoint(angle, x);
+            mata.rotatepoint(angle, x);
+            kornea.rotatepoint(angle, x);
+            kaki1.rotatepoint(angle, x);
+            kaki2.rotatepoint(angle, x);
+            tangan1.rotatepoint(angle, x);
+            tangan2.rotatepoint(angle, x);
+            antena1.rotatepoint(angle, x);
+            antena2.rotatepoint(angle, x);
+            alis.rotatepoint(angle, x);
+            mulut.rotatepoint(angle, x);
+        }
+
         public void scale(float m)
         {
             badan.scale(m);
@@ -258,20 +292,116 @@ namespace Project_UTS
             mulut.translateleft();
         }
 
-        public void animate(double time, float angle, char x, Vector3 pos)
+        public void animate()
         {
-            badan.animation(time, angle, x, pos);
-            mata.animation(time, angle, x, pos);
-            kornea.animation(time, angle, x, pos);
-            kaki1.animation(time, angle, x, pos);
-            kaki2.animation(time, angle, x, pos);
-            tangan1.animation(time, angle, x, pos);
-            tangan2.animation(time, angle, x, pos);
-            antena1.animation(time, angle, x, pos);
-            antena2.animation(time, angle, x, pos);
-            alis.animation(time, angle, x, pos);
-            mulut.animation(time, angle, x, pos);
+            switch (animate_)
+            {
+                case 0:
+                    translatefront();
+                    animation_play++;
+                    if (animation_play == 10)
+                    {
+                        animate_++;
+                        animation_play = 0;
+                    }
+                    break;
+                case 1:
+                    animation_play++;
+                    if (animation_play <= 5)
+                    {
+                        antena1.rotatecenter(0.8f, 'x');
+                        antena2.rotatecenter(-0.8f, 'x');
+                    }
+                    else if (animation_play >= 6 && animation_play <= 10)
+                    {
+                        antena1.rotatecenter(-0.8f, 'x');
+                        antena2.rotatecenter(0.8f, 'x');
+                    }
+                    if (animation_play >= 11 && animation_play <= 15)
+                    {
+                        antena1.rotatecenter(0.8f, 'x');
+                        antena2.rotatecenter(-0.8f, 'x');
+                    }
+                    else if (animation_play >= 16 && animation_play <= 20)
+                    {
+                        antena1.rotatecenter(-0.8f, 'x');
+                        antena2.rotatecenter(0.8f, 'x');
+                    }
 
+                    if (animation_play <= 5)
+                    {
+                        tangan1.rotatecenter(0.5f, 'x');
+                        tangan2.rotatecenter(0.5f, 'x');
+                    }
+                    else if (animation_play >= 6 && animation_play <= 10)
+                    {
+                        tangan1.rotatecenter(-0.5f, 'x');
+                        tangan2.rotatecenter(-0.5f, 'x');
+                    }
+                    if (animation_play >= 11 && animation_play <= 15)
+                    {
+                        tangan1.rotatecenter(0.5f, 'x');
+                        tangan2.rotatecenter(0.5f, 'x');
+                    }
+                    else if (animation_play >= 16 && animation_play <= 20)
+                    {
+                        tangan1.rotatecenter(-0.5f, 'x');
+                        tangan2.rotatecenter(-0.5f, 'x');
+                    }
+
+                    if (animation_play >= 21)
+                    {
+                        animation_play = 0;
+                        animate_++;
+                    }
+                    break;
+                case 2:
+                    translateup();
+                    animation_play++;
+                    if (animation_play == 8)
+                    {
+                        animate_++;
+                        animation_play = 0;
+                    }
+                    break;
+                case 3:
+                    translatedown();
+                    animation_play++;
+                    if (animation_play == 8)
+                    {
+                        animate_++;
+                        animation_play = 0;
+                    }
+                    break;
+                case 4:
+                    translateback();
+                    animation_play++;
+                    if (animation_play == 10)
+                    {
+                        animate_++;
+                        animation_play = 0;
+                    }
+                    break;
+                case 5:
+                    translateup();
+                    animation_play++;
+                    if (animation_play == 10)
+                    {
+                        animate_++;
+                        animation_play = 0;
+                    }
+                    break;
+                case 6:
+                    translatedown();
+                    animation_play++;
+                    if (animation_play == 10)
+                    {
+                        animate_++;
+                        animation_play = 0;
+                    }
+                    break;
+                default: break;
+            }
         }
 
         public Vector3 getPos() { return new Vector3(positionX, positionY, positionZ); }
