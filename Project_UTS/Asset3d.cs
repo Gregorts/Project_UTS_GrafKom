@@ -53,6 +53,11 @@ namespace Project_UTS
             _euler.Add(Vector3.UnitZ);*/
         }
 
+        public void setcolor(Vector3 color)
+        {
+            this.color = color;
+        }
+
         public void load(int sizeX, int sizeY)
         {
             _vertexBufferObject = GL.GenBuffer();

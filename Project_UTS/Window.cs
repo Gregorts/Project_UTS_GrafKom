@@ -20,6 +20,7 @@ namespace Project_UTS
         Patrick patrick = new Patrick(5f, -0.03f, -5f);
         Plankton plankton = new Plankton(10f, -7.72f, -20f);
         Ground ground = new Ground(5f, -3.6f, -5f);
+        Cloud cloud = new Cloud(-10f, 12f, -10f);
 
         Vector3 spongebobpos, patrickpos, planktonpos;
 
@@ -35,18 +36,20 @@ namespace Project_UTS
 
         protected override void OnLoad()
         {
-            GL.ClearColor(0.58f, 0.84f, 0.98f, 0.8f);
+            GL.ClearColor(0.82f, 0.82f, 0.82f, 0.8f);
             GL.Enable(EnableCap.DepthTest);
 
             plankton.load(Size.X, Size.Y);
             spongebob.load(Size.X, Size.Y);
             patrick.load(Size.X, Size.Y);
             ground.load(Size.X, Size.Y);
+            cloud.load(Size.X, Size.Y);
 
             plankton.scale(0.5f);
             spongebob.scale(5f);
             patrick.scale(5f);
             ground.scale(5f);
+            cloud.scale(2f);
 
             _camera = new Camera(new Vector3(3.0f, 3.0f, 3.0f), Size.X / (float)Size.Y);
 
@@ -86,6 +89,7 @@ namespace Project_UTS
                     plankton.animate();
                 }
             }
+            cloud.animate();
 
             spongebobpos = new Vector3(spongebob.getPos());
             spongebobpos.Z *= -5;
@@ -103,6 +107,7 @@ namespace Project_UTS
             patrick.render(_camera);
             plankton.render(_camera);
             ground.render(_camera);
+            cloud.render(_camera);
 
             SwapBuffers();
             base.OnRenderFrame(args);
