@@ -30,11 +30,11 @@ namespace Project_UTS
         {
             balok1.createCube(positionX, positionY, positionZ, 30f, 2f, 10f);
             balok1.load(sizeX, sizeY);
-            balok2.createCube(balok1.getPos().X + balok1.getlenx() / 2, balok1.getPos().Y + balok1.getleny() * 3.25f, balok1.getPos().Z, balok1.getleny(), balok1.getlenx() / 2, balok1.getlenz());
+            balok2.createCube(balok1.getPos().X + balok1.getlenx() / 2.15f, balok1.getPos().Y + balok1.getleny() * 4f, balok1.getPos().Z, balok1.getleny(), balok1.getlenx() / 1.7f, balok1.getlenz());
             balok2.load(sizeX, sizeY);
-            balok3.createCube(balok1.getPos().X - balok1.getlenx() / 2, balok1.getPos().Y + balok1.getleny() * 3.25f, balok1.getPos().Z, balok1.getleny(), balok1.getlenx() / 2, balok1.getlenz());
+            balok3.createCube(balok1.getPos().X - balok1.getlenx() / 2.15f, balok1.getPos().Y + balok1.getleny() * 4f, balok1.getPos().Z, balok1.getleny(), balok1.getlenx() / 1.7f, balok1.getlenz());
             balok3.load(sizeX, sizeY);
-            balok4.createCube(balok1.getPos().X, balok1.getPos().Y + balok1.getleny() * 3.25f, balok1.getPos().Z - balok1.getlenz() / 2, balok1.getlenx(), balok1.getlenx() / 2, balok1.getleny());
+            balok4.createCube(balok1.getPos().X, balok1.getPos().Y + balok1.getleny() * 4f, balok1.getPos().Z - balok1.getlenz() / 2.15f, balok1.getlenx(), balok1.getlenx() / 1.7f, balok1.getleny());
             balok4.load(sizeX, sizeY);
         }
 
