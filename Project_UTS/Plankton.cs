@@ -271,6 +271,7 @@ namespace Project_UTS
             antena2.animation(time, angle, x, pos);
             alis.animation(time, angle, x, pos);
             mulut.animation(time, angle, x, pos);
+
         }
 
         public Vector3 getPos() { return new Vector3(positionX, positionY, positionZ); }

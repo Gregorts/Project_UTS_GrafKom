@@ -20,7 +20,7 @@ namespace Project_UTS
             this.positionY = posY;
             this.positionZ = posZ;
 
-            balok1 = new Balok(new Vector3(1.0f, 0.9f, 0.4f), new Vector3(positionX, positionY, positionZ));
+            balok1 = new Balok(new Vector3(0.76f, 0.698f, 0.5f), new Vector3(positionX, positionY, positionZ));
         }
 
         public void load(int sizeX, int sizeY)

@@ -266,23 +266,6 @@ namespace Project_UTS
 
         public void animation(double time, float angle, char a, Vector3 pos)
         {
-            /*model *= Matrix4.CreateRotationY((float)MathHelper.DegreesToRadians(time));
-            if(animate <= 20)
-            {
-                translateup();
-                scaleup();
-            }
-            else if(animate >= 20 && animate <= 40)
-            {
-                translatedown();
-                scaledown();
-            }
-            else
-            {
-                animate = 0;
-            }
-            animate++;*/
-
             if (animate <= 30)
             {
                 translateup();

@@ -17,9 +17,9 @@ namespace Project_UTS
         Camera _camera;
 
         Spongebob spongebob = new Spongebob(0f, 0f, -5f);
-        Patrick patrick = new Patrick(5f, 0f, -5f);
-        Plankton plankton = new Plankton(10f, -8.1f, -20f);
-        Ground ground = new Ground(5f, -3.65f, -5f);
+        Patrick patrick = new Patrick(5f, -0.03f, -5f);
+        Plankton plankton = new Plankton(10f, -7.72f, -20f);
+        Ground ground = new Ground(5f, -3.6f, -5f);
 
         Vector3 spongebobpos, patrickpos, planktonpos;
 
@@ -86,15 +86,18 @@ namespace Project_UTS
                     plankton.animate(time, 30f, 'x', planktonpos);
                 }
             }
+
             spongebobpos = new Vector3(spongebob.getPos());
             spongebobpos.Z *= -5;
             spongebobpos.Y -= 30;
+
             patrickpos = new Vector3(patrick.getPos());
             patrickpos.Z *= -5;
             patrickpos.Y -= 30;
+
             planktonpos = new Vector3(patrick.getPos());
             planktonpos.Z *= -5;
-            planktonpos.Y -= 20;
+            planktonpos.Y -= 25;
 
             spongebob.render(_camera);
             patrick.render(_camera);
